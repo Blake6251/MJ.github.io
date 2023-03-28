@@ -8,84 +8,95 @@
     <link rel="stylesheet" href="../css/default.css">
     <!-- 스타일 적용 -->
     <style>
+        *{
+        margin: 0px;
+        padding: 0px;
+        }
+
         body{
-            width: 100%; /* width : 100vw; */
-            height: 100vh; /* viewport height, 이 페이지가 보여지는 장치 높이의 100% */
-            position: relative;
+            width: 960px; 
+            height: 700px;
+            position: center;
         }
-
-        ul,ol,li{
-            list-style: none;
-            margin: 0px;
-            padding: 0px;
-        }
-
-        a{
-            text-align: end;
-            color: black;
-        }
-        div.container1{
-            text-align: center;
+       
+        div.container{
+            width: 500px;
+            height: 650px;
             position: absolute;
-            width: 400px;
-            height: 550px;
+            left: 50%;
+            top: 50%;
+            margin-left: -249px;
+            margin-top: -149px;
             border: 1px solid black;
-            border-radius: 50px; /* 대각선으로 같은 값, 1개 값=전부 같은 값-> margin과 다름 */
-            background-color: rgb(255, 115, 0); /* 지울 부분 */
+            border-radius: 50px; 
         }
+
+
+        /* 제목 부분 */
         div.container1>h2{
-            width: 100%; /* 부모요소의 너비만큼 */
-            height: 50px;         /* 반응형:   (h2높이 값(px)/300(부모상자 너비px))*100% ; = 16.66666%  */
-            line-height: 50px;
-            margin-bottom: 10px;
-            box-sizing: border-box; /*테두리를 기준으로 하는 크기, 패딩때매 밀려난 부분 넣어줌 */
-             /* cf)box-sizing:content-box; 기본 값, 콘텐츠 기준 크기(w+2(p+b)) */
-            padding-left: 30px; /* text-align : center; padding 불필요 */
-            font-size: 30pt;
-            background-color: rgb(150, 2, 2);
-        }
-        div.mem_login{
-            height: 30%;
-            background-color: rgb(255, 145, 0);
-        }
-
-        div.mem_login{
-            width: 285px;
-            height: 40px;
-        }
-
-      /* 로그인 버튼 부분 */
-/*         div.login_but{
-            width: 90px;
-            height: 40px;
-            float: left;
-            height: 100%; 
             text-align: center;
-            padding: 25px 0px; 
-             background-color: rgb(192, 7, 152); /* 지울 부분 */
+            font-size: 30pt;
+            width: 100%;
+            height: 50px;       
+            line-height: 50px;
+            padding-left: 30px;
+        }
         
-           div#login_but{ 
-            height: 90px;
-            width: 40px;
+          /* id, pwd, 로그인  부분  */
+        div.mem_login{
+            text-align: left;
+            width: 100%;
+            height: 130px;
+            margin-bottom: 10px;
+        }
+        div.mem_login>ul{
+            width: 66%;
+            height: 70%; 
+            float: left;
+            text-align: center;
+            padding: 35px 10px;
+        }
+        div.mem_login li{
+            height: 30%;
+        }
+        div.mem_login li>label{
+            text-align: left;
+            font-weight: 900;
+            display: inline-block;
+            width: 100%;
+        }
+        /* 로그인 버튼 부분 */
+        div.mem_login>div#login_but{
+            width: 30%;
+            float: right;
+            height: 100%; 
+            text-align: left;
+            padding: 25px 0px;
+        }
+        #but{ 
+            height: 70px;
+            width: 100px;
             line-height: 70px;
             font-size: 1.2rem;
             font-weight: 700;
         }
         /* 회원가입, 아이디/비번찾기 부분 */
-        #mem_search{/* did.container>ul#mem_search{} = ul#mem_search{}*/
-            width: 100%;
-            height: 50px;
+        #mem_search{
             text-align: center;
-            text-decoration: underline;
+            box-sizing: border-box; 
         }
+        #mem_search>li{
 
-
+            text-align: center;
+            float: left;
+            padding: 15px 5px;
+        }
     
     </style>
 </head>
 
 <body>
-   
+   <div class="container">
         <!-- login box -->
         <div class="container1">
             <!-- 제목 : 로그인 -->
@@ -93,19 +104,25 @@
               <!-- 아이디, 비밀번호 버튼 부분 -->
               <div class="mem_login">
                  <ul>
-                     <label for="id">&nbsp;&nbsp;&nbsp;아이디&nbsp;</label>
-                     <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" required>
+                    <li>
+                      <label for="id">&nbsp;&nbsp;&nbsp;아이디&nbsp;</label>
+                      <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" required>
+                    </li>
                  </ul>
                  <ul>
-                     <label for="pwd">비밀번호&nbsp;</label>
-                     <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
-                </ul>
+                    <li>
+                      <label for="pwd">비밀번호&nbsp;</label>
+                      <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
+                    </li>    
+                 </ul>
               </div>
 
               <div class="id_chk">
                   <ul>
-                    <input type="checkbox" name="check" id="check">
-                    <label for="check">자동 로그인</label>
+                    <li>
+                      <input type="checkbox" name="check" id="check">
+                      <label for="check">자동 로그인</label>
+                    </li>
                   </ul>
               </div>
 
@@ -116,8 +133,10 @@
          
               <!-- 회원가입 하기, 아이디/비밀번호 찾기 -->
               <ul id="mem_search">
-                <a href="member.html">회원가입 하기</a> 
-                <a href="login2.html">아이디/비밀번호 찾기</a> 
+                <li>
+                   <a href="member.html">회원가입 하기</a><br/><br/>
+                   <a href="login2.html">아이디/비밀번호 찾기</a> 
+                 </li>
               </ul>
         </div>
 
@@ -132,6 +151,6 @@
         </div>
         
           <script src="script.js"></script>
-    
+  </div>
 </body>
 </html>
