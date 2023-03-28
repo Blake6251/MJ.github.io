@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                let v1 = $("#v1").val(); // 인풋박스 텍스트 가져오기
+                let v2 = $("#v2").val(); // 인풋박스 텍스트 가져오기
+                location.href = "object.html?filter=" + v1 + "," + v2; // 다음페이지 url에 추가
+                // location.href = "p.html?filter=" + v; // 다음페이지 url에 추가
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="v1">
+    <input type="text" id="v2">
+    <button id="btn">버튼</button>
+</body>
+</html>

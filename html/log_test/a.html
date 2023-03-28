@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <script>
+        window.onload = function() {
+            // 최근기록 목록을 표시할 요소 선택
+            const logsList = document.getElementById("logs");
+
+            // 세션 스토리지에서 저장된 로그 정보를 가져와 배열로 변환
+            const logs = JSON.parse(sessionStorage.getItem("logs")) || [];
+
+            // 로그 정보를 배열에 추가
+            logs.push({
+                page: document.title,
+                timestamp: new Date()
+            });
+
+            // 배열을 다시 세션 스토리지에 저장
+            sessionStorage.setItem("logs", JSON.stringify(logs));
+
+            // logs 배열을 순회하면서 최근기록 목록 생성
+            for (let i = 0; i < logs.length; i++) {
+                const log = logs[i];
+                const logItem = document.createElement("li");
+                logItem.innerHTML = `${log.page} - ${log.timestamp}`;
+                logsList.appendChild(logItem);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html">Index</a>
+    <a href="b.html">b</a>
+    <ul id="logs"></ul>
+</body>
+</html>

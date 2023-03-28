@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let temp = location.href.split("=");
+            let data = temp[1];
+            data = decodeURIComponent(data); // url에는 한글을 직접 사용할수 없어서 디코딩 필요
+            $("#p").text(data);
+        });
+    </script>
+</head>
+<body>
+    <p id="p"></p>
+</body>
+</html>
