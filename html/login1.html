@@ -5,16 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인1</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/default.css">
     <!-- 스타일 적용 -->
     <style>
-        
+        *{
+        margin: 0px;
+        padding: 0px;
+        }
 
+        body{
+            width: 480px; 
+            position: center;
+        }
+       
+        div.container{
+            width: 500px;
+            height: 650px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -249px;
+            margin-top: -149px;
+            border: 1px solid black;
+            border-radius: 50px; 
+        }
+
+
+        /* 제목 부분 */
+        div.container1>h2{
+            text-align: center;
+            font-size: 30pt;
+            margin-top: 20px;
+            width: 100%;
+            height: 50px;       
+            line-height: 50px;
+        }
+
+        div.container2>h2{
+            text-align: center;
+            font-size: 30pt;
+            margin-top: 20px;
+            width: 60%;
+            height: 50px;       
+            line-height: 50px;
+            padding-left: 30px;
+        }
+        
+          /* id, pwd  부분  */
+        div.mem_login li>label{
+            text-align: left;
+            font-weight: 900;
+            display: inline-block;
+            width: 100%;
+        }
+
+
+        div.mem_login{
+            text-align: center;
+            width: 100%;
+            height: 130px;
+            margin-bottom: 10px;
+        }
+        div.mem_login>ul{
+            width: 66%;
+            height: 70%; 
+            float: left;
+            text-align: center;
+            padding: 35px 10px;
+        }
+        div.mem_login li{
+            float: none;
+            height: 30%;
+        }
+        div.mem_login li>label{
+            text-align: left;
+            font-weight: 900;
+            display: inline-block;
+            width: 100%;
+        }
+
+        div.id_chk{
+            float: left;
+        }
+        /* 로그인 버튼 부분 */
+        div.mem_login>div#login_but{
+            width: 30%;
+            float: right;
+            height: 100%; 
+            text-align: left;
+            padding: 25px 0px;
+        }
+        #but{ 
+            height: 70px;
+            width: 100px;
+            line-height: 70px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        /* 회원가입 하기, 아이디/비번찾기 부분 */
+        #mem_search{
+            float: left;
+            text-align: center;
+            text-decoration: underline;
+            box-sizing: border-box; 
+        }
+        #mem_search>li{
+            float: left;
+        }
+    
     </style>
 </head>
 
 <body>
-   
+   <div class="container">
         <!-- login box -->
         <div class="container1">
             <!-- 제목 : 로그인 -->
@@ -22,32 +125,40 @@
               <!-- 아이디, 비밀번호 버튼 부분 -->
               <div class="mem_login">
                  <ul>
-                     <label for="id">&nbsp;&nbsp;&nbsp;아이디&nbsp;</label>
-                     <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" required>
+                    <li>
+                      <label for="id">&nbsp;&nbsp;&nbsp;아이디&nbsp;</label>
+                      <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" required>
+                    </li>
                  </ul>
                  <ul>
-                     <label for="pwd">비밀번호&nbsp;</label>
-                     <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
-                </ul>
+                    <li>
+                      <label for="pwd">비밀번호&nbsp;</label>
+                      <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
+                    </li>    
+                 </ul>
               </div>
 
               <div class="id_chk">
                   <ul>
-                    <input type="checkbox" name="check" id="check">
-                    <label for="check">자동 로그인</label>
+                    <li>
+                      <input type="checkbox" name="check" id="check">
+                      <label for="check">자동 로그인</label>
+                    </li>
                   </ul>
               </div>
 
               <!-- 로그인 버튼 부분-->
               <div id="login_but">
-                   <button name="but" id="but">로그인<br/>하기</button> 
+                   <button name="but" id="but">로그인 하기</button> 
               </div>
          
               <!-- 회원가입 하기, 아이디/비밀번호 찾기 -->
-              <ul id="mem_search">
-                <a href="member.html">회원가입 하기</a> 
-                <a href="login2.html">아이디/비밀번호 찾기</a> 
-              </ul>
+              <div id="mem_search">
+                <ul>
+                  <li><a href="member.html">회원가입 하기</a></li>
+                  <li><a href="login2.html">아이디/비밀번호 찾기</a></li>
+                </ul>
+              </div>
         </div>
 
         <div class="container2">
@@ -61,6 +172,6 @@
         </div>
         
           <script src="script.js"></script>
-    
+  </div>
 </body>
 </html>
