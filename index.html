@@ -5,40 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/default.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
     <title>index</title>
     <style>
-        div.banner{
-            display: flex;
-            flex-wrap: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background-color: dimgrey;
+        @media all and (min-width:320px){
+            div.banner{
+                display: flex;
+                flex-wrap: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                background-color: dimgrey;
+            }
+            div#logo_box{
+                margin-left: 10%;
+            }
+            div#logo_box img{
+                width: 70px;
+                height: 40px;
+            }
+            div#ban_right{
+                margin-right: 10%;
+                display: flex;
+                flex-wrap: row nowrap;
+                align-items: center;
+            }
+            div#login_box>a{
+                margin-right: 20px;
+            }
+            div#log_box img{
+                width: 30px;
+                height: 30px;
+            }
+            div.hidden_log{
+                display: none;
+                background-color: antiquewhite;
+                width: 100%;
+                height: 400px;
+            }
         }
-        div#logo_box{
-            margin-left: 100px;
+        @media all and (min-width:768px){
+            div#logo_box img{
+                width: 100px;
+                height: 56px;
+            }
+            div#login_box>a{
+                margin-right: 30px;
+            }
+            div#log_box img{
+                width: 42px;
+                height: 42px;
+            }
         }
-        div#logo_box img{
-            width: 100px;
-            height: 56px;
-        }
-        div#ban_right{
-            margin-right: 100px;
-            display: flex;
-            flex-wrap: row nowrap;
-            align-items: center;
-        }
-        div#login_box>a{
-            background-color: aliceblue;
-            margin-right: 20px;
-        }
-        div#log_box img{
-            width: 42px;
-            height: 42px;
+        @media all and (min-width:1024px){
+            
         }
     </style>
     <script>
-
+        $(document).ready(function(){
+            $("#log_btn").click(function(){
+                let toggle = $(".hidden_log").css("display")
+                console.log(toggle)
+                if(toggle == "none"){
+                    $(".hidden_log").css({"display": "block"})
+                }
+                else{
+                    $(".hidden_log").css({"display": "none"})
+                }
+            })
+        })
     </script>
 </head>
 <body>
@@ -49,12 +84,25 @@
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="./html/login.html">로그인</a>
+                    <a href="./html/login1.html">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="#"></button>
                 </div>
             </div>
+        </div>
+        <div class="hidden_log">
+            <div class="log_tilte">
+                <div class="recent_log">
+
+                </div>
+                <div class="favor_log">
+
+                </div>
+            </div>
+            <ul class="logs">
+                <li class="log"></li>
+            </ul>
         </div>
     </header>
     <section class="img_container">
