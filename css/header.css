@@ -46,7 +46,21 @@
         width: 42px;
         height: 42px;
     }
+    div.hidden_log{
+        position: absolute;
+        right: 0;
+        top: 56px;
+        display: none;
+        background-color: antiquewhite;
+        width: 40%;
+        height: 400px;
+    }
 }
 @media all and (min-width:1024px){
-    
+    div.hidden_log{
+        display: none;
+        background-color: antiquewhite;
+        width: 30%;
+        height: 400px;
+    }
 }
