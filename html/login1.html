@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인1</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- 스타일 적용 -->
     <style>
-
+        
 
     </style>
 </head>
 
 <body>
-    <form action="" method="post" name="login" enctype="multipart/form-data"> <!-- get 방식X (보안) -->
+   
         <!-- login box -->
         <div class="container1">
             <!-- 제목 : 로그인 -->
@@ -22,27 +23,26 @@
               <div class="mem_login">
                  <ul>
                      <label for="id">&nbsp;&nbsp;&nbsp;아이디&nbsp;</label>
-                     <input type="text" name="id" id="id">
+                     <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요" required>
                  </ul>
                  <ul>
                      <label for="pwd">비밀번호&nbsp;</label>
-                     <input type="password" name="pwd" id="pwd">
+                     <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요" required>
                 </ul>
               </div>
 
               <div class="id_chk">
                   <ul>
-                    <input type="checkbox" name="check" id="check" checked >
+                    <input type="checkbox" name="check" id="check">
                     <label for="check">자동 로그인</label>
                   </ul>
               </div>
 
-                  <!-- 로그인 버튼 하기-->
-              <div id="login_but"><!--class 로 잡아도 됨 -->
-                     <button name="but" id="but">로그인<br/>하기</button> <!-- input type도 가능 -->
+              <!-- 로그인 버튼 부분-->
+              <div id="login_but">
+                   <button name="but" id="but">로그인<br/>하기</button> 
               </div>
-             
-
+         
               <!-- 회원가입 하기, 아이디/비밀번호 찾기 -->
               <ul id="mem_search">
                 <a href="member.html">회원가입 하기</a> 
@@ -54,6 +54,13 @@
              <!-- 제목 : 계정으로 로그인 -->
              <h2>계정으로 로그인</h2>
         </div>
-    </form>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-google"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        
+          <script src="script.js"></script>
+    
 </body>
 </html>

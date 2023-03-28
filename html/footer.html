@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../css/default.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
+
+    <style>
+    @media all and (min-width:320px){
+        div.banner{
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box{
+            margin-left: 10%;
+        }
+        div#logo_box img{
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right{
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a{
+            margin-right: 20px;
+        }
+        div#log_box img{
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log{
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
+    }
+    @media all and (min-width:768px){
+        div#logo_box img{
+            width: 100px;
+            height: 56px;
+        }
+        div#login_box>a{
+            margin-right: 30px;
+        }
+        div#log_box img{
+            width: 42px;
+            height: 42px;
+        }
+    }
+    @media all and (min-width:1024px){
+        
+    }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="inner">
+          <div class="mp_logo">
+            <a href="/" class="btn-mp">
+              <img class="mp_logo_img" src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/mangoplate-gray-logo.svg" alt="mangoplate logo">
+            </a>
+            <p class="subtitle">Eat, Share, Be Happy.</p>
+          </div>
+      
+          <button class="btn-mp-app" data-event_term="V1" data-event_name="CLICK_DOWNLOAD_BOTTOM_DEFAULT" onclick="trackEvent('CLICK_DOWNLOAD_BOTTOM_DEFAULT'); go_to_app_or_market(this);">
+            망고플레이트 앱에서 열기
+          </button>
+      
+          <p class="sns-shortcut">
+            <a class="btn facebook" href="https://www.facebook.com/mangoplate" target="_blank" onclick="trackEvent('CLICK_SHARE_FACEBOOK');">
+              망고플레이트 페이스북 계정으로 바로가기
+            </a>
+      
+            <a class="btn instagram" href="https://instagram.com/mangoplate/" target="_blank" onclick="trackEvent('CLICK_SHARE_INSTA');">
+              망고플레이트 인스타그램 계정으로 바로가기
+            </a>
+          </p>
+      
+          <nav class="links-external">
+            <ul class="list-links">
+                <li>
+                  <a href="/company">
+                    회사소개
+                  </a>
+                </li>
+      
+                <li>
+                  <a href="/careers">
+                    망고플레이트 채용1
+                  </a>
+                </li>
+      
+                  <li>
+                    <a href="/investment">
+                      투자 정보
+                    </a>
+                  </li>
+      
+                <li class="only-desktop">
+                  <a href="/etc/download_company_ci" target="_blank">
+                    브랜드 가이드라인
+                  </a>
+                </li>
+      
+                  <li>
+                    <a href="https://www.mangoforbiz.com/?utm_campaign=main_bottom_business&amp;utm_medium=bizhome&amp;utm_source=web" target="_blank">
+                      망고플레이트 비즈니스
+                    </a>
+                  </li>
+              
+                <li>
+                  <a href="https://www.mangoforbiz.com/?utm_campaign=20180116v1&amp;utm_medium=main_bottom_adinquiry&amp;utm_source=mp_web" target="_blank">
+                    광고 문의
+                  </a>
+                </li>
+      
+            </ul>
+      
+            <ul class="list-links">
+                  <li>
+                    <a href="/notice" target="_blank">
+                      공지사항
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a class="" href="/terms/contract" onclick="trackEvent('CLICK_TERMS', 'contract')" target="_blank">
+                      이용약관
+                    </a>
+                  </li>
+                  <li>
+                    <a class="" href="/terms/contract_non_signup" onclick="trackEvent('CLICK_TERMS', 'contract_non_signup')" target="_blank">
+                      비회원 이용자 이용정책
+                    </a>
+                  </li>
+                  <li>
+                    <a class="bold" href="/terms/privacy" onclick="trackEvent('CLICK_TERMS', 'privacy')" target="_blank">
+                      개인정보처리방침
+                    </a>
+                  </li>
+                  <li>
+                    <a class="" href="/terms/location" onclick="trackEvent('CLICK_TERMS', 'location')" target="_blank">
+                      위치기반서비스 이용약관
+                    </a>
+                  </li>
+                  <li>
+                    <a class="" href="/terms/community_guidelines" onclick="trackEvent('CLICK_TERMS', 'community_guidelines')" target="_blank">
+                      커뮤니티 가이드라인
+                    </a>
+                  </li>
+                  <li>
+                    <a class="" href="/terms/youth_protection" onclick="trackEvent('CLICK_TERMS', 'youth_protection')" target="_blank">
+                      청소년보호정책
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a href="https://brunch.co.kr/@mangoplate/14" target="_blank">
+                      홀릭 소개
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a href="/company#contact">
+                      문의하기
+                    </a>
+                  </li>
+            </ul>
+          </nav>
+      
+          
+      
+          <div class="language-copyrights">
+            <p class="select-language">
+              <a href="/" class="selected">
+                한국어
+              </a>
+      
+              <a href="/en">
+                English
+              </a>
+      
+              <a href="/zh">
+                简体中文
+              </a>
+            </p>
+      
+            <small>
+              <p>
+                
+                ㈜ 여기어때컴퍼니<br>서울특별시 강남구 봉은사로 479, 479타워 11층<br>대표이사: 정명훈<br>사업자 등록번호: 742-86-00224 <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=7428600224" target="_blank">[사업자정보확인]</a><br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988<br><br>
+                <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
+              </p>
+            </small>
+          </div>
+
+        </div>
+      </footer>
+</body>
+</html>
