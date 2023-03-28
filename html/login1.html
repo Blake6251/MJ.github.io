@@ -14,8 +14,7 @@
         }
 
         body{
-            width: 960px; 
-            height: 700px;
+            width: 480px; 
             position: center;
         }
        
@@ -75,6 +74,7 @@
             padding: 35px 10px;
         }
         div.mem_login li{
+            float: none;
             height: 30%;
         }
         div.mem_login li>label{
@@ -99,20 +99,18 @@
             height: 70px;
             width: 100px;
             line-height: 70px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
         }
-        /* 회원가입, 아이디/비번찾기 부분 */
+        /* 회원가입 하기, 아이디/비번찾기 부분 */
         #mem_search{
-            float: inline-end;
+            float: left;
             text-align: center;
+            text-decoration: underline;
             box-sizing: border-box; 
         }
         #mem_search>li{
-
-            text-align: center;
             float: left;
-            padding: 15px 5px;
         }
     
     </style>
@@ -151,16 +149,16 @@
 
               <!-- 로그인 버튼 부분-->
               <div id="login_but">
-                   <button name="but" id="but">로그인<br/>하기</button> 
+                   <button name="but" id="but">로그인 하기</button> 
               </div>
          
               <!-- 회원가입 하기, 아이디/비밀번호 찾기 -->
-              <ul id="mem_search">
-                <li>
-                   <a href="member.html">회원가입 하기</a>&nbsp;&nbsp;&nbsp;
-                   <a href="login2.html">아이디/비밀번호 찾기</a> 
-                 </li>
-              </ul>
+              <div id="mem_search">
+                <ul>
+                  <li><a href="member.html">회원가입 하기</a></li>
+                  <li><a href="login2.html">아이디/비밀번호 찾기</a></li>
+                </ul>
+              </div>
         </div>
 
         <div class="container2">
