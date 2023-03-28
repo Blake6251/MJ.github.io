@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
+    <script src="variable.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <title>Document</title>
 
@@ -109,6 +111,30 @@
         });
 
     </script>
+    
+    <!-- 가게이름 평점 -->
+    <script>
+        let array = [r1, r2, r3, r4, r5, r6]
+        $(document).ready(function(){
+            let temp = location.href.split("=");
+            let data = temp[1];
+            data = decodeURIComponent(data); // url에는 한글을 직접 사용할수 없어서 디코딩 필요
+            let strarr = data.split(",");
+            let d1 = strarr[0];
+            let d2 = strarr[1];
+            for (let r of array){
+                if(r.loc==d1 || r.loc==d2){
+                    $("#con").append(`<p>${r.name}</p>`)
+                    $("#con").append(`<p>${r.loc}</p>`)
+                    $("#con").append(`<p>${r.score}</p>`)
+                    /* $("#p1").text(r.name)
+                    $("#p2").text(r.loc)
+                    $("#p3").text(r.score) */
+                }
+            }
+            //$("#p").text(data);
+        });
+    </script>
 
 </head>
 
@@ -130,10 +156,10 @@
             <div><img class="slider_img" src="../image/restaurant/taco/159.jpg" title="배경4"></div>
         </div>
         <div>
-            <div class="R_name">
-                <h1>가게이름</h1>
-                <h1 class="R_grade">4.3</h1>
-                <h3 class="R_sub_name">역삼점</h3>
+            <div id="con">
+              <p id="p1"></p>
+              <p id="p2"></p>
+              <p id="p3"></p>
             </div>
 
 
