@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
+    <script src="variable.js"></script>
+
 
     <title>Document</title>
 
@@ -110,6 +112,31 @@
 
     </script>
 
+    <!-- 가게이름 평점 -->
+    <script>
+      
+        let array = [r1, r2, r3, r4, r5, r6]
+        $(document).ready(function(){
+            let temp = location.href.split("=");
+            let data = temp[1];
+            data = decodeURIComponent(data); // url에는 한글을 직접 사용할수 없어서 디코딩 필요
+            let strarr = data.split(",");
+            let d1 = strarr[0];
+            let d2 = strarr[1];
+            for (let r of array){
+                if(r.loc==d1 || r.loc==d2){
+                    $("#con").append(`<p>${r.name}</p>`)
+                    $("#con").append(`<p>${r.loc}</p>`)
+                    $("#con").append(`<p>${r.score}</p>`)
+                    /* $("#p1").text(r.name)
+                    $("#p2").text(r.loc)
+                    $("#p3").text(r.score) */
+                }
+            }
+            //$("#p").text(data);
+        });
+    </script>
+
 </head>
 
 <body>
@@ -130,10 +157,10 @@
             <div><img class="slider_img" src="../image/restaurant/taco/159.jpg" title="배경4"></div>
         </div>
         <div>
-            <div class="R_name">
-                <h1>가게이름</h1>
-                <h1 class="R_grade">4.3</h1>
-                <h3 class="R_sub_name">역삼점</h3>
+            <div id="con">
+              <p id="p1"></p>
+              <p id="p2"></p>
+              <p id="p3"></p>
             </div>
 
 
@@ -143,44 +170,37 @@
                 <h3 class="R_intro_detatil">식당소개글</h3>
             </div>
 
-            <table class="infono_menu">
-                <tr class="only-desktop">
-                    <th>주소</th>
-                    <td>서울특별시 영등포구 도림로139길 13<br>
+
+
+            <div class="infono_menu">
+              <ul>
+                    <li>주소</li>
+                    <li>서울특별시 영등포구 도림로139길 13<br>
                         <span class="Restaurant__InfoAddress--Rectangle">지번</span>
                         <span class="Restaurant__InfoAddress--Text">서울시 영등포구 문래동2가 49-1</span>
-                    </td>
-                </tr>
+                    </li>
 
-                <tr class="only-desktop">
-                    <th>전화번호</th>
-                    <td>070-8800-0815</td>
-                </tr>
+                    <li>전화번호</li>
+                    <li>070-8800-0815</li>
 
-                <tr>
-                    <th>음식 종류</th>
-                    <td>
+                    <li>음식 종류</li>
+                    <li>
                         <span>닭 / 오리 요리</span>
-                    </td>
-                </tr>
+                    </li>
 
-                <tr>
-                    <th>가격대</th>
-                    <td>2만원-3만원</td>
-                </tr>
+                
+                    <li>가격대</li>
+                    <li>2만원-3만원</li>
 
-                <tr>
-                    <th>주차</th>
-                    <td>주차공간없음 </td>
-                </tr>
+                    <li>주차</li>
+                    <li>주차공간없음 </li>
 
-                <tr>
                     <th style="vertical-align:top;">영업시간</th>
                     <td>월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</td>
-                </tr>
-                <tr>
-                    <th>메뉴</th>
-                    <td class="menu_td">
+
+
+                    <li>메뉴</li>
+
                         <ul class="Restaurant_MenuList">
                             <li class="Restaurant_MenuItem">
                                 <span class="Restaurant_Menu">오리지널 시금치통닭</span>
@@ -203,15 +223,14 @@
                                 <span class="Restaurant_MenuPrice">6,000원</span>
                             </li>
                         </ul>
-                    </td>
-                </tr>
+              
 
-                </tbody>
-            </table>
-
+              </ul>
+            </div>
 
 
 
+        
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -241,348 +260,3 @@
 </html>
 
 
-
-
-<section class="RestaurantReviewList">
-    <header class="RestaurantReviewList__Header">
-      <h2 class="RestaurantReviewList__Title">
-        <span class="RestaurantReviewList__RestaurantName">양키통닭</span><span class="RestaurantReviewList__RestaurantNameSuffixDesktop">리뷰</span><span class="RestaurantReviewList__RestaurantNameSuffixMobile">의 리뷰</span>
-      <span class="RestaurantReviewList__AllCount">90</span></h2>
-
-      <ul class="RestaurantReviewList__FilterList">
-        <li class="RestaurantReviewList__FilterItem">
-          <button class="RestaurantReviewList__FilterButton RestaurantReviewList__FilterButton--Selected RestaurantReviewList__AllFilterButton">
-            전체
-          <span class="RestaurantReviewList__ReviewCount">90</span></button>
-        </li>
-
-        <li class="RestaurantReviewList__FilterItem">
-          <button class="RestaurantReviewList__FilterButton RestaurantReviewList__RecommendFilterButton">
-            맛있다
-          <span class="RestaurantReviewList__ReviewCount">69</span></button>
-        </li>
-
-        <li class="RestaurantReviewList__FilterItem">
-          <button class="RestaurantReviewList__FilterButton RestaurantReviewList__OkFilterButton">
-            괜찮다
-          <span class="RestaurantReviewList__ReviewCount">16</span></button>
-        </li>
-
-        <li class="RestaurantReviewList__FilterItem">
-          <button class="RestaurantReviewList__FilterButton RestaurantReviewList__NotRecommendButton">
-            별로
-          <span class="RestaurantReviewList__ReviewCount">5</span></button>
-        </li>
-      </ul>
-    </header>
-
-    <ul class="RestaurantReviewList__ReviewList">
-
-    <li class="RestaurantReviewItem RestaurantReviewList__ReviewItem">
-<a class="RestaurantReviewItem__Link" href="/reviews/MTAzNzc4OQ==" target="_blank">
-<div class="RestaurantReviewItem__User">
-<div class="RestaurantReviewItem__UserPictureWrap">
-<img class="RestaurantReviewItem__UserPicture loaded" data-src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/547184_1628209722332?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" alt="user profile picture" src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/547184_1628209722332?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-</div>
-
-<span class="RestaurantReviewItem__UserNickName">Partenopei</span>
-
-<ul class="RestaurantReviewItem__UserStat">
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Review">42</li>
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Follower">0</li>
-</ul>
-
-
-</div>
-
-<div class="RestaurantReviewItem__ReviewContent">
-<div class="RestaurantReviewItem__ReviewTextWrap">
-
-<p class="RestaurantReviewItem__ReviewText">
-  시금치 통닭과 핫 윙을 주문했습니다. <br><br>시금치 통닭 자체는 조리가 잘 되어있어 닭에서 잡내가 나지 않았습니다. 시금치와 닭의 궁합도 좋았습니다. 계속 먹으니 기름져 물리는 감도 없잖아 있었습니다. <br>닭 안에 있는 찰밥과 감자, 시금치를 같이 곁들여서 먹으니 백반 한 숟갈을 먹는 느낌이었습니다.<br><br>시금치 통닭도 나쁘진 않았지만, 같이 주문한 핫 윙에 더 인상 깊었던 방문이었습니다. 핫소스와 닭꼬치 소스의 맛이 동시에 나서 질리지 않았습니다. 
-</p>
-
-
-<span class="RestaurantReviewItem__ReviewDate">2023-03-01</span>
-</div>
-
-<ul class="RestaurantReviewItem__PictureList">
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="0">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000802?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000802?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="1">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000803?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000803?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="2">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000804?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000804?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="3">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000806?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/351116/547184_1677639984445_1000000806?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  <div class="RestaurantReviewItem__PictureDeem">+1</div>
-</button>
-</li>
-</ul>
-</div>
-
-<div class="RestaurantReviewItem__Rating RestaurantReviewItem__Rating--Ok">
-<span class="RestaurantReviewItem__RatingText">괜찮다</span>
-</div>
-
-
-</a>
-</li><li class="RestaurantReviewItem RestaurantReviewList__ReviewItem">
-<a class="RestaurantReviewItem__Link" href="/reviews/MTAzMjEzNg==" target="_blank">
-<div class="RestaurantReviewItem__User">
-<div class="RestaurantReviewItem__UserPictureWrap">
-<img class="RestaurantReviewItem__UserPicture loaded" data-src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/546909_1628515930568?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" alt="user profile picture" src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/546909_1628515930568?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-</div>
-
-<span class="RestaurantReviewItem__UserNickName">지원쓰</span>
-
-<ul class="RestaurantReviewItem__UserStat">
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Review">1353</li>
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Follower">373</li>
-</ul>
-
-<i class="RestaurantReviewItem__HolicBadge"></i>
-</div>
-
-<div class="RestaurantReviewItem__ReviewContent">
-<div class="RestaurantReviewItem__ReviewTextWrap">
-
-<p class="RestaurantReviewItem__ReviewText">
-  오픈시간 맞춰 가서 지옥의 웨이팅은 아니었다<br>시금치 너무 맛있음 ㅠㅠ 추가 필수<br>페퍼 머시기도 맛있음…!!!!!<br>닭 자체가 엄청 부드럽다거나 이런 느낌은 아닌데 그냥 조화로움!!!
-</p>
-
-
-<span class="RestaurantReviewItem__ReviewDate">2023-02-04</span>
-</div>
-
-<ul class="RestaurantReviewItem__PictureList">
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="0">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675473984475552.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675473984475552.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="1">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474048657905.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474048657905.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="2">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474049097026.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474049097026.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="3">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474049568931.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/546909_1675474049568931.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  <div class="RestaurantReviewItem__PictureDeem">+11</div>
-</button>
-</li>
-</ul>
-</div>
-
-<div class="RestaurantReviewItem__Rating RestaurantReviewItem__Rating--Recommend">
-<span class="RestaurantReviewItem__RatingText">맛있다</span>
-</div>
-
-
-</a>
-</li><li class="RestaurantReviewItem RestaurantReviewList__ReviewItem">
-<a class="RestaurantReviewItem__Link" href="/reviews/MTAyNzMwMg==" target="_blank">
-<div class="RestaurantReviewItem__User">
-<div class="RestaurantReviewItem__UserPictureWrap">
-<img class="RestaurantReviewItem__UserPicture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1569387533310?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" alt="user profile picture" src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1569387533310?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-</div>
-
-<span class="RestaurantReviewItem__UserNickName">모라</span>
-
-<ul class="RestaurantReviewItem__UserStat">
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Review">832</li>
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Follower">54</li>
-</ul>
-
-<i class="RestaurantReviewItem__HolicBadge"></i>
-</div>
-
-<div class="RestaurantReviewItem__ReviewContent">
-<div class="RestaurantReviewItem__ReviewTextWrap">
-
-<p class="RestaurantReviewItem__ReviewText">
-  금요일 퇴근 후에 가니 웨이팅이 장난 아니네요ㅜㅜ 본점이랑 분점 둘다 대기 걸어두고 제일 먼저 연락이 온 분점으로 갔어요! 최근에 생겼다고 하더니 인테리어가 감성적이고 깔끔해서 좋았어요 ㅎㅎ 시금치통닭, 시금치추가, 산미구엘 생맥 주문했고 생각보다 양이 많았어요!! 닭은 역시나 부들부들 맛있었고 안에 들어있는 찰밥도 좋았어요. 처음부터 시금치추가 주문했는데 팬에 추가된 상태로 나오는게 아니라 먹다보니 중간 쯤 주시더라구요! 양이 많아 둘이 간다면 시금치추가 안하셔도 될것같아용<br>맛있긴 한데 엄청난 대기를 기다려서 먹는 특별한 맛은 아닌듯해요 ㅎㅎ
-</p>
-
-
-<span class="RestaurantReviewItem__ReviewDate">2023-01-15</span>
-</div>
-
-<ul class="RestaurantReviewItem__PictureList">
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="0">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785394150572.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785394150572.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="1">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785395014771.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785395014771.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="2">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785395485206.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/34573_1673785395485206.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-</ul>
-</div>
-
-<div class="RestaurantReviewItem__Rating RestaurantReviewItem__Rating--Recommend">
-<span class="RestaurantReviewItem__RatingText">맛있다</span>
-</div>
-
-
-</a>
-</li><li class="RestaurantReviewItem RestaurantReviewList__ReviewItem">
-<a class="RestaurantReviewItem__Link" href="/reviews/MTAyNTU3Nw==" target="_blank">
-<div class="RestaurantReviewItem__User">
-<div class="RestaurantReviewItem__UserPictureWrap">
-<img class="RestaurantReviewItem__UserPicture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/1595620_1580138845159?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" alt="user profile picture" src="https://mp-seoul-image-production-s3.mangoplate.com/1595620_1580138845159?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-</div>
-
-<span class="RestaurantReviewItem__UserNickName">혀니짱</span>
-
-<ul class="RestaurantReviewItem__UserStat">
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Review">81</li>
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Follower">5</li>
-</ul>
-
-
-</div>
-
-<div class="RestaurantReviewItem__ReviewContent">
-<div class="RestaurantReviewItem__ReviewTextWrap">
-
-<p class="RestaurantReviewItem__ReviewText">
-  평일 오후 5시 30분정도에 웨이팅했는데 앞에 2팀정도 있었다. <br>2호점이 생겨서 그런지 예전에 비해서는 웨이팅이 많이 줄어서 좋았다<br><br>시금치통닭 (2.8)&gt; 시금치가 진짜 왕왕왕맛탱이었다.. 시금치만 먹으러 또 가고픈마음,,,<br><br>양키스더치맥주&gt; 커피가 들어간 맥주! 처음먹어보는 맥주맛이었는데 나쁘지않았다~
-</p>
-
-
-<span class="RestaurantReviewItem__ReviewDate">2023-01-09</span>
-</div>
-
-<ul class="RestaurantReviewItem__PictureList">
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="0">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/1595620_1673219046859641.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/1595620_1673219046859641.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-</ul>
-</div>
-
-<div class="RestaurantReviewItem__Rating RestaurantReviewItem__Rating--Ok">
-<span class="RestaurantReviewItem__RatingText">괜찮다</span>
-</div>
-
-
-</a>
-</li><li class="RestaurantReviewItem RestaurantReviewList__ReviewItem">
-<a class="RestaurantReviewItem__Link" href="/reviews/MTAxMDg4OQ==" target="_blank">
-<div class="RestaurantReviewItem__User">
-<div class="RestaurantReviewItem__UserPictureWrap">
-<img class="RestaurantReviewItem__UserPicture loaded" data-src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/2060435_1667284114881?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" alt="user profile picture" src="https://s3-ap-northeast-2.amazonaws.com/mp-seoul-image-production/2060435_1667284114881?fit=around|56:56&amp;crop=56:56;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-</div>
-
-<span class="RestaurantReviewItem__UserNickName">❤️거네❤️</span>
-
-<ul class="RestaurantReviewItem__UserStat">
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Review">392</li>
-<li class="RestaurantReviewItem__UserStatItem RestaurantReviewItem__UserStatItem--Follower">60</li>
-</ul>
-
-<i class="RestaurantReviewItem__HolicBadge"></i>
-</div>
-
-<div class="RestaurantReviewItem__ReviewContent">
-<div class="RestaurantReviewItem__ReviewTextWrap">
-
-<p class="RestaurantReviewItem__ReviewText">
-  지옥의 웨이팅으로 유명한 양키통닭에 다녀왔습니다. 그래도 엄청 추운 날 다녀와서 생각보다 웨이팅이 길지 않았어요. (한 시간 정도) (ᵔᵕᵔ) 웨이팅 리스트 적어두면 전화를 주시니 본점과 2호점 둘다 적어두고 카페에서 기다리면 될 듯 합니다.<br><br>시금치 통닭과 코울슬로&amp;후라이 주문했고, 얼그레이 하이볼도 한 잔씩 했어요. 세 명이서 갔는데 처음 치킨 양 보고 적겠다 싶었는데 프라이 먹고 하니깐 적당했습니다. 사실 엄청나게 특별한 맛은 아니었는데 통닭은 촉촉했고 의외로 시금치가 너무너무 맛있었어요! 살짝 소스가 가미되어 있는데, 시금치만 먹어도 맛있더라구요. 바닥에 깔린 후추밥같은 밥이랑도 잘 어울렸어요. <br><br>시금치 추가할지 엄청 고민하다가 추가했는데 후회하지 않습니다. 다만 처음부터 추가된 양으로 주면 좋을 것 같은데 먹는 중간에 시금치를 더 부어주셔서 그게 쫌 아쉬웠어요.<br>얼그레이 하이볼도 얼그레이향 진하게 맛있었습니다 :)<br><br>아보카도 코울슬로는 통닭과 잘 어울린다는 후기를 보고 시킨건데, 아보카도가 넉넉히 올라가져 있어서 맛있었어요. 상큼한 맛은 쪼금 부족해서 개운한 맛은 아니었습니다. 프렌치 프라이도 통통하고 바삭했어요. 재방문 의사 있습니다!<br><br>오리지널 시금치 통닭 27,000<br>시금치 추가 5,500<br>아보카도 코울슬로와 프렌치프라이 13,000
-</p>
-
-
-<span class="RestaurantReviewItem__ReviewDate">2022-11-08</span>
-</div>
-
-<ul class="RestaurantReviewItem__PictureList">
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="0">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886812715221.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886812715221.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="1">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886828451349.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886828451349.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="2">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886832221647.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886832221647.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-
-<li class="RestaurantReviewItem__PictureItem">
-<button class="RestaurantReviewItem__PictureButton" data-index="3">
-  <img class="RestaurantReviewItem__Picture loaded" data-src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886838439885.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" alt="review picture" src="https://mp-seoul-image-production-s3.mangoplate.com/2060435_1667886838439885.jpg?fit=around|120:120&amp;crop=120:120;*,*&amp;output-format=jpg&amp;output-quality=80" data-was-processed="true">
-  
-</button>
-</li>
-</ul>
-</div>
-
-<div class="RestaurantReviewItem__Rating RestaurantReviewItem__Rating--Recommend">
-<span class="RestaurantReviewItem__RatingText">맛있다</span>
-</div>
-
-
-</a>
-</li></ul>
-
-    <div class="RestaurantReviewList__Empty">
-      <span class="RestaurantReviewList__EmptyTitle">아직 작성된 리뷰가 없네요.</span>
-      <span class="RestaurantReviewList__EmptyDescription">앱에서 해당 식당의 첫 리뷰를 작성해주시겠어요?</span>
-    </div>
-
-    <div class="RestaurantReviewList__MoreReviewButton" role="button">
-      더보기
-    </div>
-  </section>

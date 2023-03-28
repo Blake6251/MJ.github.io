@@ -4,7 +4,6 @@ label, table, tr, th, td, article, aside, footer, header, nav, section, time, au
     padding: 0;
     border: 0;
     outline: 0;
-    color: #5964ff;
 }
 
 body {
@@ -12,7 +11,7 @@ body {
     line-height: 1;
 }
 
-nav, ul,li {
+nav, ul, ol, li {
     list-style: none;
 }
 
@@ -39,7 +38,7 @@ input, textarea {
     margin: 0;
     padding: 0;
     border: 0;
-    border-bottom: 1px solid #757575;
+    border-bottom: 1px solid black;
     font-size: 12px;
     vertical-align: top;
     box-sizing: content-box;
