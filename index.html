@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> <!--슬라이더 css-->
     <script src="./js/header.js"></script> <!-- 헤더 스크립트 -->
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> <!--슬라이더 스크립트-->
+    <script src="./js/restaurant_info.js"></script> <!--데이터 스크립트-->
     <title>index</title>
     <style>
         @media all and (min-width:320px){
@@ -59,11 +60,32 @@
                 width: 100%;
                 height: 150px;
             }
-
-            section.main_section div.cons_container{
-
+            div.bx{
+                display: none;
             }
-
+            ul.ul_container li{
+                margin-bottom: 10px;
+            }
+            ul.ul_container li:first-child{
+                margin-top: 10px;
+            }
+            ul.ul_container img{
+                width: 100%;
+                height: 110px;
+            }
+            section.main_section div.btn_container{
+                width: 100%;
+                margin-bottom: 20px;
+                background-color: azure;
+            }
+            div.btn_container button{
+                margin: 0 auto;
+                display: block;
+            }
+            div.btn_container img{
+                width: 30px;
+                height: 30px;
+            }
 
             /* -------------------- 기타 -------------------- */
             div.event_container{
@@ -135,7 +157,17 @@
                 height: 100%;
                 object-fit: cover; /* 이미지 비율 조정 */
             }
-            
+
+            div.bx{
+                display: block;
+            }
+            ul.ul_container{
+                display: none;
+            }
+            section.main_section div.btn_container{
+                display: none;
+            }
+
             /* -------------------- 기타 -------------------- */
             div.event_container{
                 display: block;
@@ -164,8 +196,22 @@
             maxSlides: 4,
             moveSlides: 1,
             slideMargin: 10,
+            touchEnabled : false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
             pager: false /* 밑 원형 표시 제거 */
             });
+            //$("#bxslider1").append(`<div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src=${r1.img[0]} title="배경5"></div></a></div>`)
+
+            /* 모바일 더보기 버튼 */
+            $("#more_btn1").click(function(){
+                $("#ul_container1").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
+                $("#ul_container1").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
+            })
+            $("#more_btn2").click(function(){
+                $("#ul_container2").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
+                $("#ul_container2").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
+            })
+
+            $("#bxslider1").append(`<div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_hamberger/33.jpg" title="배경1"></div></a></div>`)
         });
     </script>
 </head>
@@ -247,11 +293,24 @@
     <section class="main_section">
         <div class="score_sort">
             <h2>평점순</h2>
-            <div class="cons_container bxslider">
+            <div class="bx">
+                <div id="bxslider1" class="bxslider">
                     <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_hamberger/34.jpg" title="배경1"></div></a></div>
                     <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/jh_bunsik/52.jpg" title="배경2"></div></a></div>
                     <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gt_pizza/53.jpg" title="배경3"></div></a></div>
-                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/jh_pasta/151.jpg" title="배경4"></div></a></div>
+                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/jh_pasta/151.jpg" title="배경4"></div></a></div>-
+                </div>
+            </div>
+            <ul id="ul_container1" class="ul_container">
+                <li>
+                    <a href="./html/restaurant_info.html"><img src="./image/restaurant/jh_bunsik/131.jpg"></a>
+                </li>
+                <li>
+                    <a href="./html/restaurant_info.html"><img src="./image/restaurant/jh_bunsik/131.jpg"></a>
+                </li>
+            </ul>
+            <div class="btn_container">
+                <button id="more_btn1"><img src="./image/restaurant/taco/157.jpg"></button>
             </div>
         </div>
         <div class="event_mobile">
@@ -259,11 +318,24 @@
         </div>
         <div class="theme_sort">
             <h2>음식 종류 별</h2>
-            <div class="cons_container bxslider">
-                <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_western/119.jpg" title="배경1"></div></a></div>
-                <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gt_western/152.jpg" title="배경2"></div></a></div>
-                <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/jh_western/30.jpg" title="배경3"></div></a></div>
-                <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/steak4/50.jpg" title="배경4"></div></a></div>
+            <div class="bx">
+                <div class="bxslider">
+                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_western/119.jpg" title="배경1"></div></a></div>
+                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gt_western/152.jpg" title="배경2"></div></a></div>
+                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/jh_western/30.jpg" title="배경3"></div></a></div>
+                    <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/steak4/50.jpg" title="배경4"></div></a></div>
+                </div>
+            </div>
+            <ul id="ul_container2" class="ul_container">
+                <li>
+                    <a href="./html/restaurant_info.html"><img src="./image/restaurant/jh_bunsik/131.jpg"></a>
+                </li>
+                <li>
+                    <a href="./html/restaurant_info.html"><img src="./image/restaurant/jh_bunsik/131.jpg"></a>
+                </li>
+            </ul>
+            <div class="btn_container">
+                <button id="more_btn2"><img src="./image/restaurant/taco/157.jpg"></button>
             </div>
         </div>
     </section>
