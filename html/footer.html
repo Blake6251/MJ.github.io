@@ -10,33 +10,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
 
     <style>
+        
         footer{
-            width: 480px;
-            height: 500px;
-            background-color: #3f3e3e
+            width: 100%;
+            height: 400px;
+            background-color: #3f3e3e;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
         }
-
+        div.temp{
+            margin: 0 auto;
+            text-align: center;
+        }
+        
         #footer_logo{
             width: 162px;
             height: 70px;
         }
-
-        .footer_nav .footer_list1{
+        .footer_nav{
             width: 480px;
             height: 80px;
+            margin-top: 40px;
+        }
+        .footer_nav .footer_list1{
+            height: 30px;
             font-size: 12px;
             text-align: center;
-            display: inline-block;
         }
         .footer_nav .footer_list1 a{
             color: #FFFFFF;
         }
         .footer_nav .footer_list2{
-            width: 480px;
-            height: 80px;
+            height: 50x;
             font-size: 12px;
             text-align: center;
-            display: inline-block;
         }
         .footer_nav .footer_list2 a{
             color: #FFFFFF;
@@ -127,8 +135,9 @@
 
 <body>
     <footer class="footer">
-        <div id="footer_logo">
-            <a href="./index.html"><img src="../image/logo.jpg"></a>
+        <div class="temp">
+        <div class="footer_logo">
+            <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
         </div>
 
 
@@ -207,6 +216,7 @@
         </div>
 
         </div>
+    </div>
     </footer>
 </body>
 
