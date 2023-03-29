@@ -9,6 +9,7 @@ label, table, tr, th, td, article, aside, footer, header, nav, section, time, au
 body {
     font-family: 'Montserrat', sans-serif, Arial, Helvetica, sans-serif;
     line-height: 1;
+    box-sizing: border-box;
 }
 
 nav, ul, ol, li {
