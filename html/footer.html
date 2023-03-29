@@ -10,8 +10,72 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
 
     <style>
+        @media all and (min-width:320px) {
+        div.banner {
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box {
+            margin-left: 10%;
+        }
+        div#logo_box img {
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right {
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a {
+            margin-right: 20px;
+        }
+        div#log_box img {
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log {
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
+        }
+
+        @media all and (min-width:768px) {
+        div#logo_box img {
+            width: 100px;
+            height: 56px;
+        }
+
+        div#login_box>a {
+            margin-right: 30px;
+        }
+
+        div#log_box img {
+            width: 42px;
+            height: 42px;
+        }
+
+
+
+
+
+
+
         
-        footer{
+        }
+
+        @media all and (min-width:1024px) {
+
+        }
+
+        footer {
             width: 100%;
             height: 400px;
             background-color: #3f3e3e;
@@ -19,41 +83,48 @@
             justify-content: center;
             flex-direction: column;
         }
-        div.temp{
+
+        div.temp {
             margin: 0 auto;
             text-align: center;
         }
-        
-        #footer_logo{
+
+        #footer_logo {
             width: 162px;
             height: 70px;
         }
-        .footer_nav{
+
+        .footer_nav {
             width: 480px;
             height: 80px;
             margin-top: 40px;
         }
-        .footer_nav .footer_list1{
+
+        .footer_nav .footer_list1 {
             height: 30px;
             font-size: 12px;
             text-align: center;
         }
-        .footer_nav .footer_list1 a{
+
+        .footer_nav .footer_list1 a {
             color: #FFFFFF;
         }
-        .footer_nav .footer_list2{
+
+        .footer_nav .footer_list2 {
             height: 50x;
             font-size: 12px;
             text-align: center;
         }
-        .footer_nav .footer_list2 a{
+
+        .footer_nav .footer_list2 a {
             color: #FFFFFF;
         }
-        .footer_nav li{
+
+        .footer_nav li {
             display: inline;
         }
 
-        .footer_copyrights{
+        .footer_copyrights {
             display: inline;
             width: 240px;
             height: 140px;
@@ -62,73 +133,10 @@
             text-align: center;
 
         }
-        .footer_copyrights a{
+
+        .footer_copyrights a {
             color: #FFFFFF;
         }
-
-
-
-
-        @media all and (min-width:320px) {
-            div.banner {
-                display: flex;
-                flex-wrap: row nowrap;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                background-color: dimgrey;
-            }
-
-            div#logo_box {
-                margin-left: 10%;
-            }
-
-            div#logo_box img {
-                width: 70px;
-                height: 40px;
-            }
-
-            div#ban_right {
-                margin-right: 10%;
-                display: flex;
-                flex-wrap: row nowrap;
-                align-items: center;
-            }
-
-            div#login_box>a {
-                margin-right: 20px;
-            }
-
-            div#log_box img {
-                width: 30px;
-                height: 30px;
-            }
-
-            div.hidden_log {
-                display: none;
-                background-color: antiquewhite;
-                width: 100%;
-                height: 400px;
-            }
-        }
-
-        @media all and (min-width:768px) {
-            div#logo_box img {
-                width: 100px;
-                height: 56px;
-            }
-
-            div#login_box>a {
-                margin-right: 30px;
-            }
-
-            div#log_box img {
-                width: 42px;
-                height: 42px;
-            }
-        }
-
-        @media all and (min-width:1024px) {}
     </style>
 
 </head>
@@ -136,87 +144,87 @@
 <body>
     <footer class="footer">
         <div class="temp">
-        <div class="footer_logo">
-            <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+            <div class="footer_logo">
+                <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+            </div>
+
+
+            <nav class="footer_nav">
+                <ul class="footer_list1">
+                    <li>
+                        <a href="">회사소개&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;맛나리 채용&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;투자 정보&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a href="" target="_blank">&nbsp;맛나리 비즈니스&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;광고 문의</a>
+                    </li>
+                </ul>
+
+                <ul class="footer_list2">
+                    <li>
+                        <a class="" href="" target="_blank">공지사항&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;이용약관&nbsp;&nbsp;|</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;비회원 이용자 이용정책&nbsp;&nbsp;|</a>
+                    </li>
+                    <li>
+                        <a class="bold" href="" target="_blank">&nbsp;개인정보처리방침&nbsp;&nbsp;|</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;위치기반서비스 이용약관&nbsp;&nbsp;|
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;커뮤니티 가이드라인&nbsp;&nbsp;|</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;청소년보호정책&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;홀릭 소개&nbsp;&nbsp;|</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;문의하기</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+
+            <div class="footer_copyrights">
+                <p>
+                    ㈜ 여기어때컴퍼니
+                    <br>서울특별시 강남구 봉은사로 479, 479타워 11층
+                    <br>대표이사: 정명훈
+                    <br>사업자 등록번호: 742-86-00224
+                    <a href="" target="_blank">[사업자정보확인]</a>
+                    <br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988
+                    <br><br>
+                    <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
+                </p>
+                </small>
+            </div>
+
         </div>
-
-
-        <nav class="footer_nav">
-            <ul class="footer_list1">
-                <li>
-                    <a href="">회사소개&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a href="">&nbsp;맛나리 채용&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a href="">&nbsp;투자 정보&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a href="" target="_blank">&nbsp;맛나리 비즈니스&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;광고 문의</a>
-                </li>
-            </ul>
-
-            <ul class="footer_list2">
-                <li>
-                    <a class="" href="" target="_blank">공지사항&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;이용약관&nbsp;&nbsp;|</a>
-                </li>
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;비회원 이용자 이용정책&nbsp;&nbsp;|</a>
-                </li>
-                <li>
-                    <a class="bold" href="" target="_blank">&nbsp;개인정보처리방침&nbsp;&nbsp;|</a>
-                </li>
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;위치기반서비스 이용약관&nbsp;&nbsp;|
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;커뮤니티 가이드라인&nbsp;&nbsp;|</a>
-                </li>
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;청소년보호정책&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a class="" href="" target="_blank">&nbsp;홀릭 소개&nbsp;&nbsp;|</a>
-                </li>
-
-                <li>
-                    <a href="">&nbsp;문의하기</a>
-                </li>
-            </ul>
-        </nav>
-
-
-
-        <div class="footer_copyrights">
-            <p>
-                ㈜ 여기어때컴퍼니
-                <br>서울특별시 강남구 봉은사로 479, 479타워 11층
-                <br>대표이사: 정명훈
-                <br>사업자 등록번호: 742-86-00224
-                <a href="" target="_blank">[사업자정보확인]</a>
-                <br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988
-                <br><br>
-                <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
-            </p>
-            </small>
         </div>
-
-        </div>
-    </div>
     </footer>
 </body>
 
