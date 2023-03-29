@@ -39,6 +39,35 @@
       width: 600px;
       height: 200px;
     }
+    .wrap #con{
+      width: 100%;
+      height: 100px;
+    }
+    .wrap #con li{
+      font-size: 2rem;
+      text-align: left;
+      display: inline-block;
+      padding: 5px 10px;
+    }
+    .wrap #con li:nth-child(2){
+      color: #F76E11;
+    }
+    .wrap #con li:last-child{
+      display: block;
+    }
+
+    .R_intro{
+      padding: 5px 10px;
+    }
+    
+    .R_info{
+      padding: 30px 10px;
+    }
+    .R_info li{
+      margin: 10px;
+    }
+
+
 
 
     footer {
@@ -47,6 +76,8 @@
       background-color: rgb(192, 192, 250);
     }
 
+
+    /* 모바일 */
     @media all and (min-width:320px) {
       div.banner {
         display: flex;
@@ -90,6 +121,8 @@
       }
     }
 
+
+    /* 태블릿 */
     @media all and (min-width:768px) {
       div#logo_box img {
         width: 100px;
@@ -105,7 +138,7 @@
         height: 42px;
       }
     }
-
+    /* PC */
     @media all and (min-width:1024px) {}
   </style>
 
@@ -197,67 +230,64 @@
     </div>
     <div>
       <div id="con">
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
+        <li id="p1">크리스피포크타운</li>
+        <li id="p2">4.8</li>
+        <li id="p3">강남</li>
       </div>
 
       <div class="R_intro">
-        <h3>식당소개</h3>
-        <h3 class="R_intro_detatil">식당소개글</h3>
+        <h3>식당소개</h3><br/>
+        <h3 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h3>
       </div>
 
 
 
       <div class="R_info">
         <ul>
-          <li>주소</li>
-          <li>서울특별시 영등포구 도림로139길 13<br>
-            <span class="Restaurant__InfoAddress--Rectangle">지번</span>
-            <span class="Restaurant__InfoAddress--Text">서울시 영등포구 문래동2가 49-1</span>
-          </li>
+          <li class="li_left">주소</li>
+          <li class="li_right">서울특별시 영등포구 도림로139길 13</li>
 
-          <li>전화번호</li>
-          <li>070-8800-0815</li>
+          <li class="li_left">전화번호</li>
+          <li class="li_right">070-8800-0815</li>
 
-          <li>음식 종류</li>
-          <li>
+          <li class="li_left">음식 종류</li>
+          <li class="li_right">
             <span>닭 / 오리 요리</span>
           </li>
 
 
-          <li>가격대</li>
-          <li>2만원-3만원</li>
+          <li class="li_left">가격대</li>
+          <li class="li_right">2만원-3만원</li>
 
-          <li>주차</li>
-          <li>주차공간없음 </li>
+          <li class="li_left">주차</li>
+          <li class="li_right">주차공간없음 </li>
 
-          <ul style="vertical-align:top;">영업시간</ㅣ>
-            <li>월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
+          <ul class="li_left">영업시간</ㅣ>
+            <li class="li_right">월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
           </ul>
 
 
-          <li>메뉴</li>
-          <ul class="Restaurant_MenuList">
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">오리지널 시금치통닭</span>
-              <span class="Restaurant_MenuPrice">26,000원</span>
+          <li class="li_left">메뉴</li>
+          <ul>
+            <li class="li_right">
+              <span>오리지널 시금치통닭</span>
+              <span>26,000원</span>
             </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">페퍼크림통닭</span>
-              <span class="Restaurant_MenuPrice">26,000원</span>
+            <li class="li_right">
+              <span>페퍼크림통닭</span>
+              <span>26,000원</span>
             </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">하몽플레이트</span>
-              <span class="Restaurant_MenuPrice">15,000원</span>
+            <li class="li_right">
+              <span>하몽플레이트</span>
+              <span>15,000원</span>
             </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">과일&amp;치즈플레이트</span>
-              <span class="Restaurant_MenuPrice">16,000원</span>
+            <li class="li_right">
+              <span>과일&amp;치즈플레이트</span>
+              <span>16,000원</span>
             </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">믹스드올리브</span>
-              <span class="Restaurant_MenuPrice">6,000원</span>
+            <li class="li_right">
+              <span>믹스드올리브</span>
+              <span>6,000원</span>
             </li>
           </ul>
 
