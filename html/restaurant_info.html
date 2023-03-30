@@ -21,6 +21,7 @@
   <style>
     div.wrap {
       width: 100%;
+      margin: 0 auto;
     }
 
     header {
@@ -39,35 +40,75 @@
       width: 600px;
       height: 200px;
     }
-    .wrap #con{
+
+    .wrap #con {
       width: 100%;
       height: 100px;
     }
-    .wrap #con li{
+
+    .wrap #con li {
       font-size: 2rem;
       text-align: left;
       display: inline-block;
       padding: 5px 10px;
     }
-    .wrap #con li:nth-child(2){
+
+    .wrap #con li:nth-child(2) {
       color: #F76E11;
     }
-    .wrap #con li:last-child{
+
+    .wrap #con li:last-child {
       display: block;
     }
 
-    .R_intro{
+    .R_intro {
       padding: 5px 10px;
     }
-    
-    .R_info{
-      padding: 30px 10px;
+
+    .R_info {
+      /* padding: 30px 10px; */
     }
-    .R_info li{
+
+    .R_info li {
       margin: 10px;
     }
 
+    .R_info .li_left {
+      display: inline-block;
+    }
 
+    .R_info .li_right {
+      display: inline-block;
+    }
+
+    .R_info .li_time {}
+
+
+
+    /* 지도 */
+    .map {
+      width: 460px;
+      height: 236px;
+    }
+
+
+
+    /* 리뷰 */
+    .R_review .R_review_header {
+      width: 95%;
+      height: 40px;
+    }
+
+    .R_review_title {
+      float: left;
+    }
+
+    .R_review_bnt {
+      float: right;
+      display: flex;
+    }
+
+    .R_review_bnt li {}
 
 
     footer {
@@ -138,6 +179,7 @@
         height: 42px;
       }
     }
+
     /* PC */
     @media all and (min-width:1024px) {}
   </style>
@@ -221,6 +263,7 @@
       <h1>search</h1>
     </div>
 
+    <!-- 대표사진 슬라이더 -->
     <div class="bxslider">
       <div><img class="slider_img" src="../image/restaurant/taco/129.jpg" title="배경1"></div>
       <div><img class="slider_img" src="../image/restaurant/taco/153.jpg" title="배경2"></div>
@@ -229,91 +272,92 @@
       <div><img class="slider_img" src="../image/restaurant/taco/159.jpg" title="배경4"></div>
     </div>
     <div>
+      <!-- 식당이름~ -->
       <div id="con">
         <li id="p1">크리스피포크타운</li>
         <li id="p2">4.8</li>
         <li id="p3">강남</li>
       </div>
-
+      <!-- 식당 소개 -->
       <div class="R_intro">
-        <h3>식당소개</h3><br/>
+        <h3>식당소개</h3><br />
         <h3 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h3>
       </div>
 
 
-
+      <!-- 식당 상세정보 -->
       <div class="R_info">
         <ul>
           <li class="li_left">주소</li>
-          <li class="li_right">서울특별시 영등포구 도림로139길 13</li>
+          <li class="li_right">서울특별시 영등포구 도림로139길 13</li><br />
 
           <li class="li_left">전화번호</li>
-          <li class="li_right">070-8800-0815</li>
+          <li class="li_right">070-8800-0815</li><br />
 
           <li class="li_left">음식 종류</li>
           <li class="li_right">
-            <span>닭 / 오리 요리</span>
+            <span>닭 / 오리 요리</span><br />
           </li>
 
 
           <li class="li_left">가격대</li>
-          <li class="li_right">2만원-3만원</li>
+          <li class="li_right">2만원-3만원</li><br />
 
           <li class="li_left">주차</li>
-          <li class="li_right">주차공간없음 </li>
+          <li class="li_right">주차공간없음 </li><br />
 
-          <ul class="li_left">영업시간</ㅣ>
-            <li class="li_right">월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
-          </ul>
+          <li class="li_left li_time">영업시간</li>
+          <li class="li_right">월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
+        </ul><br />
 
 
-          <li class="li_left">메뉴</li>
-          <ul>
-            <li class="li_right">
-              <span>오리지널 시금치통닭</span>
-              <span>26,000원</span>
-            </li>
-            <li class="li_right">
-              <span>페퍼크림통닭</span>
-              <span>26,000원</span>
-            </li>
-            <li class="li_right">
-              <span>하몽플레이트</span>
-              <span>15,000원</span>
-            </li>
-            <li class="li_right">
-              <span>과일&amp;치즈플레이트</span>
-              <span>16,000원</span>
-            </li>
-            <li class="li_right">
-              <span>믹스드올리브</span>
-              <span>6,000원</span>
-            </li>
-          </ul>
+        <li class="li_left">메뉴</li>
+        <ul>
+          <li class="li_right">
+            <span>오리지널 시금치통닭</span>
+            <span>26,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>페퍼크림통닭</span>
+            <span>26,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>하몽플레이트</span>
+            <span>15,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>과일&amp;치즈플레이트</span>
+            <span>16,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>믹스드올리브</span>
+            <span>6,000원</span>
+          </li><br />
+        </ul>
 
       </div>
-
-
-
-
-
-
-
     </div>
-    <iframe
+
+
+    <!-- 지도 -->
+    <iframe class="map"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-    <div class="review">
-      <div class="ReviewList__Header">
-        <h2 class="ReviewList__Title">
+
+
+
+    <!-- 리뷰창 헤더 -->
+    <div class="R_review">
+      <div class="R_review_header">
+        <h2 class="R_review_title">
           <span>리뷰</span>
           <span>(5)</span>
         </h2>
-
-        <ul class="RestaurantReviewList__FilterList">
+        <!-- 리뷰 나열 버튼 -->
+        <ul class="R_review_bnt">
           <li class="review_btn">
             <button>
               최신순
@@ -331,23 +375,68 @@
               비추천순
               <span class="ReviewCount">(1)</span></button>
           </li>
-
-
         </ul>
       </div>
 
 
 
 
+      <div>
+        <ul>
+          <li>
+            <!-- 유저 프로필 사진 -->
+            <span class="img">
+              <img src="../image/restaurant/gj_hamberger/33.jpg" width="64" height="64">
+            </span>
+
+            <!-- 리뷰내용 유저닉네임, 평점 -->
+            <div>
+              <div class="R_review_cotent">
+                <div class="R_review_cotent_ueser">
+                  <span>
+                    <strong class="R_review_cotent_ueserName">
+                      유저 닉네임
+                    </strong>
+                  </span>
+                  <span>
+                    <strong class="R_review_cotent_ueserScore">
+                      3.0
+                    </strong>
+                  </span>
+                </div>
+                <div class="R_review_cotent_ueserReview">
+                  <p>
+                    편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^ 점심시간대에가면 좀더저렴하게즐길수있어요~
+                  </p>
+                </div>
+              </div>
+              <!-- 리뷰내용 버튼 -->
+              <div class="R_review_cotentBtn">
+                <ul>
+                  <li><a href="#">좋아요</a></li>
+                  <li><a href="#">댓글</a></li>
+                  <li><a href="#">신고하기</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </li>
 
 
-
-
-
-
-
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     </div>
 
+
+    <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
+    
+    <div>
+
+    </div>
 
 
 
