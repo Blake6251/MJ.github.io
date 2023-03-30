@@ -21,6 +21,7 @@
   <style>
     div.wrap {
       width: 100%;
+      margin: 0 auto;
     }
 
     header {
@@ -40,13 +41,141 @@
       height: 200px;
     }
 
+    .wrap #con {
+      width: 100%;
+      height: 100px;
+    }
+
+    .wrap #con li {
+      font-size: 2rem;
+      text-align: left;
+      display: inline-block;
+      padding: 5px 10px;
+    }
+
+    .wrap #con li:nth-child(2) {
+      color: #F76E11;
+    }
+
+    .wrap #con li:last-child {
+      display: block;
+    }
+
+    .R_intro {
+      padding: 5px 10px;
+    }
+
+    .R_info {
+      /* padding: 30px 10px; */
+    }
+
+    .R_info li {
+      margin: 10px;
+    }
+
+    .R_info .li_left {
+      display: inline-block;
+    }
+
+    .R_info .li_right {
+      display: inline-block;
+    }
+
+    .R_info .li_time {}
+
+
+
+    /* 지도 */
+    .map {
+      width: 460px;
+      height: 236px;
+    }
+
+
+
+    /* 리뷰 */
+    .R_review .R_review_header {
+      width: 95%;
+      height: 40px;
+    }
+
+    .R_review_title {
+      float: left;
+    }
+
+    .R_review_bnt {
+      float: right;
+      display: flex;
+    }
+
+    .R_review_bnt li {}
+
 
     footer {
       width: 100%;
-      height: 100px;
-      background-color: rgb(192, 192, 250);
+      height: 400px;
+      background-color: #3f3e3e;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     }
 
+    div.temp {
+      width: 74.7070%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #footer_logo {
+      width: 162px;
+      height: 70px;
+    }
+
+    .footer_nav {
+      width: 80%;
+      height: 80px;
+      margin-top: 40px;
+    }
+
+    .footer_nav .footer_list1 {
+      height: 30px;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .footer_nav .footer_list1 a {
+      color: #FFFFFF;
+    }
+
+    .footer_nav .footer_list2 {
+      height: 50x;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .footer_nav .footer_list2 a {
+      color: #FFFFFF;
+    }
+
+    .footer_nav li {
+      display: inline;
+    }
+
+    .footer_copyrights {
+      display: inline;
+      width: 240px;
+      height: 140px;
+      color: #FFFFFF;
+      font-size: 15px;
+      text-align: center;
+
+    }
+
+    .footer_copyrights a {
+      color: #FFFFFF;
+    }
+
+    /* 모바일 */
     @media all and (min-width:320px) {
       div.banner {
         display: flex;
@@ -90,6 +219,109 @@
       }
     }
 
+
+
+
+    @media all and (min-width:768px) {
+      div#logo_box img {
+        width: 100px;
+        height: 56px;
+      }
+
+      div#login_box>a {
+        margin-right: 30px;
+      }
+
+      div#log_box img {
+        width: 42px;
+        height: 42px;
+      }
+
+
+
+
+
+
+      footer {
+        display: flex;
+        width: 100%;
+        height: 589px;
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      div.temp {
+        text-align: left;
+      }
+
+      .footer_logo {
+        width: 170px;
+        height: 98px;
+        background-color: #FFFFFF;
+        position: absolute;
+        top: 134px;
+        left: 250px;
+
+      }
+
+      .footer_nav {
+        width: 69.2810%;
+        height: 330px;
+        position: absolute;
+        top: 19px;
+        left: 215px;
+
+      }
+
+
+      .footer_nav .footer_list1 {
+        font-size: 1.5rem;
+        height: 330px;
+        float: left;
+
+      }
+
+      .footer_nav .footer_list1 a {
+        color: #FFFFFF;
+
+      }
+
+      .footer_nav .footer_list2 {
+        font-size: 1.5rem;
+        right: 10px;
+        height: 330px;
+
+        float: left;
+      }
+
+      .footer_nav .footer_list2 a {
+        color: #FFFFFF;
+      }
+
+      .footer_nav li {
+        display: block;
+      }
+
+
+      .footer_copyrights {
+        width: 690px;
+        height: 220px;
+        color: #FFFFFF;
+        font-size: 15px;
+        text-align: left;
+        position: absolute;
+      }
+
+
+
+
+    }
+
+    @media all and (min-width:1024px) {}
+
+
+    /* 태블릿 */
     @media all and (min-width:768px) {
       div#logo_box img {
         width: 100px;
@@ -106,6 +338,7 @@
       }
     }
 
+    /* PC */
     @media all and (min-width:1024px) {}
   </style>
 
@@ -188,6 +421,7 @@
       <h1>search</h1>
     </div>
 
+    <!-- 대표사진 슬라이더 -->
     <div class="bxslider">
       <div><img class="slider_img" src="../image/restaurant/taco/129.jpg" title="배경1"></div>
       <div><img class="slider_img" src="../image/restaurant/taco/153.jpg" title="배경2"></div>
@@ -196,94 +430,92 @@
       <div><img class="slider_img" src="../image/restaurant/taco/159.jpg" title="배경4"></div>
     </div>
     <div>
+      <!-- 식당이름~ -->
       <div id="con">
-        <p id="p1"></p>
-        <p id="p2"></p>
-        <p id="p3"></p>
+        <li id="p1">크리스피포크타운</li>
+        <li id="p2">4.8</li>
+        <li id="p3">강남</li>
       </div>
-
+      <!-- 식당 소개 -->
       <div class="R_intro">
-        <h3>식당소개</h3>
-        <h3 class="R_intro_detatil">식당소개글</h3>
+        <h3>식당소개</h3><br />
+        <h3 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h3>
       </div>
 
 
-
+      <!-- 식당 상세정보 -->
       <div class="R_info">
         <ul>
-          <li>주소</li>
-          <li>서울특별시 영등포구 도림로139길 13<br>
-            <span class="Restaurant__InfoAddress--Rectangle">지번</span>
-            <span class="Restaurant__InfoAddress--Text">서울시 영등포구 문래동2가 49-1</span>
-          </li>
+          <li class="li_left">주소</li>
+          <li class="li_right">서울특별시 영등포구 도림로139길 13</li><br />
 
-          <li>전화번호</li>
-          <li>070-8800-0815</li>
+          <li class="li_left">전화번호</li>
+          <li class="li_right">070-8800-0815</li><br />
 
-          <li>음식 종류</li>
-          <li>
-            <span>닭 / 오리 요리</span>
+          <li class="li_left">음식 종류</li>
+          <li class="li_right">
+            <span>닭 / 오리 요리</span><br />
           </li>
 
 
-          <li>가격대</li>
-          <li>2만원-3만원</li>
+          <li class="li_left">가격대</li>
+          <li class="li_right">2만원-3만원</li><br />
 
-          <li>주차</li>
-          <li>주차공간없음 </li>
+          <li class="li_left">주차</li>
+          <li class="li_right">주차공간없음 </li><br />
 
-          <ul style="vertical-align:top;">영업시간</ㅣ>
-            <li>월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
-          </ul>
+          <li class="li_left li_time">영업시간</li>
+          <li class="li_right">월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
+        </ul><br />
 
 
-          <li>메뉴</li>
-          <ul class="Restaurant_MenuList">
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">오리지널 시금치통닭</span>
-              <span class="Restaurant_MenuPrice">26,000원</span>
-            </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">페퍼크림통닭</span>
-              <span class="Restaurant_MenuPrice">26,000원</span>
-            </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">하몽플레이트</span>
-              <span class="Restaurant_MenuPrice">15,000원</span>
-            </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">과일&amp;치즈플레이트</span>
-              <span class="Restaurant_MenuPrice">16,000원</span>
-            </li>
-            <li class="Restaurant_MenuItem">
-              <span class="Restaurant_Menu">믹스드올리브</span>
-              <span class="Restaurant_MenuPrice">6,000원</span>
-            </li>
-          </ul>
+        <li class="li_left">메뉴</li>
+        <ul>
+          <li class="li_right">
+            <span>오리지널 시금치통닭</span>
+            <span>26,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>페퍼크림통닭</span>
+            <span>26,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>하몽플레이트</span>
+            <span>15,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>과일&amp;치즈플레이트</span>
+            <span>16,000원</span>
+          </li><br />
+          <li class="li_right">
+            <span>믹스드올리브</span>
+            <span>6,000원</span>
+          </li><br />
+        </ul>
 
       </div>
-
-
-
-
-
-
-
     </div>
-    <iframe
+
+
+    <!-- 지도 -->
+    <iframe class="map"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-    <div class="review">
-      <div class="ReviewList__Header">
-        <h2 class="ReviewList__Title">
+
+
+
+    <!-- 리뷰창 헤더 -->
+    <div class="R_review">
+      <div class="R_review_header">
+        <h2 class="R_review_title">
           <span>리뷰</span>
           <span>(5)</span>
         </h2>
-
-        <ul class="RestaurantReviewList__FilterList">
+        <!-- 리뷰 나열 버튼 -->
+        <ul class="R_review_bnt">
           <li class="review_btn">
             <button>
               최신순
@@ -301,37 +533,173 @@
               비추천순
               <span class="ReviewCount">(1)</span></button>
           </li>
-
-
         </ul>
       </div>
 
 
 
 
+      <div>
+        <ul>
+          <li>
+            <!-- 유저 프로필 사진 -->
+            <span class="img">
+              <img src="../image/restaurant/gj_hamberger/33.jpg" width="64" height="64">
+            </span>
+
+            <!-- 리뷰내용 유저닉네임, 평점 -->
+            <div>
+              <div class="R_review_cotent">
+                <div class="R_review_cotent_ueser">
+                  <span>
+                    <strong class="R_review_cotent_ueserName">
+                      유저 닉네임
+                    </strong>
+                  </span>
+                  <span>
+                    <strong class="R_review_cotent_ueserScore">
+                      3.0
+                    </strong>
+                  </span>
+                </div>
+                <div class="R_review_cotent_ueserReview">
+                  <p>
+                    편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^ 점심시간대에가면 좀더저렴하게즐길수있어요~
+                  </p>
+                </div>
+              </div>
+              <!-- 리뷰내용 버튼 -->
+              <div class="R_review_cotentBtn">
+                <ul>
+                  <li><a href="#">좋아요</a></li>
+                  <li><a href="#">댓글</a></li>
+                  <li><a href="#">신고하기</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </li>
 
 
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
 
 
-
-
-
+    <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
+    <div>
+      <ul>
+        <li class="like">
+          <a href="#"><span>좋아요</span></a>
+        </li>
+        <li class="false">
+          <a href="#"><span>즐겨찾기</span></a>
+        </li>
+        <li class="btn_share">
+          <a href="#"><span>공유하기</span></a>
+        </li>
+      </ul>
+      <a href="#" class="btn_review_go">리뷰쓰기</a>
     </div>
 
 
 
 
 
+    <!-- 풋터 -->
+    <footer class="footer">
+      <div class="temp">
+        <div class="footer_logo">
+          <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+        </div>
+
+
+        <nav class="footer_nav">
+          <ul class="footer_list1">
+            <li>
+              <a href="">&nbsp;회사소개&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a href="">&nbsp;맛나리 채용&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a href="">&nbsp;투자 정보&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a href="" target="_blank">&nbsp;맛나리 비즈니스&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a class="" href="" target="_blank">&nbsp;광고 문의</a>
+            </li>
+          </ul>
+
+          <ul class="footer_list2">
+            <li>
+              <a class="" href="" target="_blank">&nbsp;공지사항&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a class="" href="" target="_blank">&nbsp;이용약관&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="" href="" target="_blank">&nbsp;비회원 이용자 이용정책&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="bold" href="" target="_blank">&nbsp;개인정보처리방침&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="" href="" target="_blank">&nbsp;위치기반서비스 이용약관&nbsp;&nbsp;
+              </a>
+            </li>
+            <li>
+              <a class="" href="" target="_blank">&nbsp;커뮤니티 가이드라인&nbsp;&nbsp;</a>
+            </li>
+            <li>
+              <a class="" href="" target="_blank">&nbsp;청소년보호정책&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a class="" href="" target="_blank">&nbsp;홀릭 소개&nbsp;&nbsp;</a>
+            </li>
+
+            <li>
+              <a href="">&nbsp;문의하기</a>
+            </li>
+          </ul>
+        </nav>
+
+
+
+        <div class="footer_copyrights">
+          <p>
+            ㈜ 여기어때컴퍼니
+            <br>서울특별시 강남구 봉은사로 479, 479타워 11층
+            <br>대표이사: 정명훈
+            <br>사업자 등록번호: 742-86-00224
+            <a href="" target="_blank">[사업자정보확인]</a>
+            <br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988
+            <br><br>
+            <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
+          </p>
+          </small>
+        </div>
+
+      </div>
+  </div>
+  </footer>
 
 
 
 
 
-
-
-    <footer>
-      <h1>footer</h1>
-    </footer>
 
   </div>
 </body>
