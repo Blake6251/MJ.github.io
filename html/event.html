@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>이벤트</title>
+    <link rel="stylesheet" href="../css/default.css">    
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="../js/header.js"></script>
+    <script src="../js/more_list.js"></script>
+</head>
+<style>
+     @media all and (min-width:320px){      /* 모바일 */
+            section.main_section{
+                width: 100%;
+                background-color: beige;
+            }
+            ul.ul_container li{
+                margin-bottom: 10px;
+            }
+            ul.ul_container li:first-child{
+                margin-top: 10px;
+            }
+            ul.ul_container img{
+                width: 100%;
+                height: 110px;
+            }
+            section.main_section div.btn_container{
+                width: 100%;
+                margin-bottom: 20px;
+                padding-top: 10px;
+                background-color: azure;                
+            }
+            div.btn_container button{
+                margin: 0 auto;
+                display: block;
+                border-radius: 100%;
+            }
+            div.btn_container img{
+                width: 30px;
+                height: 30px;
+            }
+
+
+        }
+        @media all and (min-width:768px){      /* 태블릿 */    
+            section.main_section{
+                width: 85%;
+                margin: 0 auto;
+            }
+        }
+        @media all and (min-width:1024px){      /* PC */
+            ul.ul_container{
+                margin: 10px auto;
+                text-align: center;
+            }
+            ul.ul_container li{
+                width: 48%;                
+                display: inline-block;                
+            }
+            ul.ul_container img{
+                width: 99%;
+                height: 400px;
+            }
+        }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        more_list();
+    });
+</script>
+<body>
+    <header>
+        <div class="banner">
+            <div id="logo_box">                
+                <a href="../index.html"><img src="../image/restaurant/gj_hamberger/33.jpg"></a>
+            </div>
+            <div id="ban_right">
+                <div id="login_box">
+                    <a href="login1.html">로그인</a>
+                </div>
+                <div id="log_box">
+                    <button id="log_btn"><img src="#"></button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden_log">
+            <div class="log_tilte">
+                <div class="recent_log">
+
+                </div>
+                <div class="favor_log">
+
+                </div>
+            </div>
+            <ul class="logs">
+                <li class="log"></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <h1 style="background-color: antiquewhite;">이벤트</h1>
+         <section class="main_section">
+                 <ul class="ul_container">
+                    <li>
+                        <a href="../html/restaurant_info.html"><img src=""></a>
+                    </li>
+                    <li>
+                        <a href="../html/restaurant_info.html"><img src=""></a>
+                    </li>
+                 </ul>
+                 <div class="btn_container">
+                     <button id="more_btn"><img src="../image/icon/expand_more.png"></button>
+                 </div>
+         </section>
+     </div>    
+</body>
+</html>
