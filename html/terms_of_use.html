@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/default.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
+    <title>Document</title>
+    <link href="../css/header.css" rel="stylesheet"> <!-- 헤더 스타일 시트-->
+    <script src="../js/header.js"></script> <!-- 헤더 js -->
+
+    <!-- footer -->
+    <link href="../css/default.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
+
+    <style>
+        body{
+            margin: 0 auto;
+        }
+
+        footer {
+            width: 100%;
+            height: 400px;
+            background-color: #3f3e3e;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        div.temp {
+            width: 74.7070%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #footer_logo {
+            width: 162px;
+            height: 70px;
+        }
+
+        .footer_nav {
+            width: 80%;
+            height: 80px;
+            margin-top: 40px;
+        }
+
+        .footer_nav .footer_list1 {
+            height: 30px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .footer_nav .footer_list1 a {
+            color: #FFFFFF;
+        }
+
+        .footer_nav .footer_list2 {
+            height: 50x;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .footer_nav .footer_list2 a {
+            color: #FFFFFF;
+        }
+
+        .footer_nav li {
+            display: inline;
+        }
+
+        .footer_copyrights {
+            display: inline;
+            width: 240px;
+            height: 140px;
+            color: #FFFFFF;
+            font-size: 15px;
+            text-align: center;
+
+        }
+
+        .footer_copyrights a {
+            color: #FFFFFF;
+        }
+
+
+
+
+        @media all and (min-width:320px) {
+        div.banner {
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box {
+            margin-left: 10%;
+        }
+        div#logo_box img {
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right {
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a {
+            margin-right: 20px;
+        }
+        div#log_box img {
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log {
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
+        }
+
+
+
+
+        @media all and (min-width:768px) {
+        div#logo_box img {
+            width: 100px;
+            height: 56px;
+        }
+
+        div#login_box>a {
+            margin-right: 30px;
+        }
+
+        div#log_box img {
+            width: 42px;
+            height: 42px;
+        }
+
+
+
+
+
+
+        footer{
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+        }
+        div.temp {
+            width: 600px;
+            height: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: #942424; */
+        }
+
+
+
+        .footer_logo {
+            width: 90px;
+            height: 50px;
+            margin-left: 80px;
+            margin-top: 40px;
+            background-color: #FFFFFF;
+        }
+        #footer_logo{
+            width: 90px;
+            height: 50px;
+            
+        }
+
+        .footer_nav {  
+            width: 420px;
+            margin-left: 10px;
+        }
+
+        
+        .footer_nav .footer_list1 {
+            font-size: 1rem;
+            float: left;
+            
+        }
+
+        .footer_nav .footer_list1 li {
+            /* background-color: antiquewhite; */
+            
+            display: block;
+
+        }
+        .footer_nav .footer_list1 a {
+            color: #FFFFFF;
+            
+        }
+
+
+
+        .footer_nav .footer_list2 {
+            float: left;
+            font-size: 1rem;
+            margin-left: 10px;
+
+        }
+        .footer_nav .footer_list2 li {
+            /* background-color: rgb(97, 222, 238); */
+            
+            display: block;
+        }
+        .footer_nav .footer_list2 a {
+            color: #FFFFFF;
+        }
+
+        .footer_copyrights {
+            width: 170px;
+            height: 180px;
+            color: #FFFFFF;
+            text-align: left;
+            float: left;
+            margin-left: 50px;
+            left: 130px;
+            
+            /* background-color: rgb(213, 243, 243); */
+        }
+
+
+
+
+        }
+
+        @media all and (min-width:1024px) {
+
+        }
+    </style>
+
+</head>
+<body>
+    <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
+        <div class="banner">
+            <div id="logo_box">
+                <a href="../index.html"><img src="../image/restaurant/gj_hamberger/33.jpg"></a>
+            </div>
+            <div id="ban_right">
+                <div id="login_box">
+                    <a href="../html/login1.html">로그인</a>
+                </div>
+                <div id="log_box">
+                    <button id="log_btn"><img src="#"></button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden_log">
+            <div class="log_tilte">
+                <div class="recent_log">
+
+                </div>
+                <div class="favor_log">
+
+                </div>
+            </div>
+            <ul class="logs">
+                <li class="log"></li>
+            </ul>
+        </div>
+    </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="temp">
+            <div class="footer_logo">
+                <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+            </div>
+
+            <nav class="footer_nav">
+                <ul class="footer_list1">
+                    <li>
+                        <a href="">&nbsp;회사소개&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;맛나리 채용&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;투자 정보&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a href="" target="_blank">&nbsp;맛나리 비즈니스&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;광고 문의</a>
+                    </li>
+                </ul>
+
+                <ul class="footer_list2">
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;공지사항&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;이용약관&nbsp;&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;비회원 이용자 이용정책&nbsp;&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="bold" href="" target="_blank">&nbsp;개인정보처리방침&nbsp;&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;위치기반서비스 이용약관&nbsp;&nbsp;
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;커뮤니티 가이드라인&nbsp;&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;청소년보호정책&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a class="" href="" target="_blank">&nbsp;홀릭 소개&nbsp;&nbsp;</a>
+                    </li>
+
+                    <li>
+                        <a href="">&nbsp;문의하기</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="footer_copyrights">
+                <small>
+                <p>
+                    ㈜ 여기어때컴퍼니
+                    <br>서울특별시 강남구 봉은사로 479, 479타워 11층
+                    <br>대표이사: 정명훈
+                    <br>사업자 등록번호: 742-86-00224
+                    <a href="" target="_blank">[사업자정보확인]</a>
+                    <br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988
+                    <br><br>
+                    <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
+                </p>
+                </small>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

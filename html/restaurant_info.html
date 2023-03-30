@@ -110,7 +110,50 @@
 
     .R_review_bnt li {}
 
+    .R_review_userProfile{
+      float: left;
+    }
+    .R_review_cotentBtn li{
+      display: inline-block;
+    }
 
+    /* 하단 고정바 */
+    nav.btn_var{
+      width: 100%;
+      height: 42px;
+      background-color: #F76E11;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      float: left;
+      text-align: center;
+    }
+    nav.btn_var ul{
+      
+    }
+    .btn_var .btn1{
+      width: 16.66%;
+      height: 42px;
+      float: left;
+      background-color: #FFFFFF;
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px solid #3f3e3e;
+    }
+    .btn_var .btn2{
+      width: 50%;
+      height: 42px;
+      float: left;
+      background-color: #FFF000;
+    }
+    .btn_var li{
+      padding-top: 11px;
+    }
+
+
+
+    /* 푸터 */
     footer {
       width: 100%;
       height: 400px;
@@ -356,10 +399,8 @@
       });
     });
 
-  </script>
+  /* <!-- 가게이름 평점 --> */
 
-  <!-- 가게이름 평점 -->
-  <script>
 
     let array = [r1, r2, r3, r4, r5, r6]
     $(document).ready(function () {
@@ -465,8 +506,8 @@
           <li class="li_right">주차공간없음 </li><br />
 
           <li class="li_left li_time">영업시간</li>
-          <li class="li_right">월-금: 17:00 - 23:30<br> 토: 16:00 - 00:00<br> 일: 16:00 - 23:00</li>
-        </ul><br />
+          <li class="li_right">11111</li>
+        </ul><br/>
 
 
         <li class="li_left">메뉴</li>
@@ -538,12 +579,12 @@
 
 
 
-
-      <div>
+      <!-- 리뷰 본문 -->
+      <div class="R_review_container">
         <ul>
-          <li>
+          <li class="R_review_userProfile">
             <!-- 유저 프로필 사진 -->
-            <span class="img">
+            <span class="R_review_userProfile">
               <img src="../image/restaurant/gj_hamberger/33.jpg" width="64" height="64">
             </span>
 
@@ -590,21 +631,7 @@
     </div>
 
 
-    <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
-    <div>
-      <ul>
-        <li class="like">
-          <a href="#"><span>좋아요</span></a>
-        </li>
-        <li class="false">
-          <a href="#"><span>즐겨찾기</span></a>
-        </li>
-        <li class="btn_share">
-          <a href="#"><span>공유하기</span></a>
-        </li>
-      </ul>
-      <a href="#" class="btn_review_go">리뷰쓰기</a>
-    </div>
+
 
 
 
@@ -696,7 +723,22 @@
   </div>
   </footer>
 
-
+    <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
+    <nav class="btn_var">
+      <ul>
+      <li class="btn_like btn1">
+        <a href="#"><span>좋아요</span></a>
+      </li>
+      <li class="btn_favor btn1">
+        <a href="#"><span>즐겨찾기</span></a>
+      </li>
+      <li class="btn_share btn1">
+        <a href="#"><span>공유하기</span></a>
+      </li>
+      <li class="btn_share btn2">
+        <a href="#"><span>리뷰쓰기</span><li>
+      </ul>
+    </nav>
 
 
 
