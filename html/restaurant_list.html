@@ -9,6 +9,7 @@
     <title>searchlist</title>
     <link href="../css/header.css" rel="stylesheet"> <!-- 헤더 스타일 시트-->
     <script src="../js/header.js"></script> <!-- 헤더 js -->
+    <script src="../js/restaurant_info_copy.js"></script>
     <style>
         @media all and (min-width:320px){      /* 모바일 */
             section.search_section{
@@ -106,6 +107,61 @@
     </style>
     <script>
         $(document).ready(function(){
+            let url = location.href.split("?");
+            let data = url[1];
+            data = decodeURIComponent(data);
+            let temp = data.split("=");
+            let filter = temp[0];
+            let value = temp[1];
+
+            $("#title").text(`${value} 검색 결과`)
+
+            let filtered_arr = []
+            if(filter == "theme"){
+                console.log("theme")
+                for(r of restaurant_arr){
+                    if(r.theme==value){
+                        console.log(r.name)
+                        filtered_arr.push(r)
+                    }
+                }
+            }
+            else if(filter == "loc"){
+                console.log("loc")
+                for(r of restaurant_arr){
+                    if(r.loc==value){
+                        filtered_arr.push(r)
+                    }
+                }
+            }
+            else{
+                console.log("search")
+                for(r of restaurant_arr){
+                    if(r.name==value){
+                        filtered_arr.push(r)
+                    }
+                }
+            }
+
+            if(filtered_arr.length>=2){ // 검색결과 2개 이상
+                for(let i=0; i<filtered_arr.length; i++){
+                    $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[i].name}"><img src="../image/restaurant/${filtered_arr[i].dir}/1.jpg"></a></li>`)
+                }
+            }
+            else if(filtered_arr.length==1){ // 검색결과 1개
+                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a></li>`)
+            }
+            else{ // 검색결과 없음
+                $(".ul_container").append(`<li>검색결과가 없습니다.</li>`)
+            }
+
+            /*
+            for(r of restaurant_arr){
+                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${r.name}"><img src="../image/restaurant/${r.dir}/1.jpg"></a></li>`)
+            }
+            */
+
+
             $("#search_btn").click(function(){ // 검색 필터 버튼
                 $(".search_section").css({"display":"block"})
             })
@@ -116,6 +172,9 @@
                 $(".ul_container").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
                 $(".ul_container").append(`<li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>`)
             })
+
+
+
         })
     </script>
 </head>
@@ -157,12 +216,8 @@
     </section>
     <section class="main_section">
             <ul class="ul_container">
-                <li>
-                    <a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a>
-                </li>
-                <li>
-                    <a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a>
-                </li>
+                <!-- <li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li>
+                <li><a href="../html/restaurant_info.html"><img src="../image/restaurant/jh_bunsik/131.jpg"></a></li> -->
             </ul>
             <div class="btn_container">
                 <button id="more_btn"><img src="../image/restaurant/taco/157.jpg"></button>

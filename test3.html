@@ -1,23 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
-    <link href="./css/header.css" rel="stylesheet"> <!-- 헤더 css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> <!--슬라이더 css-->
-    <script src="./js/header.js"></script> <!-- 헤더 스크립트 -->
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> <!--슬라이더 스크립트-->
-    <script src="./js/restaurant_info.js"></script> <!--데이터 스크립트-->
-    <script>
-        $(document).ready(function () {
-            $(".bxslider").append(`<div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src=${r1.img[0]} title="배경1"></div></a></div>`)
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/default.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
+  <link href="./css/header.css" rel="stylesheet"> <!-- 헤더 css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> <!--슬라이더 css-->
+  <script src="./js/header.js"></script> <!-- 헤더 스크립트 -->
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> <!--슬라이더 스크립트-->
+  <script src="./js/restaurant_info_copy.js"></script> <!--데이터 스크립트-->
+  <title>Document</title>
+  <script>
+    $(document).ready(function(){
+      $('.bxslider').bxSlider({
+        slideWidth: 1000,
+        minSlides: 4,
+        maxSlides: 4,
+        moveSlides: 1,
+        slideMargin: 10,
+        touchEnabled : false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
+        pager: false /* 밑 원형 표시 제거 */
+    });
+    })
+  </script>
+  <style>
+    .bxslider li {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      text-align: center;
+    }
+    
+    .bxslider li .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    .bxslider li:hover .overlay {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-    <div class="bxslider"></div>
+  <ul class="bxslider">
+    <li>
+      <img src="image1.jpg" alt="이미지1">
+      <div class="overlay"></div>
+    </li>
+    <li>
+      <img src="image2.jpg" alt="이미지2">
+      <div class="overlay"></div>
+    </li>
+    <li>
+      <img src="image3.jpg" alt="이미지3">
+      <div class="overlay"></div>
+    </li>
+    <li>
+      <img src="image4.jpg" alt="이미지4">
+      <div class="overlay"></div>
+    </li>
+  </ul>
 </body>
 </html>
