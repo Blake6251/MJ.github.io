@@ -17,6 +17,9 @@
             let d1 = strarr[0];
             let d2 = strarr[1];
             for (let r of array){
+                if(d1){
+                    console.log("d1")
+                }
                 if(r.loc==d1 || r.loc==d2){
                     $("#con").append(`<p>${r.name}</p>`)
                     $("#con").append(`<p>${r.loc}</p>`)
