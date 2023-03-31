@@ -25,120 +25,60 @@
     </script>
 
     <style>
-    .area {
-    display: flex;
-    height: 205px;
-    width: 800px;
-    border: 1px solid rgb(207, 207, 207);
-    background-color: #f0f0f0;
-
-    margin: 0 auto;
+    .container{
+        width: 80%;
+        margin: 0 auto;
     }
-
-
-    /*********************************************************/
-    /* 아코디언 컴포넌트 동작 정의 */
-
-    .accordion {
-        flex: 3 1 1px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* 아코디언 아이템 닫혔을때 */
-
-    .accordion .accordion_item  {
-        display: flex;
-        min-height: fit-content;
-        flex-direction: column;
-        transition: all 0.5s;
-    }
-
-    .accordion .accordion_item > button {
-        display: flex;
-        padding: 1rem 1.25rem;
-        border: 0;
-        align-items: center;
-        border-bottom: 1px solid rgb(231, 231, 231);
-        overflow-anchor : none;
-        background-color: rgb(255, 255, 255);
-
-    }
-
-    .accordion .accordion_item > button::after {
-        flex-shrink: 0;
-        width: 1.25rem;
-        height: 1.25rem;
-        margin-left: auto;
-        content: '';
-        background-image: url(./svg/arrow_black.svg);
-        background-repeat: no-repeat;
-        background-size: 1.25rem;
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .accordion .accordion_item > .accordion_content {
-        display: none;
-    }
-
-    /* 아코디언 아이템 열렸을때 */
-
-    .accordion .accordion_item.open{
-        flex: 1 1 1px;
-    }
-
-    .accordion .accordion_item.open > button {
-        border: 0;
-        color: #f27a62;
-        background-color: rgba(240,142,124,0.3);
-    }
-
-    .accordion .accordion_item.open > button::after {
-        transform: rotate(-180deg);
-    }
-
-    .accordion .accordion_item.open  > .accordion_content {
-        display: flex;
-        flex: 1 1 1px;
-        overflow-y: auto;
-    }
-
-    .accordion .accordion_item  > .accordion_content::-webkit-scrollbar {
-        width: 5px;
-        background-color: transparent;
-    }
-
-    .accordion .accordion_item  > .accordion_content::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
-
-    .accordion .accordion_item > .accordion_content::-webkit-scrollbar-thumb {
-        height: 17%;
-        background-color: #999999;
-        border-radius: 10px;
-    }
-
-
-    .accordion ul {
-        display: flex;
-        flex-direction: column;
-        height: fit-content;
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
         width: 100%;
-        padding: 0;
-        margin: 0;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
     }
-
-    .accordion li {
-        display: flex;
-        align-items: center;
-        height: 50px;
-        padding-left: 10px;
-        list-style: none;
-        border-bottom: 1px solid #999999;
-        background-color: #ffffff;
+    .active, .collapsible:hover {
+        background-color: #555;
     }
-
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+    }
+    .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    .active:after {
+        content: "\2212";
+    }
     </style>
+
+    <script>
+        function collapse(element) {
+            var before = document.getElementsByClassName("active")[0]               // 기존에 활성화된 버튼
+            if (before && document.getElementsByClassName("active")[0] != element) {  // 자신 이외에 이미 활성화된 버튼이 있으면
+                before.nextElementSibling.style.maxHeight = null;   // 기존에 펼쳐진 내용 접고
+                before.classList.remove("active");                  // 버튼 비활성화
+            }
+            element.classList.toggle("active");         // 활성화 여부 toggle
+
+            var content = element.nextElementSibling;
+            if (content.style.maxHeight != 0) {         // 버튼 다음 요소가 펼쳐져 있으면
+                content.style.maxHeight = null;         // 접기
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";  // 접혀있는 경우 펼치기
+            }
+        }
+    </script>
     
     <style>
         body{
@@ -391,43 +331,47 @@
             </ul>
         </div>
     </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
-
-    <div class="area">
-        <div class="accordion">
-            <div class="accordion_item open">
-              <button>
-                첫번째 아코디언
-              </button>
-              <div class="accordion_content">
-                <ul>
-                  <li>리스트 아이템1</li>
-                </ul>
-              </div>
-            </div>
-            <div class="accordion_item open">
-              <button>
-                두번째 아코디언
-              </button>
-              <div class="accordion_content">
-                <ul>
-                    <li>리스트 아이템1</li>
-                  </ul>
-              </div>
-            </div>
-          </div>
+    
+    
+    
+    
+    <div class="container">
+    <h2>접기/펴기 테스트</h2>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 1</button>
+    <div class="content">
+        <p>내용 1 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 2</button>
+    <div class="content">
+        <p>내용 2 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 3 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 4 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 5 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 6 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 7 입니다.</p>
+    </div>
+    <button type="button" class="collapsible" onclick="collapse(this);">제목 3</button>
+    <div class="content">
+        <p>내용 8 입니다.</p>
+    </div>
     </div>
 
-    <!-- 아코디언 동작 -->
-    <script defer>
-        //아코디언 클릭 이벤트 정의
-        document.querySelectorAll('.accordion .accordion_item > button').forEach((btn) => {
-            btn.addEventListener('click', (e) => {
-                let accordion_item = e.currentTarget.parentNode;
-                accordion_item.classList.toggle('open');
-            });
-        });
 
-    </script>
 
 
 
