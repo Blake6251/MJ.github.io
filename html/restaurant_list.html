@@ -22,7 +22,7 @@
             section.search_section{
                 display: none;
                 width: 100%;
-                height: 100%;
+                /* height: 100%; */
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -37,7 +37,6 @@
                 width: 40px;
                 height: 40px;
             }
-
             div.search_bar input{
                 width: 80%;
             }
@@ -91,7 +90,7 @@
             }
             section.title_section h2#title{
                 padding: 10px 0;
-                border: 1px solid #f76e11;
+                /* border: 1px solid #f76e11; */
             }
             button#filter_btn img{
                 width: 40px;
@@ -153,7 +152,7 @@
             section.title_section h2#title{
                 margin-left: 5%;
                 padding: 10px 0;
-                border: 1px solid #f76e11;
+                /* border: 1px solid #f76e11; */
             }
             section.title_section button#filter_btn{
                 margin-right: 5%;
@@ -176,7 +175,7 @@
                 display: inline-block;
                 box-sizing: border-box;
                 border: 1px solid #f76e11;
-                border-radius: 5%;
+                border-radius: 10%;
                 margin: 0;
                 margin-bottom: 20px;
                 width: 48%;
@@ -277,7 +276,7 @@
             if(filtered_arr.length>=2){ // 검색결과 2개 이상
                 let list_count = 0
                 for(let i=0; i<2; i++){
-                    $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}</h2><p></p></a></li>`)
+                    $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
                     //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a></li>`)
                     list_count++
                 }
@@ -285,7 +284,7 @@
                 $("#more_btn").click(function(){
                 for (let i=0; i<2; i++){
                     if(list_count<filtered_arr.length){
-                        $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}</h2><p></p></a></li>`)
+                        $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
                         //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a></li>`)
                         list_count++
                     }
@@ -293,7 +292,7 @@
             })
             }
             else if(filtered_arr.length==1){ // 검색결과 1개
-                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}</h2><p></p></a></li>`)
+                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[0].name}"><h1>${filtered_arr[0].name}</h1><h2>${filtered_arr[0].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[0].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[0].score}</h2><p></p></a></li>`)
                 //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a></li>`)
             }
             else{ // 검색결과 없음
@@ -308,8 +307,8 @@
 
 
             /* 검색 버튼 */
-            let loc_chk_arr = []
-            let theme_chk_arr = []
+            let loc_chk_arr = []    // 체크된 지역 담길 배열
+            let theme_chk_arr = []  // 체크된 테마 담길 배열
             $("#search_btn").click(function(){
                 let search = $("#search").val()
                 let loc_str = loc_chk_arr.join(",")
@@ -424,7 +423,7 @@
     </section>
     <section class="title_section">
         <h2 id="title">임시, 쿼리스트링 사용</h2>
-        <button class="img_btn" id="filter_btn"><img src="../image/icons/search.jpg"></button>
+        <div class="close_btn_box"><button class="img_btn" id="filter_btn"><img src="../image/icons/search.jpg"></button></div>
     </section>
     <section class="main_section">
             <ul class="ul_container">
