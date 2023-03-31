@@ -105,12 +105,9 @@
             section.main_section div.btn_container{
                 width: 100%;
                 margin-bottom: 20px;
-                /* background-color: azure; */
+                background-color: azure;
             }
             div.btn_container button{
-                background-color: #fff;
-                border-radius: 100%;
-                border: 1px solid #f76e11;
                 margin: 0 auto;
                 display: block;
             }
@@ -181,7 +178,18 @@
                 background-color: #f76e11;
                 color: #fff;
             }
-
+            /*div.check div.check_theme_item{
+                display: flex;
+                align-items: center;
+            }*/
+            div.check h4{
+                margin: 0 20px;
+            }
+            div.check input{
+                width: 20px;
+                height: 20px;
+                margin: 0 10px;
+            }
             /* -------------------- 메인섹션 -------------------- */
 
             div.sort h2{
@@ -296,20 +304,19 @@
     </style>
     <script>
         $(document).ready(function () {
-            for (r of restaurant_arr){ // 평점순 슬라이더
+            let loc_chk_arr = []
+            let theme_chk_arr = []
+
+            for (r of restaurant_arr){
                 //$("#bxslider1").append(`<div><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg" title=${r.name}></div></a></div>`)
-                $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}&nbsp;&nbsp;&nbsp;${r.score}</h2><p></p></a></li>`)
+                $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}</h2><p></p></a></li>`)
             }
-            for (t of theme_arr){ // 테마별 슬라이더
+            for (t of theme_arr){
                 //$("#bxslider2").append(`<div><a href="./html/restaurant_list.html?theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}></div></a></div>`)
                 $("#bxslider2").append(`<li><a href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}</div><div></a><a class="overlay" href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><h1>${t.theme}</h1></a></li>`)
             }
 
-
-
             /* 검색 버튼 */
-            let loc_chk_arr = []
-            let theme_chk_arr = []
             $("#search_btn").click(function(){
                 let search = $("#search").val()
                 let loc_str = loc_chk_arr.join(",")
@@ -357,9 +364,6 @@
                 console.log(theme_chk_arr)
             })
 
-
-
-
             /* 슬라이더 */
             $('.bxslider').bxSlider({
                 slideWidth: 1000,
@@ -370,8 +374,6 @@
                 touchEnabled : false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
                 pager: false /* 밑 원형 표시 제거 */
             });
-
-
 
             /* 모바일 더보기 버튼 */
             let count = 2
@@ -461,7 +463,7 @@
             </ul>
             <div class="btn_container">
                 <!-- <button id="more_btn1"><img src="./image/restaurant/taco/157.jpg"></button> -->
-                <button id="more_btn1"><img src="./image/icon/expand_more.png"></button>
+                <button id="more_btn1"><img src="#"></button>
             </div>
         </div>
         <div class="event_mobile">

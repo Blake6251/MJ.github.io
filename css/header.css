@@ -5,23 +5,31 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        background-color: dimgrey;
+        background-color: #f76e11;
     }
     div#logo_box{
-        margin-left: 10%;
+        box-sizing: border-box;
+        margin-left: 20px;
     }
     div#logo_box img{
         width: 70px;
         height: 40px;
     }
     div#ban_right{
-        margin-right: 10%;
+        margin-right: 20px;
         display: flex;
         flex-wrap: row nowrap;
         align-items: center;
     }
     div#login_box>a{
         margin-right: 20px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    div#log_box button#log_btn{
+        background-color: #f76e11;
+        border: none;
     }
     div#log_box img{
         width: 30px;
