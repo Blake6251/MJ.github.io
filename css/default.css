@@ -45,7 +45,7 @@ input, textarea {
     margin: 0;
     padding: 0;
     border: 0;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     font-size: 12px;
     vertical-align: top;
     box-sizing: content-box;
