@@ -4,7 +4,7 @@
 			clientId: "cAfOrXvsQaS0AqdDj6tU",
 			callbackUrl: "http://localhost:8080/html/login.html",
 			isPopup : false,
-			loginButton: {color: "green", type: 3,  height: 50}
+			loginButton: {color: "green", type: 3,  height: 55}
 		}
 		);     
 		naverLogin.init();
