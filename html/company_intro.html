@@ -12,6 +12,7 @@
 
     <!-- footer -->
     <link href="../css/default.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
 
     <style>
@@ -20,7 +21,11 @@
         width: 100%;
         height: 500px;
         background-color: rgb(220, 255, 243);
-    
+
+    }
+    .company-content-wrap{
+        width: 50%;
+        margin: 0 auto;
     }
 
 
@@ -43,230 +48,8 @@
         background-color: rgb(255, 162, 162);
     }
 
-
     </style>
-        <!-- footer css -->
-        <style>
-            body{
-                margin: 0 auto;
-            }
-    
-            footer {
-                width: 100%;
-                height: 400px;
-                background-color: #3f3e3e;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-            }
-    
-            div.temp {
-                width: 74.7070%;
-                margin: 0 auto;
-                text-align: center;
-            }
-    
-            #footer_logo {
-                width: 162px;
-                height: 70px;
-            }
-    
-            .footer_nav {
-                width: 80%;
-                height: 80px;
-                margin-top: 40px;
-            }
-    
-            .footer_nav .footer_list1 {
-                height: 30px;
-                font-size: 12px;
-                text-align: left;
-            }
-    
-            .footer_nav .footer_list1 a {
-                color: #FFFFFF;
-            }
-    
-            .footer_nav .footer_list2 {
-                height: 50x;
-                font-size: 12px;
-                text-align: left;
-            }
-    
-            .footer_nav .footer_list2 a {
-                color: #FFFFFF;
-            }
-    
-            .footer_nav li {
-                display: inline;
-            }
-    
-            .footer_copyrights {
-                display: inline;
-                width: 240px;
-                height: 140px;
-                color: #FFFFFF;
-                font-size: 15px;
-                text-align: center;
-    
-            }
-    
-            .footer_copyrights a {
-                color: #FFFFFF;
-            }
-    
-    
-    
-    
-            @media all and (min-width:320px) {
-            div.banner {
-                display: flex;
-                flex-wrap: row nowrap;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                background-color: dimgrey;
-            }
-            div#logo_box {
-                margin-left: 10%;
-            }
-            div#logo_box img {
-                width: 70px;
-                height: 40px;
-            }
-            div#ban_right {
-                margin-right: 10%;
-                display: flex;
-                flex-wrap: row nowrap;
-                align-items: center;
-            }
-            div#login_box>a {
-                margin-right: 20px;
-            }
-            div#log_box img {
-                width: 30px;
-                height: 30px;
-            }
-            div.hidden_log {
-                display: none;
-                background-color: antiquewhite;
-                width: 100%;
-                height: 400px;
-            }
-            }
-    
-    
-    
-    
-            @media all and (min-width:768px) {
-            div#logo_box img {
-                width: 100px;
-                height: 56px;
-            }
-    
-            div#login_box>a {
-                margin-right: 30px;
-            }
-    
-            div#log_box img {
-                width: 42px;
-                height: 42px;
-            }
-    
-    
-    
-    
-    
-    
-            footer{
-                width: 100%;
-                height: 500px;
-                margin: 0 auto;
-            }
-            div.temp {
-                width: 600px;
-                height: 500px;
-                display: flex;
-                flex-wrap: wrap;
-                /* background-color: #942424; */
-            }
-    
-    
-    
-            .footer_logo {
-                width: 90px;
-                height: 50px;
-                margin-left: 80px;
-                margin-top: 40px;
-                background-color: #FFFFFF;
-            }
-            #footer_logo{
-                width: 90px;
-                height: 50px;
-                
-            }
-    
-            .footer_nav {  
-                width: 420px;
-                margin-left: 10px;
-            }
-    
-            
-            .footer_nav .footer_list1 {
-                font-size: 1rem;
-                float: left;
-                
-            }
-    
-            .footer_nav .footer_list1 li {
-                /* background-color: antiquewhite; */
-                
-                display: block;
-    
-            }
-            .footer_nav .footer_list1 a {
-                color: #FFFFFF;
-                
-            }
-    
-    
-    
-            .footer_nav .footer_list2 {
-                float: left;
-                font-size: 1rem;
-                margin-left: 10px;
-    
-            }
-            .footer_nav .footer_list2 li {
-                /* background-color: rgb(97, 222, 238); */
-                
-                display: block;
-            }
-            .footer_nav .footer_list2 a {
-                color: #FFFFFF;
-            }
-    
-            .footer_copyrights {
-                width: 170px;
-                height: 180px;
-                color: #FFFFFF;
-                text-align: left;
-                float: left;
-                margin-left: 50px;
-                left: 130px;
-                
-                /* background-color: rgb(213, 243, 243); */
-            }
-    
-    
-    
-    
-            }
-    
-            @media all and (min-width:1024px) {
-    
-            }
-        </style>
+
 </head>
 <body>
     <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
@@ -301,9 +84,148 @@
 
 
     <div class="container">
-
-
-
+        <div class="company-content-wrap">      
+            <!-- 회사 history 영역 -->
+            <div class="company_section">
+              <p class="com_title">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzljg-ed6ebtafxl.png" alt="company font icon" width="70">
+              </p>
+            </div>
+      
+            <!-- 연혁 영역 -->
+                <div class="year">
+                  <p class="year_title">2013</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> APR. </li>
+                          <li> 망고플레이트 설립 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUN. </li>
+                          <li> 스파크랩스 액셀레이터 2기 선정 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> OCT. </li>
+                          <li> 망고플레이트 앱 출시 </li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="year">
+                  <p class="year_title">2014</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> MAY. </li>
+                          <li> beLAUNCH 2014 글로벌 브레인 우승 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUN. </li>
+                          <li> 스파크랩스 글로벌 투자 유치 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUL. </li>
+                          <li> 마루 180 입주 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> SEP. </li>
+                          <li> 소프트뱅크벤처스 투자 유치 </li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="year">
+                  <p class="year_title">2015</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUN. </li>
+                          <li> 퀄컴 벤처스, 소프트뱅크 벤처스, YJ캐피탈 추가 투자 유치 (67억원) </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUL. </li>
+                          <li> 망고플레이트 PC 웹 리뉴얼 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> SEP. </li>
+                          <li> 망고플레이트 앱 리뉴얼 </li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="year">
+                  <p class="year_title">2016</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JUL. </li>
+                          <li> 서울시 선정 서울 관광 우수IT’서비스 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> AUG. </li>
+                          <li> 망고플레이트 비즈니스 망고웨잇 출시 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> DEC. </li>
+                          <li> 11회K-ICT 대한민국 인터넷대상- 특별상 </li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="year">
+                  <p class="year_title">2017</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> MAR. </li>
+                          <li> 2017 서울관광스타트업 프로젝트 공모전 수상 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> APR. </li>
+                          <li> 2017 F8 페이스북 위치정보 런칭 파트너사 선정 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> SEP. </li>
+                          <li> 경기도와 식품안전 플랫폼MOU 체결 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> DEC. </li>
+                          <li> 삼성전자 무선사업부와 음성 검색 데이터및 콘텐츠 제휴 </li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="year">
+                  <p class="year_title">2018</p>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> JAN. </li>
+                          <li> 세계 최대 지도 제공업체HERE와 데이터 제휴 </li>
+                        </ul>
+                      </div>
+                      <div class="year_con" id="horizontal">
+                        <ul>
+                          <li class="month_con"> APR. </li>
+                          <li> KT 기가지니와 데이터 제휴 </li>
+                        </ul>
+                      </div>
+                </div>
+            <!-- 연혁 종료 -->
     </div>
 
 
