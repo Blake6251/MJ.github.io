@@ -13,6 +13,12 @@
   <script src="../js/header.js"></script> <!--헤더 js-->
   <script src="../js/restaurant_info_copy.js"></script> <!-- 데이터 -->
 
+  <script src="/js/restaurant_info_position.js"></script>
+=======
+  <script src="../js/header.js"></script>
+  <script src="variable.js"></script>
+>>>>>>> 2539dc49980e5eaaa241e4e1db00ac6bed48071f
+
 
   <title>Document</title>
 
@@ -246,7 +252,7 @@
 
     
     <!-- 푸터 -->
-    <style>
+<!--     <style>
         body{
             margin: 0 auto;
         }
@@ -329,8 +335,41 @@
 
 
 
-        @media all and (min-width:320px) {
-
+        @media all and (min-width:480px) {
+        div.banner {
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box {
+            margin-left: 10%;
+        }
+        div#logo_box img {
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right {
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a {
+            margin-right: 20px;
+        }
+        div#log_box img {
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log {
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
         }
 
 
@@ -454,7 +493,7 @@
             float: left;
         }
         }
-    </style>
+    </style> -->
 
 
   <script>
@@ -542,14 +581,12 @@
     </div>
 
     <!-- 대표사진 슬라이더 -->
-    <div id="bx" class="bxslider">
-      <!--
-      <div><img class="slider_img" src="../image/restaurant/cri/1.jpg" title="배경1"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/2.jpg" title="배경2"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/3.jpg" title="배경3"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/4.jpg" title="배경4"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/5.jpg" title="배경4"></div>
-      -->
+    <div class="bxslider">
+      <div><img class="slider_img" src="/image/restaurant/cri/1.jpg" title="배경1"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/2.jpg" title="배경2"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/3.jpg" title="배경3"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/4.jpg" title="배경4"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/5.jpg" title="배경4"></div>
     </div>
     
     <div class="container">
