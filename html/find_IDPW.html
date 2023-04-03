@@ -4,9 +4,334 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 외부스크립트 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- 외부 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <!-- 외부 스타일 -->
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <script src="../js/header.js"></script>
     <title>아이디/비밀번호 찾기</title>
 </head>
+<style>
+    /* 중앙 배치 */
+    .container {
+        display: flex;
+        width: 90%;        
+        height: 50%;
+        margin: 10% auto;
+        flex-direction: column;
+        align-items: center;        
+    }
+
+    .tab {
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .tablink {
+        width: 49%;
+        height: 30px;
+        margin: 0px 5px 0px 5px;
+        background-color: #f2f2f2;
+        border: none;
+        color: black;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 2vw;
+    }
+
+    .tablink.active {
+        background-color: #ccc;        
+    }
+
+    .tabcontent {
+        display: none;
+        width: 90%;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;        
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /* 아이디/비밀번호 입력 폼 스타일 */
+    form {
+        display: inline-block;
+        /* flex-direction: column; */
+
+    }
+
+    h3 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    li {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    input {
+        width: 78.4%;
+        height: 40px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 1px #ccc;
+    }
+
+    input::placeholder {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 12pt;
+    }
+
+    .container #user_id {
+        width: 99%;
+        height: 40px;
+        box-sizing: border-box;
+    }
+
+    .container button#chk_btn {
+        width: 19%;
+        height: 40px;
+        background-color: #4CAF50;    
+        color: white;
+        /* padding: 10px; */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 2vw;
+    }
+
+    .container button#submit {
+        width: 99%;
+        height: 40px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+     /* 태블릿 */
+    @media all and (min-width: 768px) {    
+        .container{
+            width: 700px;
+        }
+        .tab{
+            width: 600px;
+        }  
+        .tabcontent{
+            width: 600px;
+        }
+        .tablink {
+            width: 285px;
+            font-size: 16px;            
+            margin: 0px 5px 0px 5px;
+            border-radius: 5px;
+        }
+        .container #user_id {
+            width: 550px;
+            height: 40px;            
+        }
+        input {
+            width: 435px;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+            box-shadow: 1px 1px 1px #ccc;
+        }
+        .container button#chk_btn {
+            width: 109px;
+            height: 40px;
+            background-color: #4CAF50;    
+            color: white;
+            /* padding: 10px; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12pt;
+        }
+        .container button#submit {
+            width: 550px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13pt;
+        }
+    }
+    /* PC */
+    @media all and (min-width: 1024px) {        
+        .container{
+            width: 700px;
+        }
+        .tab{
+            width: 100%;
+        } 
+        .tabcontent{
+            width: 690px;
+        }
+        .tablink {
+            width: 335px;
+            font-size: 18px;            
+            margin: 0px 5px 0px 5px;
+            border-radius: 5px;
+        }
+        .container #user_id {
+            width: 650px;
+            height: 40px;            
+        }
+        input {
+            width: 535px;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+            box-shadow: 1px 1px 1px #ccc;
+        }
+        .container button#chk_btn {
+            width: 109px;
+            height: 40px;
+            background-color: #4CAF50;    
+            color: white;
+            /* padding: 10px; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12pt;
+        }
+        .container button#submit {
+            width: 650px;
+            height: 40px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13pt;
+        }
+    }
+</style>
 <body>
-    
+    <header>
+        <div class="banner">
+            <div id="logo_box">
+                <a href="../index.html"><img src="../image/logo.jpg"></a>
+            </div>
+            <div id="ban_right">
+                <div id="login_box">
+                    <a href="login.html">로그인</a>
+                </div>
+                <div id="log_box">
+                    <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden_log">
+            <div class="log_tilte">
+                <div class="recent_log">
+
+                </div>
+                <div class="favor_log">
+
+                </div>
+            </div>
+            <ul class="logs">
+                <li class="log"></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="tab">
+            <button class="tablink" onclick="openTab(event, 'find-id')">아이디 찾기</button>
+            <button class="tablink" onclick="openTab(event, 'find-password')">비밀번호 찾기</button>
+        </div>
+        <div id="find-id" class="tabcontent">
+            <h3>아이디 찾기</h3>
+            <form action="" method="post" enctype="multipart/form-data">
+                <ul>
+                    <li>
+                        <!-- <label for="find-id-email">이메일</label> -->
+                        <input type="email" id="user_email" name="user_email" placeholder="이메일">
+                        <button type="submit" id="chk_btn">인증번호</button><br>
+                    </li>
+                    <li>
+                        <!-- <label for="find-id-phone">인증번호</label> -->
+                        <input type="tel" id="chkNum" name="chkNum" placeholder="인증번호">
+                        <button type="submit" id="chk_btn">인증확인</button>
+                    </li>
+                    <li>
+                        <button type="submit" id="submit">아이디 찾기</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div id="find-password" class="tabcontent">
+            <h3>비밀번호 찾기</h3>
+            <form>
+                <ul>
+                    <li>
+                        <input type="text" id="user_id" name="user_id" placeholder="아이디">
+                    </li>
+                    <li>
+                        <input type="email" id="user_pwd" name="user_pwd" placeholder="이메일">
+                        <button type="submit" id="chk_btn">인증번호</button>
+                    </li>
+                    <li>
+                        <input type="email" id="chkNum" name="chkNum" placeholder="인증번호">
+                        <button type="submit" id="chk_btn">인증확인</button>
+                    </li>
+                    <li>
+                        <button type="submit" id="submit">비밀번호 찾기</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            // 탭 내용을 모두 숨김
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            // 탭 버튼의 active 클래스 제거
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            // 선택된 탭 내용 표시 및 버튼에 active 클래스 추가
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>

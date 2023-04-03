@@ -39,16 +39,20 @@
 
     .wrap .slider_img {
       width: 600px;
-      height: 200px;
+      height: 350px;
     }
 
+    .wrap .container{
+      margin: 0 auto;
+      width: 70%;
+    }
     .wrap #con {
       width: 100%;
       height: 100px;
     }
 
     .wrap #con li {
-      font-size: 2rem;
+      font-size: 1.8rem;
       text-align: left;
       display: inline-block;
       padding: 5px 10px;
@@ -67,6 +71,7 @@
     }
 
     .R_info {
+      margin-top: 20px;
       /* padding: 30px 10px; */
     }
 
@@ -82,7 +87,9 @@
       display: inline-block;
     }
 
-    .R_info .li_time {}
+    .R_info .li_time {
+
+    }
 
 
 
@@ -380,6 +387,11 @@
         width: 42px;
         height: 42px;
       }
+      
+      .btn_var{
+        position: absolute;
+        margin-top: 200px;
+      }
     }
 
     /* PC */
@@ -465,13 +477,14 @@
 
     <!-- 대표사진 슬라이더 -->
     <div class="bxslider">
-      <div><img class="slider_img" src="../image/restaurant/taco/129.jpg" title="배경1"></div>
-      <div><img class="slider_img" src="../image/restaurant/taco/153.jpg" title="배경2"></div>
-      <div><img class="slider_img" src="../image/restaurant/taco/157.jpg" title="배경3"></div>
-      <div><img class="slider_img" src="../image/restaurant/taco/158.jpg" title="배경4"></div>
-      <div><img class="slider_img" src="../image/restaurant/taco/159.jpg" title="배경4"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/1.jpg" title="배경1"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/2.jpg" title="배경2"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/3.jpg" title="배경3"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/4.jpg" title="배경4"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/5.jpg" title="배경4"></div>
     </div>
-    <div>
+    
+    <div class="container">
       <!-- 식당이름~ -->
       <div id="con">
         <li id="p1">크리스피포크타운</li>
@@ -480,8 +493,8 @@
       </div>
       <!-- 식당 소개 -->
       <div class="R_intro">
-        <h3>식당소개</h3><br />
-        <h3 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h3>
+        <h4>식당소개</h4><br />
+        <h4 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h4>
       </div>
 
 
@@ -536,7 +549,7 @@
         </ul>
 
       </div>
-    </div>
+    
 
 
     <!-- 지도 -->
@@ -550,7 +563,7 @@
 
 
     <!-- 리뷰창 헤더 -->
-    <div class="R_review">
+      <div class="R_review">
       <div class="R_review_header">
         <h2 class="R_review_title">
           <span>리뷰</span>
@@ -628,8 +641,10 @@
           <li></li>
           <li></li>
         </ul>
+      
       </div>
     </div>
+  </div>
 
 
 
@@ -721,11 +736,11 @@
         </div>
 
       </div>
-  </div>
-  </footer>
+      </div>
+    </footer>
 
     <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
-    <nav class="btn_var">
+    <!-- <nav class="btn_var">
       <ul>
       <li class="btn_like btn1">
         <a href="#"><span>좋아요</span></a>
@@ -739,7 +754,8 @@
       <li class="btn_share btn2">
         <a href="#"><span>리뷰쓰기</span><li>
       </ul>
-    </nav>
+    </nav> -->
+
 
 
 

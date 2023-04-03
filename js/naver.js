@@ -1,45 +1,50 @@
-let naverLogin = new naver.LoginWithNaverId(
+	function test(){
+		const naverLogin = new naver.LoginWithNaverId(
 		{
-			clientId: "cAfOrXvsQaS0AqdDj6tU", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8181/naverLogin", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-			isPopup: false,
-			callbackHandle: true
+			clientId: "cAfOrXvsQaS0AqdDj6tU",
+			callbackUrl: "http://localhost:8080/html/login.html",
+			isPopup : false,
+			loginButton: {color: "green", type: 3,  height: 55}
 		}
-	);	
-
-naverLogin.init();
-
-window.addEventListener('load', function () {
-	naverLogin.getLoginStatus(function (status) {
-		if (status) {
-			let email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
-    		
-            if( email == undefined || email == null) {
-				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-				naverLogin.reprompt();
-				return;
-			}
-		} else {
-			console.log("callback 처리에 실패하였습니다.");
-		}
-	});
-});
-
-
-let testPopUp;
-function openPopUp() {
-    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
-}
-function closePopUp(){
-    testPopUp.close();
-}
-
-function naverLogout() {
-	openPopUp();
-	setTimeout(function() {
-		closePopUp();
-	}, 1000);
+		);     
+		naverLogin.init();
+		naverLogin.getLoginStatus(function (status) {
+			if (status) {
+				const nickName=naverLogin.user.getNickName();
+				const age=naverLogin.user.getAge();
+				const birthday=naverLogin.user.getBirthday();
 	
-}
+				if(nickName===null||nickName===undefined ){
+				alert("별명이 필요합니다. 정보제공을 동의해주세요.");
+				naverLogin.reprompt();
+				return ;  
+			}else{
+				setLoginStatus();
+			}
+		}
+		});
+		console.log(naverLogin);
+	
+		function setLoginStatus(){			
+		
+		// const message_area=document.getElementById('message');
+		// message_area.innerHTML=`
+		// <h3> Login 성공 </h3>
+		// <div>user Nickname : ${naverLogin.user.nickname}</div>
+		// <div>user Age(범위) : ${naverLogin.user.age}</div>
+		// <div>user Birthday : ${naverLogin.user.birthday}</div>
+		// `;		
+
+		const button_area=document.getElementById('button_area');
+		button_area.innerHTML="<button id='btn_logout'>로그아웃</button>";
+	
+		const logout=document.getElementById('btn_logout');
+		logout.addEventListener('click',(e)=>{
+			naverLogin.logout();
+			location.replace("http://localhost:8080/navertest.html");
+		})		
+		
+			location.href("../index.html");
+		}	
+				
+	}

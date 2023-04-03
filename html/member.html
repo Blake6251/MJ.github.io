@@ -74,7 +74,7 @@
     div.container .agree_box li{
         height: 23px;        
         margin-top: 5px;   
-        margin-bottom: 12px;        
+        margin-bottom: auto;        
     }
     div.container .agree{        
         color: black;        
@@ -83,11 +83,13 @@
     div.container input.chk{
         width: 20px;
     }
-    div.container button{
-        width: 190px;
-        height: 30px;
+    div.container input#button, input#submit_all{
+        width: 186px;
+        height: 28px;
         margin: 0px;                
+        border: 1px solid gray;
         font-family: 'Noto Sans KR', sans-serif;
+        font-size: 14pt;
     }
     div.container .btn{
         text-align: center;        
@@ -116,7 +118,7 @@
             width: 90%;
             padding : 3px 10px 20px 5px;
         }
-        div.container button{
+        div.container input#button, input#submit_all{
             width: 46.9029%;
         }
     }
@@ -144,35 +146,60 @@
         div.container .agree_box{
             width: 85.759%;
         }
-        div.container #submit{
+        /* div.container #submit{
             width: 12.91111%;
             border-bottom: 1px solid black;
-        }
+        } */
         div.sub_container{
             width: 69.3359375%;             
         }
-        div.container button{
-            width: 45.212%;            
+        div.container input#button, input#submit_all{
+            width: 46.3671875%;
         }
     }
 </style>
 <script>
     document.addEventListener("DOMContentLoaded", function(){
         agree_chkAll();
-    });
+    });    
+    // let signupForm = document.getElementById('signup-form');
+    // signupForm.addEventListener('submit', function(event) {
+    //     event.preventDefault();
+    //     let nickname = document.getElementById('nickname').value;
+    //     let id = document.getElementById('user_id').value;
+    //     let password = document.getElementById('user_pwd').value;
+    //     let passwordConfirm = document.getElementById('user_pwdChk').value;
+    //     let phone = document.getElementById('user_phone').value;
+    //     let email = document.getElementById('user_email').value;
+
+    //     if (password !== passwordConfirm) {
+    //         alert('비밀번호가 일치하지 않습니다.');
+    //         return;
+    //     }
+    //     if (!validateEmail(email)) {
+    //         alert('올바른 이메일 주소를 입력해주세요.');
+    //         return;
+    //     } 
+    //     console.log("닉네임",nickname);
+    //     console.log("아이디",id);
+    //     console.log("비밀번호",password);
+    //     console.log("휴대폰", phone);
+    //     console.log("이메일", email);   
+         
+    // });
 </script>
 <body>
     <header>
         <div class="banner">
             <div id="logo_box">                
-                <a href="../index.html"><img src="../image/restaurant/gj_hamberger/33.jpg"></a>
+                <a href="../index.html"><img src="../image/logo.jpg"></a>
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="login1.html">로그인</a>
+                    <a href="login.html">로그인</a>
                 </div>
                 <div id="log_box">
-                    <button id="log_btn"><img src="#"></button>
+                    <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
                 </div>
             </div>
         </div>
@@ -202,14 +229,14 @@
                     </li>
                     <li>
                         <label class="lab" for="user_id">아이디 </label>
-                        <input type="text" class="con2" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" required>       
+                        <input type="text" class="con2" name="user_id" id="user_id" placeholder="아이디를 입력해주세요(* 6~20자 소문자, 숫자 사용가능)" required>       
                         <input type="submit" id="submit" value="중복체크">                            
                         <!-- <p class="input_note">* 6~20자 소문자, 숫자 사용가능</p>   -->
                         <input type="hidden" name="id_hidden" id="id_hidden">                    
                     </li>
                     <li>
                         <label class="lab" for="user_pwd">비밀번호 </label>
-                        <input type="password" class="con" name="user_pwd" id="user_pwd" placeholder="비밀번호를 입력해주세요" required>    
+                        <input type="password" class="con" name="user_pwd" id="user_pwd" placeholder="비밀번호를 입력해주세요(* 8~16자 영문 대 소문자, 숫자, 특수문자 사용가능)" required>    
                         <!-- <p class="input_note">* 8~16자 영문 대 소문자, 숫자, 특수문자 사용가능</p>                   -->
                     </li>
                     <li>
@@ -266,8 +293,8 @@
                         </li>                                               
                     </div>
                     <li class="btn">
-                        <button onclick="location.href='../index.html'">가입취소</button>
-                        <button onclick="location.href='login1.html'">가입하기</button>                            
+                        <input type="button" name="button" id="button" href="../index.html" value="가입취소">
+                        <input type="submit" name="submit_all" id="submit_all" onclick="handleSubmit()" value="가입하기">                       
                         <!-- <input type="submit" name="button" value="가입하기">
                         <input type="button" name="button" href="../index.html" value="가입취소"> -->
                     </li> 
@@ -275,5 +302,53 @@
             </form>                        
         </div>
     </div>
+    <script>
+        function handleSubmit() {
+            // 각 input 요소의 값을 가져옵니다.
+            let input_nickname = document.getElementById('nickname').value;
+            let input_id = document.getElementById('user_id').value;
+            let input_password = document.getElementById('user_pwd').value;
+            let input_passwordConfirm = document.getElementById('user_pwdChk').value;
+            let input_phone = document.getElementById('user_phone').value;
+            let input_email = document.getElementById('user_email').value; 
+            //전화번호 양식
+            let chk = "-";
+            let phone_chk = input_phone.indexOf(chk);  
+
+            // 로컬 스토리지에 회원정보 저장
+            let nickname = localStorage.setItem('nickname', input_nickname);
+            let id = localStorage.setItem('id', input_id);
+            let password = localStorage.setItem('password', input_password);
+            let email = localStorage.setItem('email', input_email); 
+
+            if(isNaN(input_phone) !== true){
+                if(phone_chk !== -1) {
+                    let a1 = input_phone.replace(/-/gi,"");
+                    let phone = localStorage.setItem("phone", a1);
+                }
+            }else{
+                alert("전화번호를 다시 입력해주세요");
+                document.getElementById("user_phone").focus();
+            }
+             
+
+            // window.location.href = "login.html";
+            // 값을 확인하거나 처리하는 코드를 작성합니다.
+            console.log("닉네임 : ",localStorage.getItem('nickname'));
+            console.log("아이디 : ",localStorage.getItem('id'));
+            console.log("비밀번호 : ",localStorage.getItem('password'));
+            console.log("휴대폰 : ", localStorage.getItem('phone'));
+            console.log("이메일 : ", localStorage.getItem('email')); 
+
+            // console.log("닉네임 : ", localStorage.getItem('nickname'));
+            // console.log("아이디 : ",input_id);
+            // console.log("비밀번호 : ",input_password);
+            // console.log("휴대폰 : ", input_phone);
+            // console.log("이메일 : ", input_email); 
+            // console.log("-유무 : ", phone_chk);
+
+            
+        }
+    </script>
 </body>
 </html>
