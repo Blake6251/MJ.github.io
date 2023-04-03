@@ -35,7 +35,8 @@
                 width: 100%;
             }
             div.search_bar{
-                width: 100%;
+                width: 90%;
+                margin: 0 auto;
                 margin-bottom: 10px;
                 display: flex;
                 justify-content: center;
@@ -87,6 +88,7 @@
             div.event_mobile img{
                 width: 100%;
                 height: 150px;
+                margin-bottom: 15px;
             }
             div.bx{
                 display: none;
@@ -105,9 +107,12 @@
             section.main_section div.btn_container{
                 width: 100%;
                 margin-bottom: 20px;
-                background-color: azure;
+                /* background-color: azure; */
             }
             div.btn_container button{
+                background-color: #fff;
+                border-radius: 100%;
+                border: 1px solid #f76e11;
                 margin: 0 auto;
                 display: block;
             }
@@ -121,6 +126,8 @@
                 display: none;
             }
         }
+
+
         @media all and (min-width:768px){       /* 태블릿 */
             section.img_container{
                 height: 260px;
@@ -129,9 +136,17 @@
             div.search_container{
                 margin: 0 auto;
                 width: 50%;
-                height: 50%;
+                /* height: 50%; */
+                border-radius: 5px;
                 background-color: #f76e11;
                 opacity: 0.9;
+            }
+            div.search_container .search_bar{
+                width: 100%;
+                margin: 0;
+            }
+            .mb-3{ /* 부트스트랩 마진 제거 */
+                margin-bottom: 0 !important;
             }
             div.search_bar input{
                 width: 80%;
@@ -145,6 +160,7 @@
             div.search_container div.check{
                 width: 100%;
                 height: 40px;
+                margin: 0;
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
@@ -158,6 +174,7 @@
                 font-size: 1.2vw;
                 font-weight: 600;
                 margin: 0;
+                color: #fff;
             }
             div.check div.check_loc_item{
                 box-sizing: border-box;
@@ -178,48 +195,45 @@
                 background-color: #f76e11;
                 color: #fff;
             }
-            /*div.check div.check_theme_item{
-                display: flex;
-                align-items: center;
-            }*/
-            div.check h4{
-                margin: 0 20px;
-            }
-            div.check input{
-                width: 20px;
-                height: 20px;
-                margin: 0 10px;
-            }
+
             /* -------------------- 메인섹션 -------------------- */
 
             div.sort h2{
                 font-size: 2.0vw;
             }
 
-            .bxslider li {
+            .bx-wrapper{
+                border:0;
+                box-shadow:none;
+            }
+
+            .bxslider li{
                 position: relative;
                 display: inline-block;
                 vertical-align: top;
                 width: 25%;
                 text-align: center;
             }
-            .bxslider div.square{
-                border-radius: 9%;
+            .bxslider li strong{
+                /* color: #f76e11; */
             }
-    
+            .bxslider div.square{
+                border-radius: 10%;
+            }
+
             .bxslider li .overlay {
                 position: absolute;
-                bottom: 0;
+                bottom: 20%;
                 left: 0;
                 width: 100%;
-                height: 75%;
+                height: 66%;
                 border-radius: 10%;
                 background-color: #f76e11;
                 opacity: 0;
                 transition: opacity 0.3s;
             }
             #bxslider2 li .overlay{
-                height: 66%;
+                bottom: 0;
             }
     
             .bxslider li:hover .overlay {
@@ -296,6 +310,9 @@
                 font-size: 1.8vw;
             }
 
+            div.search_container div.check{
+                margin: 5px 0;
+            }
             div.check div.check_title p{
                 font-size: 1.0vw;
             }
@@ -304,19 +321,20 @@
     </style>
     <script>
         $(document).ready(function () {
-            let loc_chk_arr = []
-            let theme_chk_arr = []
-
-            for (r of restaurant_arr){
+            for (r of restaurant_arr){ // 평점순 슬라이더
                 //$("#bxslider1").append(`<div><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg" title=${r.name}></div></a></div>`)
-                $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}</h2><p></p></a></li>`)
+                $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><strong>${r.name}</strong><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}&nbsp;&nbsp;&nbsp;${r.score}</h2><p></p></a></li>`)
             }
-            for (t of theme_arr){
+            for (t of theme_arr){ // 테마별 슬라이더
                 //$("#bxslider2").append(`<div><a href="./html/restaurant_list.html?theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}></div></a></div>`)
                 $("#bxslider2").append(`<li><a href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}</div><div></a><a class="overlay" href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><h1>${t.theme}</h1></a></li>`)
             }
 
+
+
             /* 검색 버튼 */
+            let loc_chk_arr = []
+            let theme_chk_arr = []
             $("#search_btn").click(function(){
                 let search = $("#search").val()
                 let loc_str = loc_chk_arr.join(",")
@@ -364,6 +382,9 @@
                 console.log(theme_chk_arr)
             })
 
+
+
+
             /* 슬라이더 */
             $('.bxslider').bxSlider({
                 slideWidth: 1000,
@@ -374,6 +395,8 @@
                 touchEnabled : false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
                 pager: false /* 밑 원형 표시 제거 */
             });
+
+
 
             /* 모바일 더보기 버튼 */
             let count = 2
@@ -392,7 +415,7 @@
     <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
         <div class="banner">
             <div id="logo_box">
-                <a href="./index.html"><img src="./image/logo.jpg"></a>
+                <a href="./index copy.html"><img src="./image/logo.jpg"></a>
             </div>
             <div id="ban_right">
                 <div id="login_box">
@@ -404,16 +427,16 @@
             </div>
         </div>
         <div class="hidden_log">
-            <div class="log_tilte">
-                <div class="recent_log">
-
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
                 </div>
-                <div class="favor_log">
-
+                <div id="favor_log">
+                    <p>찜한 가게</p>
                 </div>
             </div>
-            <ul class="logs">
-                <li class="log"></li>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
             </ul>
         </div>
     </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
@@ -463,7 +486,7 @@
             </ul>
             <div class="btn_container">
                 <!-- <button id="more_btn1"><img src="./image/restaurant/taco/157.jpg"></button> -->
-                <button id="more_btn1"><img src="#"></button>
+                <button id="more_btn1"><img src="./image/icon/expand_more.png"></button>
             </div>
         </div>
         <div class="event_mobile">

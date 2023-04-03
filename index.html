@@ -88,6 +88,7 @@
             div.event_mobile img{
                 width: 100%;
                 height: 150px;
+                margin-bottom: 15px;
             }
             div.bx{
                 display: none;
@@ -103,6 +104,22 @@
                 width: 100%;
                 height: 160px;
             }
+            ul.ul_container h1{
+                margin-top: 5px;
+                text-align: left;
+                color: #f76e11;
+                font-size: 20px;
+            }
+            ul.ul_container h2{
+                margin-top: 5px;
+                margin-bottom: 10px;
+                text-align: left;
+                color: #f76e11;
+                font-size: 15px;
+
+            }
+
+
             section.main_section div.btn_container{
                 width: 100%;
                 margin-bottom: 20px;
@@ -319,7 +336,7 @@
         
     </style>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function (){
             for (r of restaurant_arr){ // 평점순 슬라이더
                 //$("#bxslider1").append(`<div><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg" title=${r.name}></div></a></div>`)
                 $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><strong>${r.name}</strong><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}&nbsp;&nbsp;&nbsp;${r.score}</h2><p></p></a></li>`)
@@ -335,50 +352,38 @@
             let loc_chk_arr = []
             let theme_chk_arr = []
             $("#search_btn").click(function(){
-                let search = $("#search").val()
-                let loc_str = loc_chk_arr.join(",")
+                let search = $("#search").val() // 검색창에 입력된 값 가져오기
+                let loc_str = loc_chk_arr.join(",") // 배열을 문자열로 만들기, 배열의 요소를 ,로 이어줌
                 let theme_str = theme_chk_arr.join(",")
-                location.href = `./html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}`
+                location.href = `./html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}` // 페이지 이동
             })
             // 지역별 필터 확인
             $(".check_btn_loc").click(function(){
-                let check_value = $(this).attr("value")
                 let this_btn = $(this)
+                arrFiltering(this_btn)
 
-                if(check_value == "false"){
-                    $(this).css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"})
-                    $(this).attr("value", "true")
-                    loc_chk_arr.push($(this).attr("name"))
-                    loc_chk_arr.sort()
+
+                // 필터링 함수 이전 내용
+                /*let check_value = $(this).attr("value") // 누른 버튼의 value값을 가져오기
+
+                if(check_value == "false"){ // 누른 버튼의 value값이 false이면
+                    $(this).css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"}) // 색변화
+                    $(this).attr("value", "true")   // value값 true로 변경
+                    loc_chk_arr.push($(this).attr("name"))  // 배열에 지역 이름 추가
+                    loc_chk_arr.sort()  // 배열 가나다순 정렬
                 }
                 else{
                     $(this).css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
                     $(this).attr("value", "false")
-                    loc_chk_arr = jQuery.grep(loc_chk_arr, function(item){
-                        return item != this_btn.attr("name")
+                    loc_chk_arr = jQuery.grep(loc_chk_arr, function(item){ // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
+                        return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
                     })
-                }
-                console.log(loc_chk_arr)
+                }*/
             })
             // 테마별 필터 확인
             $(".check_btn_theme").click(function(){
-                let check_value = $(this).attr("value")
                 let this_btn = $(this)
-
-                if(check_value == "false"){
-                    $(this).css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"})
-                    $(this).attr("value", "true")
-                    theme_chk_arr.push($(this).attr("name"))
-                    theme_chk_arr.sort()
-                }
-                else{
-                    $(this).css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
-                    $(this).attr("value", "false")
-                    theme_chk_arr = jQuery.grep(theme_chk_arr, function(item){
-                        return item != this_btn.attr("name")
-                    })
-                }
-                console.log(theme_chk_arr)
+                arrFiltering(this_btn)
             })
 
 
@@ -402,11 +407,45 @@
             $("#more_btn1").click(function(){
                 for (let i=0; i<2; i++){
                     if(count<restaurant_arr.length){
-                        $("#ul_container1").append(`<li><a href="./html/restaurant_info.html?name=${restaurant_arr[count].name}"><img src="./image/restaurant/${restaurant_arr[count].dir}/1.jpg"></a></li>`)
+                        $("#ul_container1").append(`<li><a href="./html/restaurant_info.html?name=${restaurant_arr[count].name}"><img src="./image/restaurant/${restaurant_arr[count].dir}/1.jpg"></a><a href="./html/restaurant_info.html?name=${restaurant_arr[count].name}"><h1>${restaurant_arr[count].name}</h1><h2>${restaurant_arr[count].loc}&nbsp;&nbsp;&nbsp;${restaurant_arr[count].theme}&nbsp;&nbsp;&nbsp;${restaurant_arr[count].score}</h2><p></p></a></li>`)
                         count++
                     }
                 }
             })
+
+
+            // 필터 체크 함수화
+            function arrFiltering(this_btn){
+            let check_value = this_btn.attr("value") // 누른 버튼의 value값을 가져오기
+            let parentClass = this_btn.parent().attr("class")
+
+                if(check_value == "false"){ // 누른 버튼의 value값이 false이면
+                    this_btn.css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"}) // 색변화
+                    this_btn.attr("value", "true")   // value값 true로 변경
+                    if(parentClass === "check_loc_item"){   // 누른 버튼이 지역별 그룹에 속하면
+                        loc_chk_arr.push(this_btn.attr("name"))  // 배열에 지역 이름 추가
+                        loc_chk_arr.sort()  // 배열 가나다순 정렬
+                    }
+                    if(parentClass === "check_theme_item"){ // 누른 버튼이 테마별 그룹에 속하면
+                        theme_chk_arr.push(this_btn.attr("name"))  // 배열에 테마 이름 추가
+                        theme_chk_arr.sort()
+                    }
+                }
+                else{
+                    this_btn.css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
+                    this_btn.attr("value", "false")
+                    if(parentClass === "check_loc_item"){
+                        loc_chk_arr = jQuery.grep(loc_chk_arr, function(item){ // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
+                        return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
+                        })
+                    }
+                    if(parentClass === "check_theme_item"){
+                        theme_chk_arr = jQuery.grep(theme_chk_arr, function(item){ // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
+                        return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
+                        })
+                    }
+                }
+        }
         });
     </script>
 </head>
@@ -418,7 +457,7 @@
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="./html/login1.html">로그인</a>
+                    <a href="./html/login.html">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="./image/icons/bookmark.jpg"></button>
@@ -426,16 +465,16 @@
             </div>
         </div>
         <div class="hidden_log">
-            <div class="log_tilte">
-                <div class="recent_log">
-
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
                 </div>
-                <div class="favor_log">
-
+                <div id="favor_log">
+                    <p>찜한 가게</p>
                 </div>
             </div>
-            <ul class="logs">
-                <li class="log"></li>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
             </ul>
         </div>
     </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
@@ -477,10 +516,10 @@
             </div>
             <ul id="ul_container1" class="ul_container">
                 <li>
-                    <a href="./html/restaurant_info.html?name=크리스피포크타운"><img src="./image/restaurant/cri/1.jpg"></a>
+                    <a href="./html/restaurant_info.html?name=크리스피포크타운"><img src="./image/restaurant/cri/1.jpg"></a><a href="./html/restaurant_info.html?name=크리스피포크타운"><h1>크리스피포크타운</h1><h2>용산&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;5.0</h2><p></p></a>
                 </li>
                 <li>
-                    <a href="./html/restaurant_info.html?name=파델라"><img src="./image/restaurant/pad/1.jpg"></a>
+                    <a href="./html/restaurant_info.html?name=파델라"><img src="./image/restaurant/pad/1.jpg"><a href="./html/restaurant_info.html?name=파델라"><h1>파델라</h1><h2>마포&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;4.9</h2><p></p></a></a>
                 </li>
             </ul>
             <div class="btn_container">
