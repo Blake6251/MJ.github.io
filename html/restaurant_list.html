@@ -27,6 +27,7 @@
                 top: 0;
                 left: 0;
                 background-color: #f76e11;
+                z-index: 100;
             }
             div.close_btn_box{
                 display: flex;
@@ -39,12 +40,31 @@
             }
             div.search_bar input{
                 width: 80%;
+                height: 40px;
+                padding: 0;
+                border: 1px solid #f76e11;
+                box-sizing: border-box;
             }
             div.search_bar a{
                 width: 20%;
             }
             div.search_bar button{
-                width: 100%;
+                background-color: #f76e11;
+                border: 1px solid #f76e11;
+                height: 40px;
+            }
+            div.search_bar button:hover{
+                background-color: #fff;
+                border: 1px solid #f76e11;
+                color: #f76e11;
+            }
+            div.search_bar button:active{
+                background-color: #f76e11 !important;
+                border: 1px solid #f76e11 !important;
+            }
+            div.search_bar button:focus{
+                background-color: #f76e11;
+                border: 1px solid #f76e11;
             }
             div.check{
                 width: 100%;
@@ -64,6 +84,7 @@
                 font-size: 1.2vw;
                 font-weight: 600;
                 margin: 0;
+                color: #fff;
             }
             div.check div.check_loc_item{
                 box-sizing: border-box;
@@ -89,8 +110,12 @@
                 width: 100%;
             }
             section.title_section h2#title{
+                margin-left: 2.5%;
                 padding: 10px 0;
                 /* border: 1px solid #f76e11; */
+            }
+            section.title_section div.close_btn_box{
+                margin-right: 2.5%;
             }
             button#filter_btn img{
                 width: 40px;
@@ -99,7 +124,8 @@
 
 
             section.main_section{
-                width: 100%;
+                margin: 0 auto;
+                width: 90%;
                 /* background-color: beige; */
             }
             section.main_section ul.ul_container{
@@ -127,6 +153,22 @@
                 margin: 0 auto;
                 display: block;
             }
+
+            ul.ul_container h1{
+                margin-top: 5px;
+                text-align: left;
+                color: #f76e11;
+                font-size: 20px;
+            }
+            ul.ul_container h2{
+                margin-top: 5px;
+                margin-bottom: 10px;
+                text-align: left;
+                color: #f76e11;
+                font-size: 15px;
+
+            }
+
             div.btn_container img{
                 width: 30px;
                 height: 30px;
@@ -140,7 +182,7 @@
         }
         @media all and (min-width:768px){      /* 태블릿 */
             section.search_section{
-                display: none !important;
+                display: none;
             }
             section.title_section{
                 width: 100%;
@@ -148,14 +190,6 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            }
-            section.title_section h2#title{
-                margin-left: 5%;
-                padding: 10px 0;
-                /* border: 1px solid #f76e11; */
-            }
-            section.title_section button#filter_btn{
-                margin-right: 5%;
             }
             button#filter_btn img{
                 width: 40px;
@@ -276,7 +310,7 @@
             if(filtered_arr.length>=2){ // 검색결과 2개 이상
                 let list_count = 0
                 for(let i=0; i<2; i++){
-                    $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
+                    $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
                     //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a></li>`)
                     list_count++
                 }
@@ -284,7 +318,7 @@
                 $("#more_btn").click(function(){
                 for (let i=0; i<2; i++){
                     if(list_count<filtered_arr.length){
-                        $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
+                        $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a><a class="overlay" href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><h1>${filtered_arr[list_count].name}</h1><h2>${filtered_arr[list_count].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[list_count].score}</h2><p></p></a></li>`)
                         //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[list_count].name}"><img src="../image/restaurant/${filtered_arr[list_count].dir}/1.jpg"></a></li>`)
                         list_count++
                     }
@@ -292,7 +326,7 @@
             })
             }
             else if(filtered_arr.length==1){ // 검색결과 1개
-                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a><a class="overlay" href="./html/restaurant_info.html?name=${filtered_arr[0].name}"><h1>${filtered_arr[0].name}</h1><h2>${filtered_arr[0].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[0].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[0].score}</h2><p></p></a></li>`)
+                $(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a><a class="overlay" href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><h1>${filtered_arr[0].name}</h1><h2>${filtered_arr[0].loc}&nbsp;&nbsp;&nbsp;${filtered_arr[0].theme}&nbsp;&nbsp;&nbsp;${filtered_arr[0].score}</h2><p></p></a></li>`)
                 //$(".ul_container").append(`<li><a href="../html/restaurant_info.html?name=${filtered_arr[0].name}"><img src="../image/restaurant/${filtered_arr[0].dir}/1.jpg"></a></li>`)
             }
             else{ // 검색결과 없음
@@ -301,8 +335,13 @@
 
 
 
+            
             $("#filter_btn").click(function(){ // 검색 필터 버튼
                 $(".search_section").css({"display":"block"})
+            })
+
+            $("#close_btn").click(function(){ // 검색 필터창 닫기 버튼
+                $(".search_section").css({"display":"none"})
             })
 
 
@@ -356,14 +395,6 @@
                 console.log(theme_chk_arr)
             })
 
-
-
-            $("#close_btn").click(function(){ // 검색 필터창 닫기 버튼
-                $(".search_section").css({"display":"none"})
-            })
-
-
-
         })
     </script>
 </head>
@@ -383,16 +414,16 @@
             </div>
         </div>
         <div class="hidden_log">
-            <div class="log_tilte">
-                <div class="recent_log">
-
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
                 </div>
-                <div class="favor_log">
-
+                <div id="favor_log">
+                    <p>찜한 가게</p>
                 </div>
             </div>
-            <ul class="logs">
-                <li class="log"></li>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
             </ul>
         </div>
     </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
