@@ -9,10 +9,16 @@
   <link href="../css/header.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
 <!-- footer -->
   <link href="../css/footer.css" rel="stylesheet">
+  <script src="../js/header.js"></script> <!--헤더 js-->
+  <script src="../js/restaurant_info_copy.js"></script> <!-- 데이터 -->
+
+
+
   <title>Document</title>
 
 
@@ -80,6 +86,7 @@
     }
 
     .R_info .li_left {
+      font-weight: bold;
       display: inline-block;
     }
 
@@ -102,6 +109,10 @@
 
 
     /* 리뷰 */
+    .R_review{
+      margin-top: 150px;
+    }
+
     .R_review .R_review_header {
       width: 95%;
       height: 40px;
@@ -246,6 +257,7 @@
         }
 
         footer {
+            margin-top: 100px !important;
             width: 100%;
             background-color: #3f3e3e;
             display: flex;
@@ -317,6 +329,46 @@
         }
         .footer_copyrights a {
             color: #FFFFFF;
+        }
+
+
+
+
+        @media all and (min-width:480px) {
+        div.banner {
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box {
+            margin-left: 10%;
+        }
+        div#logo_box img {
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right {
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a {
+            margin-right: 20px;
+        }
+        div#log_box img {
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log {
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
         }
 
 
@@ -415,9 +467,6 @@
     }
 
 
-
-
-
         @media all and (min-width:1024px) {
             div.temp {
             width: 80%;
@@ -447,42 +496,50 @@
 
 
   <script>
-
-    /* 슬라이더 */
     $(document).ready(function () {
+      /* 쿼리스트링 */
+      // ?로 나누기
+      let url = location.href.split("?");
+      let data = url[1];
+      data = decodeURIComponent(data);
+      let name = data.split("=")[1]; 
+
+      let searched_rest = restaurant_arr
+      for(r of restaurant_arr){
+        searched_rest = searched_rest.filter(r => name.includes(r.name))
+      }
+
+      function write_info(){
+        for(i of searched_rest[0].img){
+          $("#bx").append(`<div><img class="slider_img" src=.${i}></div>`)
+        }
+
+        $("#p1").text(searched_rest[0].name)
+        $("#p2").text(searched_rest[0].score)
+        $("#p3").text(searched_rest[0].loc)
+        $("#addr").text(searched_rest[0].addr1)
+        $("#tell").text(searched_rest[0].tell)
+        $("#theme").text(searched_rest[0].theme)
+        $("#price").text(searched_rest[0].price)
+        $("#park").text(searched_rest[0].park)
+        $("#worktime").text(searched_rest[0].worktime)
+        $("#breaktime").text(searched_rest[0].breaktime)
+        $("#lastorder").text(searched_rest[0].lastorder)
+        $("#closedday").text(searched_rest[0].closedday)
+      }
+      
+      write_info()
+
+
+      /* 슬라이더 */
       $('.bxslider').bxSlider({
-        slideWidth: 400,
-        minSlides: 5,
-        maxSlides: 5,
+        slideWidth: 1000,
+        minSlides: 4,
+        maxSlides: 6,
         moveSlides: 1,
         slideMargin: 10
       });
     });
-
-  /* <!-- 가게이름 평점 --> */
-
-
-    let array = [r1, r2, r3, r4, r5, r6]
-    $(document).ready(function () {
-      let temp = location.href.split("=");
-      let data = temp[1];
-      data = decodeURIComponent(data); // url에는 한글을 직접 사용할수 없어서 디코딩 필요
-      let strarr = data.split(",");
-      let d1 = strarr[0];
-      let d2 = strarr[1];
-      for (let r of array) {
-        if (r.loc == d1 || r.loc == d2) {
-          $("#con").append(`<p>${r.name}</p>`)
-          $("#con").append(`<p>${r.loc}</p>`)
-          $("#con").append(`<p>${r.score}</p>`)
-          /* $("#p1").text(r.name)
-          $("#p2").text(r.loc)
-          $("#p3").text(r.score) */
-        }
-      }
-      //$("#p").text(data);
-    });
-
 
   </script>
 
@@ -490,47 +547,45 @@
 
 <body>
   <div class="wrap">
-
-    <header>
-      <div class="banner">
-        <div id="logo_box">
-          <a href="./index.html"><img src="./image/restaurant/gj_hamberger/33.jpg"></a>
+    <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
+        <div class="banner">
+            <div id="logo_box">
+                <a href="../index.html"><img src="../image/logo.jpg"></a>
+            </div>
+            <div id="ban_right">
+                <div id="login_box">
+                    <a href="../html/login.html">로그인</a>
+                </div>
+                <div id="log_box">
+                    <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
+                </div>
+            </div>
         </div>
-        <div id="ban_right">
-          <div id="login_box">
-            <a href="./html/login1.html">로그인</a>
-          </div>
-          <div id="log_box">
-            <button id="log_btn"><img src="#"></button>
-          </div>
+        <div class="hidden_log">
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
+                </div>
+                <div id="favor_log">
+                    <p>찜한 가게</p>
+                </div>
+            </div>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
+            </ul>
         </div>
-      </div>
-      <div class="hidden_log">
-        <div class="log_tilte">
-          <div class="recent_log">
-
-          </div>
-          <div class="favor_log">
-
-          </div>
-        </div>
-        <ul class="logs">
-          <li class="log"></li>
-        </ul>
-      </div>
-    </header>
-
+    </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
     <div class="search">
       <h1>search</h1>
     </div>
 
     <!-- 대표사진 슬라이더 -->
     <div class="bxslider">
-      <div><img class="slider_img" src="../image/restaurant/cri/1.jpg" title="배경1"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/2.jpg" title="배경2"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/3.jpg" title="배경3"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/4.jpg" title="배경4"></div>
-      <div><img class="slider_img" src="../image/restaurant/cri/5.jpg" title="배경4"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/1.jpg" title="배경1"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/2.jpg" title="배경2"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/3.jpg" title="배경3"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/4.jpg" title="배경4"></div>
+      <div><img class="slider_img" src="/image/restaurant/cri/5.jpg" title="배경4"></div>
     </div>
     
     <div class="container">
@@ -567,7 +622,7 @@
 
       <!-- 식당 소개 -->
       <div class="R_intro">
-        <h4>식당소개</h4><br />
+        <h4>식당소개</h4><br/>
         <h4 class="R_intro_detatil">녹사평역 부근에 위치한 타코/퀘사디아 맛집!</h4>
       </div>
 
@@ -576,50 +631,33 @@
       <div class="R_info">
         <ul>
           <li class="li_left">주소</li>
-          <li class="li_right">서울특별시 영등포구 도림로139길 13</li><br />
+          <li id="addr" class="li_right">서울특별시 영등포구 도림로139길 13</li><br/>
 
           <li class="li_left">전화번호</li>
-          <li class="li_right">070-8800-0815</li><br />
+          <li id="tell" class="li_right">070-8800-0815</li><br/>
 
           <li class="li_left">음식 종류</li>
-          <li class="li_right"><span>닭 / 오리 요리</span></li><br/>
+          <li id="theme" class="li_right"><span>닭 / 오리 요리</span></li><br/>
 
 
           <li class="li_left">가격대</li>
-          <li class="li_right">2만원-3만원</li><br />
+          <li id="price" class="li_right">2만원-3만원</li><br/>
 
           <li class="li_left">주차</li>
-          <li class="li_right">주차공간없음 </li><br />
+          <li id="park" class="li_right">주차공간없음 </li><br/>
 
           <li class="li_left li_time">영업시간</li>
-          <li class="li_right">11111</li>
-        </ul><br/>
+          <li id="worktime" class="li_right">11111</li><br/>
 
+          <li class="li_left li_time">브레이크타임</li>
+          <li id="breaktime" class="li_right">11111</li><br/>
 
-        <li class="li_left">메뉴</li>
-        <ul>
-          <li class="li_right">
-            <span>오리지널 시금치통닭</span>
-            <span>26,000원</span>
-          </li><br />
-          <li class="li_right">
-            <span>페퍼크림통닭</span>
-            <span>26,000원</span>
-          </li><br />
-          <li class="li_right">
-            <span>하몽플레이트</span>
-            <span>15,000원</span>
-          </li><br />
-          <li class="li_right">
-            <span>과일&amp;치즈플레이트</span>
-            <span>16,000원</span>
-          </li><br />
-          <li class="li_right">
-            <span>믹스드올리브</span>
-            <span>6,000원</span>
-          </li><br />
+          <li class="li_left li_time">마지막주문</li>
+          <li id="lastorder" class="li_right">11111</li><br/>
+
+          <li class="li_left li_time">휴일</li>
+          <li id="closedday" class="li_right">11111</li><br/>
         </ul>
-
       </div>
     
 
