@@ -12,6 +12,10 @@
 
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> <!-- 부트스트랩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> <!-- 부트스트랩 -->
+
     <!-- footer -->
     <link href="../css/footer.css" rel="stylesheet">
     <script src="../js/header.js"></script> <!--헤더 js-->
@@ -19,10 +23,7 @@
     <link rel="stylesheet" href="../css/footer.css"> <!-- 푸터 css -->
 
 
-
     <title>Document</title>
-
-
 
 
     <style>
@@ -31,18 +32,114 @@
             margin: 0 auto;
         }
 
-        header {
-            width: 100%;
-            height: 100px;
-            background-color: rgb(192, 192, 250)
+        section.search_section{
+                display: none;
+                width: 100%;
+                /* height: 100%; */
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: #f76e11;
+                z-index: 100;
+            }
+            div.close_btn_box{
+                display: flex;
+                justify-content: end;
+                margin: 5px;
+            }
+            button#close_btn img{
+                width: 40px;
+                height: 40px;
+            }
+            div.search_bar input{
+                width: 80%;
+                height: 40px;
+                padding: 0;
+                border: 1px solid #f76e11;
+                box-sizing: border-box;
+            }
+            div.search_bar a{
+                width: 20%;
+            }
+            div.search_bar button{
+                background-color: #f76e11;
+                border: 1px solid #f76e11;
+                height: 40px;
+            }
+            div.search_bar button:hover{
+                background-color: #fff;
+                border: 1px solid #f76e11;
+                color: #f76e11;
+            }
+            div.search_bar button:active{
+                background-color: #f76e11 !important;
+                border: 1px solid #f76e11 !important;
+            }
+            div.search_bar button:focus{
+                background-color: #f76e11;
+                border: 1px solid #f76e11;
+            }
+            div.check{
+                width: 100%;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                border-bottom: 1px solid #fff;
+            }
+            div.check_loc{
+                border-top: 1px solid #fff;
+            }
+            div.check div.check_title{
+                box-sizing: border-box;
+                width: 20%;
+                padding-left: 2%;
+            }
+            div.check div.check_title p{
+                font-size: 1.2vw;
+                font-weight: 600;
+                margin: 0;
+                color: #fff;
+            }
+            div.check div.check_loc_item{
+                box-sizing: border-box;
+                width: 18%;
+                margin: 0 auto;
+            }
+            div.check div.check_theme_item{
+                box-sizing: border-box;
+                width: 18%;
+                margin: 0 auto;
+            }
+            div.check button.check_btn{
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                border: 1px solid #fff;
+                border-radius: 5px;
+                background-color: #f76e11;
+                color: #fff;
         }
+        section.title_section{
+                width: 100%;
+            }
+            section.title_section div.close_btn_box{
+                margin-right: 2.5%;
+            }
+            button#filter_btn img{
+                width: 40px;
+                height: 40px;
+            }
 
-        .search {
-            width: 100%;
-            height: 100px;
-            background-color: rgb(245, 107, 160)
+
+
+        .bxslider li{
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 25%;
+            text-align: center;
         }
-
         .square {
             width: 100%;
             height: 0;
@@ -68,24 +165,32 @@
             width: 55%;
         }
 
+        .btn_var span{
+            color: black;
+        }
+        .btn_var2 span{
+            color: black;
+        }
+        
         .wrap #con {
             width: 100%;
             height: 100px;
         }
 
         .wrap #con li {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             text-align: left;
             display: inline-block;
             padding: 5px 10px;
         }
 
-        .wrap #con li:nth-child(2) {
-            color: #F76E11;
+        .wrap #con li:first-child {
+            font-size: 1.8rem;
+            display: block;
         }
 
-        .wrap #con li:last-child {
-            display: block;
+        .wrap #con li:nth-child(3) {
+            color: #F76E11;
         }
 
         .R_intro {
@@ -117,8 +222,8 @@
 
         /* 지도 */
         .map1 {
-            width: 460px;
-            height: 236px;
+            width: 100%;
+            height: 360px
         }
 
 
@@ -181,7 +286,7 @@
             width: 50%;
             height: 42px;
             float: left;
-            background-color: #FFF000;
+            background-color: #F76E11;
         }
 
         .btn_var li {
@@ -193,7 +298,7 @@
             margin-top: 200px;
         }
 
-        @media all and (min-width:480px) {
+        @media all and (min-width:320px) {
             nav.btn_var2 {
                 display: none;
             }
@@ -206,11 +311,39 @@
         @media all and (min-width:1200px) {
             div.container {
                 width: 600px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
             }
 
             nav.btn_var {
                 display: none;
 
+            }
+
+            .side_var {
+                width: 47%;
+                display: flex;
+                height: 500px;
+                flex-direction: row-reverse;
+                flex-direction: column;
+                float: right;
+
+            }
+
+            .side_var button{
+                box-sizing: border-box;
+                
+                width: 100%;
+                height: 100%;
+                border: none;
+                background-color: none;
+            }
+            .side_var button:hover{
+                border-radius: 10px;
+                border: 3px solid #F76E11;
+                background-color: #FFFFFF;
+                cursor: pointer;
             }
 
             nav.btn_var2 {
@@ -245,7 +378,7 @@
                 width: 250px;
                 height: 50px;
 
-                background-color: #F76E11;
+                /* background-color: #F76E11; */
             }
 
             .btn_like2 {
@@ -258,278 +391,27 @@
 
             .map1 {
                 display: none;
+                width: 100%;
             }
 
             .R_in_box{
-                width: 50%;
+                width: 47%;
             }
 
-            .side_var {
-                width: 50%;
-                display: flex;
-                height: 500px;
-                flex-direction: row-reverse;
-                flex-direction: column;
-                float: right;
+            
 
+            #m2 {
+                height: 400px;
             }
-
             .map2 {
                 display: flex;
                 width: 100%;
                 height: 100%;
                 margin-top: 50px;
             }
-
+            
         }
     </style>
-
-
-
-    <!-- 푸터 -->
-    <!--     <style>
-        body{
-            margin: 0 auto;
-        }
-
-        footer {
-            margin-top: 100px !important;
-            width: 100%;
-            background-color: #3f3e3e;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        div.temp {
-            width: 74.7070%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        #footer_logo {
-            width: 162px;
-            height: 70px;
-        }
-
-        .footer_nav {
-            width: 80%;
-            height: 100px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            margin-left: 30px;
-        }
-
-        .footer_nav .footer_list1 {
-            height: 50px;
-            font-size: 12px;
-            text-align: center;
-        }
-        .footer_nav .footer_list1 li{
-            line-height: 20px;
-        }
-        .footer_nav .footer_list1 a {
-            color: #FFFFFF;
-        }
-
-        .footer_nav .footer_list2 {
-            height: 80x;
-            font-size: 12px;
-            text-align: center;
-        }
-        .footer_nav .footer_list2 li{
-            line-height: 20px;
-        }
-        .footer_nav .footer_list2 a {
-            color: #FFFFFF;
-        }
-
-        .footer_nav li {
-            display: inline;
-        }
-
-        .footer_copyrights {
-            display: inline;
-            width: 240px;
-            height: 140px;
-            color: #FFFFFF;
-            font-size: 15px;
-            text-align: center;
-            
-
-        }
-        .footer_copyrights p{
-            line-height: 20px;
-            margin-top: 70px;
-            
-        }
-        .footer_copyrights a {
-            color: #FFFFFF;
-        }
-
-
-
-
-        @media all and (min-width:480px) {
-        div.banner {
-            display: flex;
-            flex-wrap: row nowrap;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background-color: dimgrey;
-        }
-        div#logo_box {
-            margin-left: 10%;
-        }
-        div#logo_box img {
-            width: 70px;
-            height: 40px;
-        }
-        div#ban_right {
-            margin-right: 10%;
-            display: flex;
-            flex-wrap: row nowrap;
-            align-items: center;
-        }
-        div#login_box>a {
-            margin-right: 20px;
-        }
-        div#log_box img {
-            width: 30px;
-            height: 30px;
-        }
-        div.hidden_log {
-            display: none;
-            background-color: antiquewhite;
-            width: 100%;
-            height: 400px;
-        }
-        }
-
-
-
-
-        @media all and (min-width:768px) {
-
-        footer{
-            width: 100%;
-            height: 500px;
-            margin: 0 auto;
-        }
-        div.temp {
-            width: 80%;
-            display: flex;
-            flex-wrap: wrap;
-            /* background-color: #942424; */
-        }
-
-
-
-        .footer_logo {
-            width: 120px;
-            height: 90px;
-            margin-top: 40px;
-            background-color: #FFFFFF;
-        }
-        #footer_logo{
-            width: 120px;
-            height: 90px;
-            
-        }
-
-        .footer_nav {  
-            width: 350px;
-            margin-left: 50px;
-            margin-top: 30px;
-            /* background-color: rgb(240, 221, 196); */
-            
-        }
-        .footer_nav ul{
-            float: left;
-        }
-        
-        .footer_nav .footer_list1 {
-            font-size: 1rem;
-            text-align: left;
-            
-        }
-
-        .footer_nav .footer_list1 li {
-            /* background-color: antiquewhite; */
-            
-            display: block;
-
-        }
-        .footer_nav .footer_list1 a {
-            color: #FFFFFF;
-            
-        }
-
-
-
-        .footer_nav .footer_list2 {
-            font-size: 1rem;
-            margin-left: 10px;
-            text-align: left;
-
-        }
-        .footer_nav .footer_list2 li {
-            /* background-color: rgb(97, 222, 238); */
-            
-            display: block;
-        }
-        .footer_nav .footer_list2 a {
-            color: #FFFFFF;
-        }
-
-        .footer_copyrights {
-            width: 20%;
-            height: 180px;
-            color: #FFFFFF;
-            text-align: left;
-            margin-left: 10px;
-            margin-top: 20px;
-            float: left;
-            
-            /* background-color: rgb(213, 243, 243); */
-        }
-        .footer_copyrights p{
-            margin-top: 0px;
-            
-            float: left;
-        }
-
-    }
-
-
-        @media all and (min-width:1024px) {
-            div.temp {
-            width: 80%;
-            display: flex;
-            flex-wrap: wrap;
-            /* background-color: #942424; */
-        }
-        .footer_logo {
-            width: 15%;
-            margin-top: 40px;
-            background-color: #FFFFFF;
-        }
-        #footer_logo{
-            width: 100%;
-            
-        }
-        .footer_nav{
-            width: 50%;
-        }
-        .footer_copyrights{
-            width: 20%;
-            
-            float: left;
-        }
-        }
-    </style> -->
-
 
     <script>
         $(document).ready(function () {
@@ -547,13 +429,18 @@
 
             function write_info() {
                 for (i of searched_rest[0].img) {
-                    //$("#bx").append(`<div class="square"><img class="slider_img" src=.${i}></div>`)
-                    $("#bx").append(`<div><img class="slider_img" src=.${i}></div>`)
+                    $("#bxslider1").append(`<li>
+                        <div class="square">
+                            <img class="slider_img" src=.${i}>
+                        </div>
+                    </li>`)
+                    //$("#bx").append(`<div><img class="slider_img" src=.${i}></div>`)
                 }
 
                 $("#p1").text(searched_rest[0].name)
                 $("#p2").text(searched_rest[0].score)
                 $("#p3").text(searched_rest[0].loc)
+                $("#rest_intro").text(searched_rest[0].intro)
                 $("#addr").text(searched_rest[0].addr1)
                 $("#tell").text(searched_rest[0].tell)
                 $("#theme").text(searched_rest[0].theme)
@@ -563,9 +450,69 @@
                 $("#breaktime").text(searched_rest[0].breaktime)
                 $("#lastorder").text(searched_rest[0].lastorder)
                 $("#closedday").text(searched_rest[0].closedday)
+                $("#m2").append(`<iframe class="map2" ${searched_rest[0].map}`)
+                $("#m1").append(`<iframe class="map1" ${searched_rest[0].map}`)
             }
 
             write_info()
+
+            $("#filter_btn").click(function(){ // 검색 필터 버튼
+                $(".search_section").css({"display":"block"})
+            })
+
+            $("#close_btn").click(function(){ // 검색 필터창 닫기 버튼
+                $(".search_section").css({"display":"none"})
+            })
+
+            /* 검색 버튼 */
+            let loc_chk_arr = []    // 체크된 지역 담길 배열
+            let theme_chk_arr = []  // 체크된 테마 담길 배열
+            $("#search_btn").click(function(){
+                let search = $("#search").val()
+                let loc_str = loc_chk_arr.join(",")
+                let theme_str = theme_chk_arr.join(",")
+                location.href = `../html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}`
+            })
+            // 지역별 필터 확인
+            $(".check_btn_loc").click(function(){
+                let check_value = $(this).attr("value")
+                let this_btn = $(this)
+
+                if(check_value == "false"){
+                    $(this).css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"})
+                    $(this).attr("value", "true")
+                    loc_chk_arr.push($(this).attr("name"))
+                    loc_chk_arr.sort()
+                }
+                else{
+                    $(this).css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
+                    $(this).attr("value", "false")
+                    loc_chk_arr = jQuery.grep(loc_chk_arr, function(item){
+                        return item != this_btn.attr("name")
+                    })
+                }
+                console.log(loc_chk_arr)
+            })
+            // 테마별 필터 확인
+            $(".check_btn_theme").click(function(){
+                let check_value = $(this).attr("value")
+                let this_btn = $(this)
+
+                if(check_value == "false"){
+                    $(this).css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"})
+                    $(this).attr("value", "true")
+                    theme_chk_arr.push($(this).attr("name"))
+                    theme_chk_arr.sort()
+                }
+                else{
+                    $(this).css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
+                    $(this).attr("value", "false")
+                    theme_chk_arr = jQuery.grep(theme_chk_arr, function(item){
+                        return item != this_btn.attr("name")
+                    })
+                }
+                console.log(theme_chk_arr)
+            })
 
 
             /* 슬라이더 */
@@ -612,57 +559,57 @@
                 </ul>
             </div>
         </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
-        <div class="search">
-            <h1>search</h1>
-        </div>
+        <section class="search_section">
+            <div class="close_btn_box"><button class="img_btn" id="close_btn"><img src="../image/icons/close.jpg"></button></div>
+            <div class="search_bar">
+                <div class="input-group mb-3">
+                    <input id="search" type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                    <button id="search_btn" class="btn btn-success" type="submit">Go</button>  
+                    </div>
+                </div>
+            </div>
+            <div class="check check_loc">
+                <div class="check_title"><p>지역별</p></div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="강남" value="false">강남</button></div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="마포" value="false">마포</button></div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="성동" value="false">성동</button></div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="용산" value="false">용산</button></div>
+            </div>
+            <div class="check check_theme">
+                <div class="check_title"><p>음식 종류 별</p></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="양식" value="false">양식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="일식" value="false">일식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="중식" value="false">중식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="한식" value="false">한식</button></div>
+            </div>
+        </section>
+        <section class="title_section">
+            <div class="close_btn_box"><button class="img_btn" id="filter_btn"><img src="../image/icons/search.jpg"></button></div>
+        </section>
 
         <!-- 대표사진 슬라이더 -->
-        <div class="bx_container">
-            <div id="bx" class="bxslider">
-                <!--
-                    <div><img class="slider_img" src="/image/restaurant/cri/1.jpg" title="배경1"></div>
-                    <div><img class="slider_img" src="/image/restaurant/cri/2.jpg" title="배경2"></div>
-                    <div><img class="slider_img" src="/image/restaurant/cri/3.jpg" title="배경3"></div>
-                    <div><img class="slider_img" src="/image/restaurant/cri/4.jpg" title="배경4"></div>
-                    <div><img class="slider_img" src="/image/restaurant/cri/5.jpg" title="배경4"></div>
-                -->
-            </div>
+        <div class="bx">
+            <ul id="bxslider1" class="bxslider">
+                <!-- 슬라이더 내용 들어갈 곳, 예시 -->
+                <!-- <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_hamberger/34.jpg" title="배경1"></div></a></div> -->
+            </ul>
         </div>
 
         <div class="container">
+            <div class="R_in_box">
             <!-- 식당이름~ -->
             <div id="con">
                 <li id="p1">크리스피포크타운</li>
-                <li id="p2">4.8</li>
                 <li id="p3">강남</li>
+                <li id="p2">4.8</li>
+                <li id="p4"></li>
+                <li id="p5"></li>
             </div>
 
-            <!-- 좋즐공 -->
-            <div class="side_var">
-                <nav class="btn_var2">
-                    <ul>
-                        <li class="btn_like2 btn2_1">
-                            <a href="#"><span>좋아요</span></a>
-                        </li>
-                        <li class="btn_favor2 btn2_1">
-                            <a href="#"><span>즐겨찾기</span></a>
-                        </li>
-                        <li class="btn_share2 btn2_1">
-                            <a href="#"><span>공유하기</span></a>
-                        </li>
-                        <li class="btn_share2 btn2_2">
-                            <a href="#"><span>리뷰쓰기</span></a>
-                        </li>
-                    </ul>
-                </nav>
+            
 
-                <iframe class="map2"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="R_in_box">
+            
                 <!-- 식당 소개 -->
                 <div class="R_intro">
                     <h4>식당소개</h4><br />
@@ -704,12 +651,40 @@
                 </div>
             </div>
 
+            <!-- 좋즐공 -->
+            <div class="side_var">
+                <nav class="btn_var2">
+                    <ul>
+                        <li class="btn_like2 btn2_1">
+                            <button><span>좋아요</span></button>
+                        </li>
+                        <li class="btn_favor2 btn2_1">
+                            <button><span>즐겨찾기</span></button>
+                        </li>
+                        <li class="btn_share2 btn2_1">
+                            <button><span>공유하기</span></button>
+                        </li>
+                        <li class="btn_share2 btn2_2">
+                            <button><span>리뷰쓰기</span></button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="m2">
+                    <!--<iframe class="map2"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+                </div>
+            </div>
 
             <!-- 지도 -->
-            <iframe class="map1"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div id="m1">
+                <!--<iframe class="map1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+            </div>
 
 
 
@@ -848,9 +823,6 @@
 
 
 
-
-
-
         <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
         <nav class="btn_var">
             <ul>
@@ -868,10 +840,6 @@
                 <li>
             </ul>
         </nav>
-
-
-
-
 
     </div>
 </body>
