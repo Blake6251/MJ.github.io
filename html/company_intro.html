@@ -14,18 +14,42 @@
     <link href="../css/default.css" rel="stylesheet">
     <link href="../css/footer.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
-
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <style>
     /* 회사 소개/연혁 부분 */
     .container{
         width: 100%;
         height: 500px;
-        background-color: rgb(220, 255, 243);
-
+        /* background-color: rgb(220, 255, 243); */
     }
     .company-content-wrap{
         width: 50%;
         margin: 0 auto;
+        line-height: 40px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    .company_section{
+      margin-top: 100px;
+    }
+    div.year{
+      display: block;
+      margin-top: 30px;
+    }
+    .year_title{
+      color: #f76e11;
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .year .year_con .month_con{
+      width: 50px;
+      float: left;
+      font-weight: 800;
     }
 
 
@@ -35,19 +59,60 @@
     /* 문의 부분 */
     .contact-section{
         width: 100%;
-        height: 300px;
-        
-        background-color: rgb(202, 202, 255);
+        height: 500px;
+        /* background-color: rgb(202, 202, 255); */
+        color: aliceblue;
     }
     .contact-section .contact-container{
         width: 50%;
+        height: 500px;
         margin: 0 auto;
         margin-top: 50px;
-
-        
-        background-color: rgb(255, 162, 162);
+        background-color: #f76e11;
+        padding: 0 30px 0 30px;
+    }
+    .sec_tit{
+      height: 100px;
+      text-align: center;
+      color: aliceblue;
+      padding-top: 30px;
+    }
+    .form input{
+      height: 30px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    #message{
+      height: 100px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
+    .contact_send_btn{
+      float: right;
+    }
+    .contact_send_btn button{
+      width: 100px;
+      height: 60px;
+      background-color: aliceblue;
+      color: black;
+    }
+    @media all and (min-width:480px){
+      .company-content-wrap{
+        width: 90%;
+      }
+      .contact-section .contact-container{
+        width: 100%;
+      }
+    }
+    @media all and (min-width:768px){
+      .company-content-wrap{
+        width: 50%;
+      }
+      .contact-section .contact-container{
+        width: 50%;
+      }
+    }
     </style>
 
 </head>
@@ -88,7 +153,7 @@
             <!-- 회사 history 영역 -->
             <div class="company_section">
               <p class="com_title">
-                <img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzljg-ed6ebtafxl.png" alt="company font icon" width="70">
+                <img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzljg-ed6ebtafxl.png" alt="company font icon" width="100">
               </p>
             </div>
       
@@ -98,7 +163,7 @@
                       <div class="year_con" id="horizontal">
                         <ul>
                           <li class="month_con"> APR. </li>
-                          <li> 망고플레이트 설립 </li>
+                          <li> 맛나리 설립 </li>
                         </ul>
                       </div>
                       <div class="year_con" id="horizontal">
@@ -110,7 +175,7 @@
                       <div class="year_con" id="horizontal">
                         <ul>
                           <li class="month_con"> OCT. </li>
-                          <li> 망고플레이트 앱 출시 </li>
+                          <li> 맛나리 앱 출시 </li>
                         </ul>
                       </div>
                 </div>
@@ -152,13 +217,13 @@
                       <div class="year_con" id="horizontal">
                         <ul>
                           <li class="month_con"> JUL. </li>
-                          <li> 망고플레이트 PC 웹 리뉴얼 </li>
+                          <li> 맛나리 PC 웹 리뉴얼 </li>
                         </ul>
                       </div>
                       <div class="year_con" id="horizontal">
                         <ul>
                           <li class="month_con"> SEP. </li>
-                          <li> 망고플레이트 앱 리뉴얼 </li>
+                          <li> 맛나리 앱 리뉴얼 </li>
                         </ul>
                       </div>
                 </div>
@@ -173,7 +238,7 @@
                       <div class="year_con" id="horizontal">
                         <ul>
                           <li class="month_con"> AUG. </li>
-                          <li> 망고플레이트 비즈니스 망고웨잇 출시 </li>
+                          <li> 맛나리 비즈니스 망고웨잇 출시 </li>
                         </ul>
                       </div>
                       <div class="year_con" id="horizontal">
@@ -232,27 +297,26 @@
 <!-- contact contact contact contact contact contact contact contact contact contact contact contact contact  -->
     <section class="contact-section">
         <div class="contact-container">
-            <h2 class="sec-tit">CONTACT</h2>
-            <div class="form-box">
+            <h2 class="sec_tit">맛나리 문의하기</h2>
+            <div class="form_box">
                 <form action="" method="post" name="cont" enctype="multipart/form-data">
                     <fieldset class="cfixed">
-                        <legend class="blind">CONTACT US</legend>
                         <div class="form">
-                            <label for="name" class="blind">name</label>
+                            <label for="name" class="blind">&nbsp;이름</label>
                             <input type="text" id="name" name="name" placeholder="Name">
-                            <label for="phone" class="blind">phone</label>
+                            <label for="phone" class="blind">&nbsp;전화&nbsp;번호</label>
                             <input type="tel" id="phone" name="phone" placeholder="Phone">
-                            <label for="email" class="blind">email</label>
+                            <label for="email" class="blind">&nbsp;이메일</label>
                             <input type="email" id="email" name="email" placeholder="Email Address">
                         </div>
                         <div class="textarea">
-                            <label for="message" class="blind">message</label>
-                            <textarea name="message" id="message" placeholder="Message">
+                            <label for="message" class="blind">&nbsp;문의&nbsp;내용</label>
+                            <textarea name="message" id="message" placeholder="message">
                             </textarea>
                         </div>
                     </fieldset>
-                    <div class="send-btn">
-                        <button>SEND MASSAGE</button>
+                    <div class="contact_send_btn">
+                        <button>문의하기</button>
                     </div>
                 </form>
             </div>
@@ -260,91 +324,5 @@
     </section>
 
 
-
-
-
-
-    <footer class="footer">
-        <div class="temp">
-            <div class="footer_logo">
-                <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
-            </div>
-
-            <nav class="footer_nav">
-                <ul class="footer_list1">
-                    <li>
-                        <a href="">&nbsp;회사소개&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a href="">&nbsp;맛나리 채용&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a href="">&nbsp;투자 정보&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a href="" target="_blank">&nbsp;맛나리 비즈니스&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;광고 문의</a>
-                    </li>
-                </ul>
-
-                <ul class="footer_list2">
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;공지사항&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;이용약관&nbsp;&nbsp;</a>
-                    </li>
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;비회원 이용자 이용정책&nbsp;&nbsp;</a>
-                    </li>
-                    <li>
-                        <a class="bold" href="" target="_blank">&nbsp;개인정보처리방침&nbsp;&nbsp;</a>
-                    </li>
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;위치기반서비스 이용약관&nbsp;&nbsp;
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;커뮤니티 가이드라인&nbsp;&nbsp;</a>
-                    </li>
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;청소년보호정책&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a class="" href="" target="_blank">&nbsp;홀릭 소개&nbsp;&nbsp;</a>
-                    </li>
-
-                    <li>
-                        <a href="">&nbsp;문의하기</a>
-                    </li>
-                </ul>
-            </nav>
-
-
-            <div class="footer_copyrights">
-                <small>
-                <p>
-                    ㈜ 여기어때컴퍼니
-                    <br>서울특별시 강남구 봉은사로 479, 479타워 11층
-                    <br>대표이사: 정명훈
-                    <br>사업자 등록번호: 742-86-00224
-                    <a href="" target="_blank">[사업자정보확인]</a>
-                    <br>통신판매업 신고번호: 2017-서울강남-01779<br>고객센터: 02-565-5988
-                    <br><br>
-                    <span class="copyrights">© 2023 MangoPlate Co., Ltd. All rights reserved.</span>
-                </p>
-                </small>
-            </div>
-
-        </div>
-    </footer>
 </body>
 </html>
