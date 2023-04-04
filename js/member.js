@@ -64,10 +64,11 @@ function id_validation(){
 // 아이디 중복여부
 function idChk() {
     id = document.getElementById("user_id").value;    
-    if (id == m1.id) {
-        alert("중복되는 아이디가 있습니다.");        
+    if (id === m1.id) {
+        alert("중복되는 아이디가 있습니다.");  
+        console.log(id);
         return false;
-    }else if(id == ''){
+    }else if(id === ''){
         alert("아이디를 입력해주세요.");
         return false;
     }else {
@@ -168,6 +169,7 @@ function numChk(){
     let input_num = document.getElementById("code_num").value;    
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
+        document.getElementById("code_num").value = null;
         document.getElementById("code_num").focus();        
         return false;
     }else{
@@ -217,13 +219,13 @@ function agree_chkAll() {
 }
 // 아이디찾기
 function findID(){
-    const findForm = document.getElementById('form_id');    
-    findForm.getElementById("submit_id").addEventListener('click', function(event){
+    const findForm = document.getElementById('form_id');  
+    findForm.addEventListener('submit', function(event){
         if(!check()){
             event.preventDefault();        
         }
     });
-    function check(){
+    function check(){      
         // let id = document.getElementById('user_id').value;
         let email = document.getElementById('user_email').value;
         let num = document.getElementById('code_num').value;
@@ -276,10 +278,21 @@ function findPW_validation() {
         return true;
     }    
 }
+function signUp_info(){
+    user_info.nickname = document.getElementById("nickname").value;
+    user_info.id = document.getElementById('user_id').value;
+    user_info.password = document.getElementById("user_pwd").value;    
+    user_info.phone = document.getElementById("user_phone").value;
+    user_info.email = document.getElementById('user_email').value;
+}
+function update_info(){
+    user_info.password = document.getElementById("new_repass").value;    
+}
 //비밀번호 찾기
 function findPW(){
-    const findForm = document.getElementById('form_pw');        
+    const findForm = document.getElementById('form_pw');            
     findForm.addEventListener('submit', function(event){ 
+        update_info();
         if(!check()){
             event.preventDefault();        
         }
@@ -303,11 +316,11 @@ function findPW(){
                 document.getElementById('new_repass').focus();
                 return false;
             }
-            m1.password = ""
-            newPass = new_repass;
-            m1.password += newPass;
-            alert("변경된 비밀번호 : " + m1.password);
-            console.log(newPass);           
+            // m1.password = ""
+            // newPass = new_repass;
+            // m1.password += newPass;
+            alert("변경된 비밀번호 : " + user_info.password);
+            console.log(user_info.password);           
             return true;             
         }
     });
@@ -327,13 +340,14 @@ function agreeChk(){
     }    
 }
 
-function signup(){
+function signup(){  
     form1.addEventListener('submit', function(event){
         if(!checkConditions()){
             event.preventDefault();
         }
     });
-    function checkConditions(){
+    function checkConditions(){          
+    signUp_info();
         const form = document.getElementById('member');
         user_nickname = document.getElementById('nickname').value;
         user_id = document.getElementById('user_id').value;
@@ -367,19 +381,19 @@ function signup(){
             return false;
         }
         
-        form.addEventListener('submit',function(event){
-            event.preventDefault();
+        // form.addEventListener('submit',function(event){
+        //     event.preventDefault();
 
-            const userinfo = {
-                nickname : document.getElementById('nickname').value,
-                user_id : document.getElementById('user_id').value,
-                user_pwd : document.getElementById('user_pwd').value,
-                user_phone : document.getElementById('user_phone').value,
-                user_email : document.getElementById('user_email').value
-            }
-            sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
-        });
-        // console.log(user_info);                                  
+        //     const userinfo = {
+        //         nickname : document.getElementById('nickname').value,
+        //         user_id : document.getElementById('user_id').value,
+        //         user_pwd : document.getElementById('user_pwd').value,
+        //         user_phone : document.getElementById('user_phone').value,
+        //         user_email : document.getElementById('user_email').value
+        //     }
+        //     sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
+        // });
+        console.log(user_info);                                  
         alert("회원가입에 완료했습니다.");
         location.href = "login.html";
         return true;
@@ -396,9 +410,12 @@ function login(){
     //     form.user_id.value = userinfo.id;
     //     form.user_pass.value = userinfo.password;
     // });
-    loginForm.addEventListener('submit',function(event){
+    loginForm.addEventListener('submit',function(event){ 
+        if(update_inf !== null){
+            update_info();      
+        } 
+        signup();
         event.preventDefault();
-
         // const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));        
         let id = document.getElementById("user_id").value;
         let pass = document.getElementById('user_pwd').value;      
@@ -410,8 +427,8 @@ function login(){
         }else{
             console.log("입력한 아이디 : " + id);
             console.log("입력한 비밀번호 : " + pass);
-            console.log("저장된 아이디 : " + m1.id);
-            console.log("저장된 비밀번호 : " + m1.password);
+            console.log("저장된 아이디 : " + user_info.id);
+            console.log("저장된 비밀번호 : " + user_info.password);
             alert('아이디 또는 비밀번호가 일치하지 않습니다.');            
         }
     });    
