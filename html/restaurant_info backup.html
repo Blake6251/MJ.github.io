@@ -43,13 +43,6 @@
             background-color: rgb(245, 107, 160)
         }
 
-        .bxslider li{
-            position: relative;
-            display: inline-block;
-            vertical-align: top;
-            width: 25%;
-            text-align: center;
-        }
         .square {
             width: 100%;
             height: 0;
@@ -291,6 +284,253 @@
         }
     </style>
 
+
+
+    <!-- 푸터 -->
+    <!--     <style>
+        body{
+            margin: 0 auto;
+        }
+
+        footer {
+            margin-top: 100px !important;
+            width: 100%;
+            background-color: #3f3e3e;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        div.temp {
+            width: 74.7070%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #footer_logo {
+            width: 162px;
+            height: 70px;
+        }
+
+        .footer_nav {
+            width: 80%;
+            height: 100px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+
+        .footer_nav .footer_list1 {
+            height: 50px;
+            font-size: 12px;
+            text-align: center;
+        }
+        .footer_nav .footer_list1 li{
+            line-height: 20px;
+        }
+        .footer_nav .footer_list1 a {
+            color: #FFFFFF;
+        }
+
+        .footer_nav .footer_list2 {
+            height: 80x;
+            font-size: 12px;
+            text-align: center;
+        }
+        .footer_nav .footer_list2 li{
+            line-height: 20px;
+        }
+        .footer_nav .footer_list2 a {
+            color: #FFFFFF;
+        }
+
+        .footer_nav li {
+            display: inline;
+        }
+
+        .footer_copyrights {
+            display: inline;
+            width: 240px;
+            height: 140px;
+            color: #FFFFFF;
+            font-size: 15px;
+            text-align: center;
+            
+
+        }
+        .footer_copyrights p{
+            line-height: 20px;
+            margin-top: 70px;
+            
+        }
+        .footer_copyrights a {
+            color: #FFFFFF;
+        }
+
+
+
+
+        @media all and (min-width:480px) {
+        div.banner {
+            display: flex;
+            flex-wrap: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: dimgrey;
+        }
+        div#logo_box {
+            margin-left: 10%;
+        }
+        div#logo_box img {
+            width: 70px;
+            height: 40px;
+        }
+        div#ban_right {
+            margin-right: 10%;
+            display: flex;
+            flex-wrap: row nowrap;
+            align-items: center;
+        }
+        div#login_box>a {
+            margin-right: 20px;
+        }
+        div#log_box img {
+            width: 30px;
+            height: 30px;
+        }
+        div.hidden_log {
+            display: none;
+            background-color: antiquewhite;
+            width: 100%;
+            height: 400px;
+        }
+        }
+
+
+
+
+        @media all and (min-width:768px) {
+
+        footer{
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+        }
+        div.temp {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: #942424; */
+        }
+
+
+
+        .footer_logo {
+            width: 120px;
+            height: 90px;
+            margin-top: 40px;
+            background-color: #FFFFFF;
+        }
+        #footer_logo{
+            width: 120px;
+            height: 90px;
+            
+        }
+
+        .footer_nav {  
+            width: 350px;
+            margin-left: 50px;
+            margin-top: 30px;
+            /* background-color: rgb(240, 221, 196); */
+            
+        }
+        .footer_nav ul{
+            float: left;
+        }
+        
+        .footer_nav .footer_list1 {
+            font-size: 1rem;
+            text-align: left;
+            
+        }
+
+        .footer_nav .footer_list1 li {
+            /* background-color: antiquewhite; */
+            
+            display: block;
+
+        }
+        .footer_nav .footer_list1 a {
+            color: #FFFFFF;
+            
+        }
+
+
+
+        .footer_nav .footer_list2 {
+            font-size: 1rem;
+            margin-left: 10px;
+            text-align: left;
+
+        }
+        .footer_nav .footer_list2 li {
+            /* background-color: rgb(97, 222, 238); */
+            
+            display: block;
+        }
+        .footer_nav .footer_list2 a {
+            color: #FFFFFF;
+        }
+
+        .footer_copyrights {
+            width: 20%;
+            height: 180px;
+            color: #FFFFFF;
+            text-align: left;
+            margin-left: 10px;
+            margin-top: 20px;
+            float: left;
+            
+            /* background-color: rgb(213, 243, 243); */
+        }
+        .footer_copyrights p{
+            margin-top: 0px;
+            
+            float: left;
+        }
+
+    }
+
+
+        @media all and (min-width:1024px) {
+            div.temp {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            /* background-color: #942424; */
+        }
+        .footer_logo {
+            width: 15%;
+            margin-top: 40px;
+            background-color: #FFFFFF;
+        }
+        #footer_logo{
+            width: 100%;
+            
+        }
+        .footer_nav{
+            width: 50%;
+        }
+        .footer_copyrights{
+            width: 20%;
+            
+            float: left;
+        }
+        }
+    </style> -->
+
+
     <script>
         $(document).ready(function () {
             /* 쿼리스트링 */
@@ -307,12 +547,8 @@
 
             function write_info() {
                 for (i of searched_rest[0].img) {
-                    $("#bxslider1").append(`<li>
-                        <div class="square">
-                            <img class="slider_img" src=.${i}>
-                        </div>
-                    </li>`)
-                    //$("#bx").append(`<div><img class="slider_img" src=.${i}></div>`)
+                    //$("#bx").append(`<div class="square"><img class="slider_img" src=.${i}></div>`)
+                    $("#bx").append(`<div><img class="slider_img" src=.${i}></div>`)
                 }
 
                 $("#p1").text(searched_rest[0].name)
@@ -381,11 +617,16 @@
         </div>
 
         <!-- 대표사진 슬라이더 -->
-        <div class="bx">
-            <ul id="bxslider1" class="bxslider">
-                <!-- 슬라이더 내용 들어갈 곳, 예시 -->
-                <!-- <div><a href="./html/restaurant_info.html"><div class="square"><img class="slider_img" src="./image/restaurant/gj_hamberger/34.jpg" title="배경1"></div></a></div> -->
-            </ul>
+        <div class="bx_container">
+            <div id="bx" class="bxslider">
+                <!--
+                    <div><img class="slider_img" src="/image/restaurant/cri/1.jpg" title="배경1"></div>
+                    <div><img class="slider_img" src="/image/restaurant/cri/2.jpg" title="배경2"></div>
+                    <div><img class="slider_img" src="/image/restaurant/cri/3.jpg" title="배경3"></div>
+                    <div><img class="slider_img" src="/image/restaurant/cri/4.jpg" title="배경4"></div>
+                    <div><img class="slider_img" src="/image/restaurant/cri/5.jpg" title="배경4"></div>
+                -->
+            </div>
         </div>
 
         <div class="container">
