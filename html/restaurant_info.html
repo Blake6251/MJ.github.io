@@ -72,6 +72,13 @@
             width: 55%;
         }
 
+        .btn_var span{
+            color: black;
+        }
+        .btn_var2 span{
+            color: black;
+        }
+        
         .wrap #con {
             width: 100%;
             height: 100px;
@@ -89,7 +96,7 @@
             display: block;
         }
 
-        .wrap #con li:last-child {
+        .wrap #con li:nth-child(3) {
             color: #F76E11;
         }
 
@@ -123,7 +130,7 @@
         /* 지도 */
         .map1 {
             width: 100%;
-            height: 220px
+            height: 360px
         }
 
 
@@ -186,7 +193,7 @@
             width: 50%;
             height: 42px;
             float: left;
-            background-color: #FFF000;
+            background-color: #F76E11;
         }
 
         .btn_var li {
@@ -283,13 +290,16 @@
 
             }
 
+            #m2 {
+                height: 400px;
+            }
             .map2 {
                 display: flex;
                 width: 100%;
                 height: 100%;
                 margin-top: 50px;
             }
-
+            
         }
     </style>
 
@@ -330,6 +340,8 @@
                 $("#breaktime").text(searched_rest[0].breaktime)
                 $("#lastorder").text(searched_rest[0].lastorder)
                 $("#closedday").text(searched_rest[0].closedday)
+                $("#m2").append(`<iframe class="map2" ${searched_rest[0].map}`)
+                $("#m1").append(`<iframe class="map1" ${searched_rest[0].map}`)
             }
 
             write_info()
@@ -398,6 +410,8 @@
                 <li id="p1">크리스피포크타운</li>
                 <li id="p3">강남</li>
                 <li id="p2">4.8</li>
+                <li id="p4"></li>
+                <li id="p5"></li>
             </div>
 
             
@@ -463,17 +477,21 @@
                     </ul>
                 </nav>
 
-                <iframe class="map2"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div id="m2">
+                    <!--<iframe class="map2"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+                </div>
             </div>
 
             <!-- 지도 -->
-            <iframe class="map1"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                 style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div id="m1">
+                <!--<iframe class="map1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+            </div>
 
 
 

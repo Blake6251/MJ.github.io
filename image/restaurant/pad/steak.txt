@@ -27,5 +27,4 @@
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.763355195019!2d126.92019671562974!3
 d37.560638832222935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98e870f5eb25%3A0xad31477a9b081b01!2z7ISc7J
-q47Yq567OE7IucIOuniO2PrOq1rCDsl7DrgqjroZwx6ri4IDExIDFm!5e0!3m2!1sko!2skr!4v1680579996893!5m2!1sko!2skr" width="6
-00" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+q47Yq567OE7IucIOuniO2PrOq1rCDsl7DrgqjroZwx6ri4IDExIDFm!5e0!3m2!1sko!2skr!4v1680579996893!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
