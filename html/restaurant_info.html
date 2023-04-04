@@ -19,10 +19,7 @@
     <link rel="stylesheet" href="../css/footer.css"> <!-- 푸터 css -->
 
 
-
     <title>Document</title>
-
-
 
 
     <style>
@@ -81,18 +78,19 @@
         }
 
         .wrap #con li {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             text-align: left;
             display: inline-block;
             padding: 5px 10px;
         }
 
-        .wrap #con li:nth-child(2) {
-            color: #F76E11;
+        .wrap #con li:first-child {
+            font-size: 1.8rem;
+            display: block;
         }
 
         .wrap #con li:last-child {
-            display: block;
+            color: #F76E11;
         }
 
         .R_intro {
@@ -124,8 +122,8 @@
 
         /* 지도 */
         .map1 {
-            width: 460px;
-            height: 236px;
+            width: 100%;
+            height: 220px
         }
 
 
@@ -200,7 +198,7 @@
             margin-top: 200px;
         }
 
-        @media all and (min-width:480px) {
+        @media all and (min-width:320px) {
             nav.btn_var2 {
                 display: none;
             }
@@ -213,6 +211,9 @@
         @media all and (min-width:1200px) {
             div.container {
                 width: 600px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
             }
 
             nav.btn_var {
@@ -265,14 +266,15 @@
 
             .map1 {
                 display: none;
+                width: 100%;
             }
 
             .R_in_box{
-                width: 50%;
+                width: 47%;
             }
 
             .side_var {
-                width: 50%;
+                width: 47%;
                 display: flex;
                 height: 500px;
                 flex-direction: row-reverse;
@@ -318,6 +320,7 @@
                 $("#p1").text(searched_rest[0].name)
                 $("#p2").text(searched_rest[0].score)
                 $("#p3").text(searched_rest[0].loc)
+                $("#rest_intro").text(searched_rest[0].intro)
                 $("#addr").text(searched_rest[0].addr1)
                 $("#tell").text(searched_rest[0].tell)
                 $("#theme").text(searched_rest[0].theme)
@@ -389,39 +392,17 @@
         </div>
 
         <div class="container">
+            <div class="R_in_box">
             <!-- 식당이름~ -->
             <div id="con">
                 <li id="p1">크리스피포크타운</li>
-                <li id="p2">4.8</li>
                 <li id="p3">강남</li>
+                <li id="p2">4.8</li>
             </div>
 
-            <!-- 좋즐공 -->
-            <div class="side_var">
-                <nav class="btn_var2">
-                    <ul>
-                        <li class="btn_like2 btn2_1">
-                            <a href="#"><span>좋아요</span></a>
-                        </li>
-                        <li class="btn_favor2 btn2_1">
-                            <a href="#"><span>즐겨찾기</span></a>
-                        </li>
-                        <li class="btn_share2 btn2_1">
-                            <a href="#"><span>공유하기</span></a>
-                        </li>
-                        <li class="btn_share2 btn2_2">
-                            <a href="#"><span>리뷰쓰기</span></a>
-                        </li>
-                    </ul>
-                </nav>
+            
 
-                <iframe class="map2"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="R_in_box">
+            
                 <!-- 식당 소개 -->
                 <div class="R_intro">
                     <h4>식당소개</h4><br />
@@ -463,11 +444,35 @@
                 </div>
             </div>
 
+            <!-- 좋즐공 -->
+            <div class="side_var">
+                <nav class="btn_var2">
+                    <ul>
+                        <li class="btn_like2 btn2_1">
+                            <a href="#"><span>좋아요</span></a>
+                        </li>
+                        <li class="btn_favor2 btn2_1">
+                            <a href="#"><span>즐겨찾기</span></a>
+                        </li>
+                        <li class="btn_share2 btn2_1">
+                            <a href="#"><span>공유하기</span></a>
+                        </li>
+                        <li class="btn_share2 btn2_2">
+                            <a href="#"><span>리뷰쓰기</span></a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <iframe class="map2"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
 
             <!-- 지도 -->
             <iframe class="map1"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6331.143440733078!2d127.02330015390623!3d37.49443180000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca188df1969e1%3A0xa959bbecc7477cc0!2z6rCV64KoIOyLnOyGjA!5e0!3m2!1sko!2skr!4v1679927881526!5m2!1sko!2skr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                 style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
@@ -607,9 +612,6 @@
 
 
 
-
-
-
         <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
         <nav class="btn_var">
             <ul>
@@ -627,10 +629,6 @@
                 <li>
             </ul>
         </nav>
-
-
-
-
 
     </div>
 </body>
