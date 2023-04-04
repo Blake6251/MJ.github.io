@@ -235,12 +235,42 @@
             .map2 {
                 display: none;
             }
+            .R_review_userProfile{
+                margin: 20px;
+            }
+            .R_review_userProfile img{
+                border-radius: 100%;
+            }
+            .R_review_userProfile{
+                border:2px solid #F76E11;
+            }
+            #userProfile img{
+                height: 120px;
+                width: 100px;
+            }
+            .R_review_cotent{
+                margin-top: 10px;
+            }
+            .R_review_cotentBtn{
+                float: right;
+            }
+            .R_review_cotentBtn a{
+                display: flex;
+                align-items: center;
+            }
 
         }
         @media all and (min-width:650px){
             .wrap .container{
-                width: 55%;
+                width: 70%;
             }
+            
+        }
+        @media all and (min-width:950px){
+            .wrap .container{
+                width: 60%;
+            }
+            
         }
         
 
@@ -682,9 +712,9 @@
                     <ul>
                         <li class="R_review_userProfile">
                             <!-- 유저 프로필 사진 -->
-                            <span class="R_review_userProfile">
-                                <img src="../image/restaurant/gj_hamberger/33.jpg" width="64" height="64">
-                            </span>
+                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
+                                <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
+                            </span> 
 
                             <!-- 리뷰내용 유저닉네임, 평점 -->
                             <div>
@@ -692,12 +722,12 @@
                                     <div class="R_review_cotent_ueser">
                                         <span>
                                             <strong class="R_review_cotent_ueserName">
-                                                유저 닉네임
+                                                박규태
                                             </strong>
                                         </span>
                                         <span>
                                             <strong class="R_review_cotent_ueserScore">
-                                                3.0
+                                                4.0
                                             </strong>
                                         </span>
                                     </div>
@@ -711,18 +741,93 @@
                                 <!-- 리뷰내용 버튼 -->
                                 <div class="R_review_cotentBtn">
                                     <ul>
-                                        <li><a href="#">좋아요</a></li>
-                                        <li><a href="#">댓글</a></li>
-                                        <li><a href="#">신고하기</a></li>
+                                        <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
                                     </ul>
                                 </div>
-
                             </div>
                         </li>
 
 
-                        <li></li>
-                        <li></li>
+                        <li class="R_review_userProfile">
+                            <!-- 유저 프로필 사진 -->
+                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
+                                <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
+                            </span>
+
+                            <!-- 리뷰내용 유저닉네임, 평점 -->
+                            <div>
+                                <div class="R_review_cotent">
+                                    <div class="R_review_cotent_ueser">
+                                        <span>
+                                            <strong class="R_review_cotent_ueserName">
+                                                이규재
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <strong class="R_review_cotent_ueserScore">
+                                                4.0
+                                            </strong>
+                                        </span>
+                                    </div>
+                                    <div class="R_review_cotent_ueserReview">
+                                        <p>
+                                            편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^
+                                            점심시간대에가면 좀더저렴하게즐길수있어요~
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 리뷰내용 버튼 -->
+                                <div class="R_review_cotentBtn">
+                                    <ul>
+                                        <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="R_review_userProfile">
+                            <!-- 유저 프로필 사진 -->
+                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
+                                <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
+                            </span>
+
+                            <!-- 리뷰내용 유저닉네임, 평점 -->
+                            <div>
+                                <div class="R_review_cotent">
+                                    <div class="R_review_cotent_ueser">
+                                        <span>
+                                            <strong class="R_review_cotent_ueserName">
+                                                유현호
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <strong class="R_review_cotent_ueserScore">
+                                                4.0
+                                            </strong>
+                                        </span>
+                                    </div>
+                                    <div class="R_review_cotent_ueserReview">
+                                        <p>
+                                            편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^
+                                            점심시간대에가면 좀더저렴하게즐길수있어요~
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 리뷰내용 버튼 -->
+                                <div class="R_review_cotentBtn">
+                                    <ul>
+                                        <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
                         <li></li>
                         <li></li>
                     </ul>
