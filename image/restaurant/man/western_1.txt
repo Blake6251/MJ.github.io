@@ -21,3 +21,11 @@ Manimal 플래터
 129,800원
 Pit Master Platter
 169,800원
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163
+.870899656706!2d126.98631081562915!3d37.534540433716806!2m3!1f0!2f0!3f0!3m
+2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca237d067cf95%3A0x69467e664827e6!2z7I
+Sc7Jq47Yq567OE7IucIOyaqeyCsOq1rCDrhbnsgqztj4nrjIDroZw0MOq4uCA0NyAyZg!5
+e0!3m2!1sko!2skr!4v1680580078685!5m2!1sko!2skr" width="600" height="450" styl
+e="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-d
+owngrade"></iframe>
