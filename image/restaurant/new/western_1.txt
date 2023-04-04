@@ -28,5 +28,5 @@
 .892799148244!2d126.99107691562932!3d37.53402423374655!2m3!1f0!2f0!3f0!3m
 2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca34e0b448ed9%3A0x27fa3eb05b9b75ae!
 2z64-87KeA66CI7Iqk7Yag656RIOuRmOynuA!5e0!3m2!1sko!2skr!4v1680580622723!
-5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loa
+5m2!1sko!2skr" style="border:0;" allowfullscreen="" loa
 ding="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

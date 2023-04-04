@@ -75,6 +75,10 @@
         background-color: #f76e11;
         box-sizing: border-box;
         border: 1px solid #fff;
+        border-bottom: none;
+    }
+    ul.logs li.log:last-child{
+        border-bottom: 1px solid #fff;
     }
     li.log a{
         width: 100%;
