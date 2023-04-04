@@ -197,8 +197,9 @@
         </div>
     </header>
     <div class="container">        
-        <div class="sub_container">
-            <form action="" method="post" name="member" id="member" class="member" enctype="multipart/form-data" onsubmit="return handleSubmit()">
+        <div class="sub_container">            
+            <form action="login.html" method="post" name="member" id="member" class="member" enctype="multipart/form-data" ><!--onsubmit="return handleSubmit()"--> 
+                <!-- <iframe id="iframe1" name="iframe1" style="display:none"></iframe> -->
                 <h3 style="color: black;">회원가입</h3><hr style="border: 1px solid black; height: 0;">
                 <br>
                 <ul>                
@@ -230,13 +231,13 @@
                         <label class="lab" for="user_email">이메일 </label>
                         <input type="email" class="con2" name="user_email" id="user_email" placeholder=" 이메일을 입력해주세요" >
                         <!-- <button id="submit">이메일인증</button> -->
-                        <input type="submit" id="submit" value="이메일인증" onclick="emailChk()">                 
+                        <input type="button" id="submit" value="이메일인증" onclick="emailChk()">                 
                     </li>
                     <li>
                         <label class="lab" for="code_num"></label>
                         <input type="text" class="con2" name="code_num" id="code_num" placeholder=" 인증번호를 입력해주세요">
                         <!-- <button id="chk_btn">확인</button> -->
-                        <input type="submit" id="submit" value="확인" onclick="numChk()">
+                        <input type="button" id="submit" value="확인" onclick="numChk()">
                     </li>                    
                     <hr style="border: 1px solid black; height: 0;">
                     <br>
@@ -272,16 +273,91 @@
                         </li>                                               
                     </div>
                     <li class="btn">
-                        <input type="button" name="button" id="button" href="../index.html" value="가입취소">
-                        <input type="submit" name="submit_all" id="submit_all" onclick="return handleSubmit()" value="가입하기">                       
+                        <input type="button" name="button" id="button" value="가입취소" >
+                        <input type="submit" name="submit_all" id="submit_all" value="가입하기"><!--onclick="agreeChk()"-->                        
                         <!-- <input type="submit" name="button" value="가입하기">
                         <input type="button" name="button" href="../index.html" value="가입취소"> -->
                     </li> 
-                </ul>
-            </form>                        
-        </div>
+                </ul>                
+            </form>   
+
+        </div> 
     </div>
-    <script>
+    <script> 
+        const form1 = document.getElementById('member');
+       
+        form1.addEventListener('submit', function(event){
+            if(!checkConditions()){
+                event.preventDefault();
+            }
+        });
+        function checkConditions(){
+            const nickname = document.getElementById('nickname').value;
+            const id = document.getElementById('user_id').value;
+            const pass = document.getElementById('user_pwd').value;
+            const passChk = document.getElementById('user_pwdChk').value;
+            const phone = document.getElementById('user_phone').value;
+            const email = document.getElementById('user_email').value;
+            const agree1 = document.getElementById('agree_chk1').checked;
+            const agree2 = document.getElementById('agree_chk2').checked;
+            const agree3 = document.getElementById('agree_chk3').checked;
+
+            if(nickname === '' || id  === '' || pass === '' || passChk === '' || phone === '' || email === '' ){
+                alert('필수입력사항 입력해주세요.');
+                return false;
+            }
+
+            if(pass !== passChk){
+                alert('비밀번호가 일치하지 않습니다.');
+                return false;
+            }
+
+            if(!agree1 && !agree2 && !agree3){
+                alert('모두 동의해주세요.');
+                return false;
+            }
+
+            alert("회원가입에 완료했습니다.");
+            return true;
+        }
+        // document.getElementById("submit_all").addEventListener("click", function(){            
+        //     location.href = "login.html";
+        // });
+        // let form = document.getElementById("member");
+        // // let id = document.getElementById("user_id");
+        // let pass = document.getElementById("user_pwd");
+        // let passChk = document.getElementById("user_pwdChk");
+        // // let phone = document.getElementById("user_phone");
+        // // let email = document.getElementById("user_email");
+        // let agree1 = document.getElementById("agree_chk1");
+        // let agree2 = document.getElementById("agree_chk2");
+        // let agree3 = document.getElementById("agree_chk3");
+
+        // document.getElementById("submit_all").addEventListener("click", function(){
+            
+            
+        //     // if(pass !== passChk){
+        //     //     alert("암호와 암호 확인 값이 일치하지 않습니다.");
+        //     //     event.preventDefault();
+        //     //     return false;
+        //     // }
+        //     // if(form.checkValidity() == true){
+        //     //     alert("회원가입에 필요한 정보를 전부 입력해주세요.");
+        //     //     event.preventDefault();
+        //     //     return;
+        //     // }else if(!agree1.checked && !agree2.checked && !agree3.checked){
+        //     //     alert("동의사항에 모두 동의해주세요.");
+        //     //     event.preventDefault();                
+        //     //     return;
+        //     // }
+
+            
+
+        //     // alert("회원가입이 완료되었습니다.");
+        //     location.href = "login.html";
+            
+        // });
+         
         // function idChk(){
         //     let id = document.getElementById("user_id").value;
         //     let num = id.search(/[0-9]/g);

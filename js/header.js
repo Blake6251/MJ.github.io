@@ -26,7 +26,7 @@ $(document).ready(function(){
         }
     })
 
-    // 세션 스토리지에서 저장된 로그 정보를 가져와 배열로 변환
+    // 세션스토리지에서 키가 "logs"인 값을 가져와서 배열로 변환
     let logs = JSON.parse(sessionStorage.getItem("logs")) || [];
 
     /* 쿼리스트링 */
@@ -45,7 +45,7 @@ $(document).ready(function(){
     }
 
     // 배열을 다시 세션 스토리지에 저장
-    sessionStorage.setItem("logs", JSON.stringify(logs));
+    sessionStorage.setItem("logs", JSON.stringify(logs));   // 키 : "logs", 값 : JSON.stringify(logs)
 
     appendLogs()
     

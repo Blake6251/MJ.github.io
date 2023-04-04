@@ -4,253 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/default.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
     <title>Document</title>
+
+    <!-- 외부파일 -->
+    <link href="../css/default.css" rel="stylesheet"> <!-- 스타일 리셋 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리, 중복되면 제거할것 -->
     <link href="../css/header.css" rel="stylesheet"> <!-- 헤더 스타일 시트-->
     <script src="../js/header.js"></script> <!-- 헤더 js -->
+    <script src="../js/restaurant_info_copy.js"></script> <!-- 데이터 스크립트 -->
+    <link href="../css/footer.css" rel="stylesheet"> <!-- 푸터 css -->
+    
+    <style>
 
-    <!-- footer -->
-    <link href="../css/default.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
-
-
-
-
-
-
-        <!-- footer css -->
-        <style>
-            @media all and (min-width:320px) {
-                footer {
-                    width: 100%;
-                    height: 400px;
-                    background-color: #3f3e3e;
-                    display: flex;
-                    justify-content: center;
-                    flex-direction: column;
-                }
-                div.footer_box {
-                    width: 74.7070%;
-                    margin: 0 auto;
-                    text-align: center;
-                }
-                #footer_logo {
-                    width: 162px;
-                    height: 70px;
-                }
-                #footer_logo {
-                    width: 162px;
-                    height: 70px;
-                }
-
-                .footer_nav {
-                    width: 80%;
-                    margin: 40px auto;
-                }
-
-                .footer_nav .footer_list1 {
-                    margin: 0 auto;
-                    font-size: 12px;
-                    /* text-align: left; */
-                }
-
-                .footer_nav .footer_list1 a {
-                    color: #FFFFFF;
-                }
-
-                .footer_nav li {
-                    display: inline-block;
-                }
-
-                .footer_copyrights {
-                    display: inline-block;
-                    width: 80%;
-                    color: #FFFFFF;
-                    font-size: 15px;
-                    text-align: center;
-        
-                }
-
-                .footer_copyrights a {
-                    color: #FFFFFF;
-                }
-        
-            }
-    
-            
-    
-            
-    
-            
-
-            
-    
-            
-    
-    
-            
-    
-            
-    
-            
-    
-    
-    
-
-    
-    
-    
-            @media all and (min-width:768px) {
-
-    
-    
-    
-    
-            footer{
-                width: 100%;
-                height: 500px;
-                margin: 0 auto;
-            }
-            div.footer_box {
-                width: 600px;
-                height: 500px;
-                display: flex;
-                flex-wrap: wrap;
-                /* background-color: #942424; */
-            }
-    
-    
-    
-            .footer_logo {
-                width: 90px;
-                height: 50px;
-                margin-left: 80px;
-                margin-top: 40px;
-                background-color: #FFFFFF;
-            }
-            #footer_logo{
-                width: 90px;
-                height: 50px;
-                
-            }
-    
-            .footer_nav {  
-                width: 420px;
-                margin-left: 10px;
-            }
-    
-            
-            .footer_nav .footer_list1 {
-                font-size: 1rem;
-                float: left;
-                
-            }
-    
-            .footer_nav .footer_list1 li {
-                /* background-color: antiquewhite; */
-                
-                display: block;
-    
-            }
-            .footer_nav .footer_list1 a {
-                color: #FFFFFF;
-                
-            }
-    
-    
-    
-            .footer_nav .footer_list2 {
-                float: left;
-                font-size: 1rem;
-                margin-left: 10px;
-    
-            }
-            .footer_nav .footer_list2 li {
-                /* background-color: rgb(97, 222, 238); */
-                
-                display: block;
-            }
-            .footer_nav .footer_list2 a {
-                color: #FFFFFF;
-            }
-    
-            .footer_copyrights {
-                width: 170px;
-                height: 180px;
-                color: #FFFFFF;
-                text-align: left;
-                float: left;
-                margin-left: 50px;
-                left: 130px;
-                
-                /* background-color: rgb(213, 243, 243); */
-            }
-    
-    
-    
-    
-            }
-    
-            @media all and (min-width:1024px) {
-    
-            }
-        </style>
+    </style>
 </head>
 <body>
-    <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
+    <header>     <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
         <div class="banner">
             <div id="logo_box">
-                <a href="../index.html"><img src="../image/restaurant/gj_hamberger/33.jpg"></a>
+                <a href="../index.html"><img src="../image/logo.jpg"></a>
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="../html/login1.html">로그인</a>
+                    <a href="../html/login.html">로그인</a>
                 </div>
                 <div id="log_box">
-                    <button id="log_btn"><img src="#"></button>
+                    <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
                 </div>
             </div>
         </div>
         <div class="hidden_log">
-            <div class="log_tilte">
-                <div class="recent_log">
-
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
                 </div>
-                <div class="favor_log">
-
+                <div id="favor_log">
+                    <p>찜한 가게</p>
                 </div>
             </div>
-            <ul class="logs">
-                <li class="log"></li>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
             </ul>
         </div>
-    </header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
+    </header>    <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
 
 
 
-    <footer class="footer">
+    <footer class="footer">     <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
         <div class="footer_box">
             <div class="footer_logo">
-                <a href="./index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+                <a href="../index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
             </div>
 
             <nav class="footer_nav">
                 <ul class="footer_list1">
                     <li>
-                        <a href="">회사소개&nbsp;&nbsp;</a>
+                        <a href="">회사소개</a>
                     </li>
                     <li>
-                        <a href="">도움말&nbsp;&nbsp;</a>
+                        <a href="">도움말</a>
                     </li>
                     <li>
-                        <a href="">이용약관&nbsp;&nbsp;</a>
+                        <a href="">이용약관</a>
                     </li>
                     <li>
-                        <a href="">서비스소개&nbsp;&nbsp;</a>
+                        <a href="">서비스소개</a>
                     </li>
                     <li>
-                        <a href="">문의하기&nbsp;&nbsp;</a>
+                        <a href="">문의하기</a>
                     </li>
                 </ul>
             </nav>
@@ -271,6 +92,6 @@
                 </small>
             </div>
         </div>
-    </footer>
+    </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
 </body>
 </html>

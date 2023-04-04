@@ -1,6 +1,7 @@
 let m1 = { nickname: "aaa1!", id: "aaa111", password: "asdqwe123!@#", phone: "01012345678", email: "aaaa1234@gmail.com" }
-let m2 = { nickname: "qwe00!", id: "qweqwe123", password: "qweqwe123!", phone: "01012345678", email: "qweqwe123@gmail.com" }
+let m2 = { nickname: "qwe1!", id: "qweqwe123", password: "qweqwe123!", phone: "01012345678", email: "qweqwe123@gmail.com" }
 let user_info = { nickname: "", id: "", password: "", phone: "", email: "" };
+let form = "";
 let nickname = "";
 let id = "";
 let pw = "";
@@ -8,6 +9,7 @@ let phone = "";
 let email = "";
 let code_num = "";
 let num = Math.floor(Math.random() * 899999) + 100000;
+
 // 닉네임유효성검사 및 중복검사
 function nameChk(){
     nickname = document.getElementById("nickname").value;
@@ -114,8 +116,15 @@ function phoneChk(){
         // document.getElementById("user_phone").focus();
     }
 }
+function resetCode(){
+    code_num = '';
+    for(let i = 0; i < 6; i++){
+        code_num += Math.floor(Math.random()*10);
+    }
+}
 // 이메일 유효성검사 및 인증번호 발송
 function emailChk(){
+    resetCode();
     email = document.getElementById("user_email").value;
     // let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     let regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
@@ -123,11 +132,9 @@ function emailChk(){
         alert("이메일형식이 맞지않습니다.");
         document.getElementById("user_email").focus();
         return false;
-    }else{
-        // num = Math.floor(Math.random() * 899999) + 100000;
-        // code_num = num;
-        code_num += num;
-        alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + num);
+    }else{        
+        // code_num += num;        
+        alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
         console.log(regex.test(email));
         return true;
     }
@@ -137,14 +144,14 @@ function numChk(){
     let input_num = document.getElementById("code_num").value;    
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
-        document.getElementById("code_num").focus();
+        document.getElementById("code_num").focus();        
         return false;
     }else{
         alert("인증이 완료되었습니다.");
         return true;
     }
 }
-// 동의사항 체크여부
+// 동의사항 전체동의 기능
 function agree_chkAll() {
     $(document).ready(function () {
         $("#agree_allchk").click(function () {
@@ -167,51 +174,62 @@ function agree_chkAll() {
         });
     });
 }
-function handleSubmit() {
-    //회원정보
-    nickname = document.getElementById('nickname').value;
-    id = document.getElementById('user_id').value;
-    password = document.getElementById('user_pwd').value;
-    phone = document.getElementById('user_phone').value;
-    email = document.getElementById('user_email').value;
-    let pass = false;
-    // 로컬 스토리지에 회원정보 저장
-    // let user_nickname = user_info.setItem("nickname", nickname);
-    // let user_id = localStorage.setItem("id", id);
-    // let user_password = localStorage.setItem("password", password);
-    // let user_phone;
-    // let user_phone = localStorage.setItem("phone", phone);
-    // let user_email = localStorage.setItem("email", email); 
 
-    user_info.nickname = nickname;
-    user_info.id = id
-    user_info.password = password;
-    user_info.phone = "";
-    user_info.email = email;
+// 체크박스가 모두 선택되었는지 확인하는 함수
+function agreeChk(){
+    let agree1 = document.getElementById("agree_chk1");
+    let agree2 = document.getElementById("agree_chk2");
+    let agree3 = document.getElementById("agree_chk3");
 
-    agree_chkAll();
-
-    if (user_info.phone == null || user_info.phone == "undefined" || user_info.phone == "") {
-        console.log("빈칸");
+    if(!agree1.checked && !agree2.checked && !agree3.checked){
+        alert("동의사항에 모두 동의해주세요.");        
         return false;
-    } else {
-        console.log("닉네임 : ", user_info.nickname);
-        console.log("아이디 : ", user_info.id);
-        console.log("비밀번호 : ", user_info.password);
-        console.log("휴대폰 : ", user_info.phone);
-        console.log("이메일 : ", user_info.email);
-        return true;
-    }
-
-
-
-
-    // window.location.href = "login.html";
-    // 값을 확인하거나 처리하는 코드를 작성합니다.
-    // console.log("닉네임 : ",localStorage.getItem("nickname"));
-    // console.log("아이디 : ",localStorage.getItem("id"));
-    // console.log("비밀번호 : ",localStorage.getItem("password"));
-    // console.log("휴대폰 : ", localStorage.getItem("phone"));
-    // console.log("이메일 : ", localStorage.getItem("email")); 
-    // console.log(isNaN(phone));          
+    }else{        
+        return;
+    }    
 }
+
+// function handleSubmit() {
+//     //회원정보
+//     nickname = document.getElementById('nickname').value;
+//     id = document.getElementById('user_id').value;
+//     password = document.getElementById('user_pwd').value;
+//     phone = document.getElementById('user_phone').value;
+//     email = document.getElementById('user_email').value;
+//     let pass = false;
+//     // 로컬 스토리지에 회원정보 저장
+//     // let user_nickname = user_info.setItem("nickname", nickname);
+//     // let user_id = localStorage.setItem("id", id);
+//     // let user_password = localStorage.setItem("password", password);
+//     // let user_phone;
+//     // let user_phone = localStorage.setItem("phone", phone);
+//     // let user_email = localStorage.setItem("email", email); 
+
+//     user_info.nickname = nickname;
+//     user_info.id = id
+//     user_info.password = password;
+//     user_info.phone = phone;
+//     user_info.email = email;
+
+//     let info = Object.values(user_info).some(value => value === "");
+    
+//     if(info !== true){
+//         console.log("닉네임 : ", user_info.nickname);
+//         console.log("아이디 : ", user_info.id);
+//         console.log("비밀번호 : ", user_info.password);
+//         console.log("휴대폰 : ", user_info.phone);
+//         console.log("이메일 : ", user_info.email); 
+//         return false;
+//     }else{
+//         alert("회원가입에 필요한 정보를 전부 입력해주세요.");
+//         return true;
+//     }
+  
+//     // 값을 확인하거나 처리하는 코드를 작성합니다.
+//     // console.log("닉네임 : ",localStorage.getItem("nickname"));
+//     // console.log("아이디 : ",localStorage.getItem("id"));
+//     // console.log("비밀번호 : ",localStorage.getItem("password"));
+//     // console.log("휴대폰 : ", localStorage.getItem("phone"));
+//     // console.log("이메일 : ", localStorage.getItem("email")); 
+//     // console.log(isNaN(phone));          
+// }
