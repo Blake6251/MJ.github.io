@@ -3,7 +3,6 @@
 		{
 			clientId: "cAfOrXvsQaS0AqdDj6tU",
 			callbackUrl: "http://localhost:8080/html/login.html",
-			isPopup : false,
 			loginButton: {color: "green", type: 3,  height: 55}
 		}
 		);     
@@ -23,8 +22,7 @@
 			}
 		}
 		});
-		console.log(naverLogin);
-	
+		console.log(naverLogin);	
 		function setLoginStatus(){			
 		
 		// const message_area=document.getElementById('message');
@@ -44,7 +42,7 @@
 			location.replace("http://localhost:8080/navertest.html");
 		})		
 		
-			location.href("../index.html");
+			// location.href("../index.html");
 		}	
 				
 	}
