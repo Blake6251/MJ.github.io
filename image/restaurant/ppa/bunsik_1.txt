@@ -16,3 +16,11 @@
 15,500원
 빠사삭 B
 15,500원
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165
+.4603123479164!2d127.02599191562855!3d37.49706013586098!2m3!1f0!2f0!3f0!3m
+2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15a193bb0cd%3A0x9f8ad6ae80207800!2
+z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDqsJXrgqjrjIDroZwgMzU4LTIg7Li1IDIwMe2
+YuA!5e0!3m2!1sko!2skr!4v1680580153780!5m2!1sko!2skr" width="600" height="45
+0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-
+when-downgrade"></iframe>

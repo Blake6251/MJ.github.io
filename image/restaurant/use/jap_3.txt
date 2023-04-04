@@ -22,3 +22,11 @@
 13,000원
 튀김김치만두 (3ea)
 4,000원
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.
+445065124528!2d127.02937281562856!3d37.49741983584057!2m3!1f0!2f0!3f0!3m2
+!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15718c7ab71%3A0x7ba210acce68d513!2z7
+ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDthYztl6TrnoDroZw46ri4IDIyIDHsuLUgMTAy7
+Zi4!5e0!3m2!1sko!2skr!4v1680580594171!5m2!1sko!2skr" width="600" height="450
+" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-wh
+en-downgrade"></iframe>
