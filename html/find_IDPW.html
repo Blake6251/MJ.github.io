@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/default.css">
     <script src="../js/header.js"></script>
+    <script src="../js/member.js"></script>
     <title>아이디/비밀번호 찾기</title>
 </head>
 <style>
@@ -100,7 +101,7 @@
         font-size: 12pt;
     }
 
-    .container #user_id {
+    .container #user_id, .container #new_pass, .container #new_repass {
         width: 99%;
         height: 40px;
         box-sizing: border-box;
@@ -119,7 +120,7 @@
         font-size: 2vw;
     }
 
-    .container button#submit {
+    .container button#submit_id, .container button#submit_pw{
         width: 99%;
         height: 40px;
         background-color: #4CAF50;
@@ -147,7 +148,7 @@
             margin: 0px 5px 0px 5px;
             border-radius: 5px;
         }
-        .container #user_id {
+        .container #user_id, .container #new_pass, .container #new_repass {
             width: 550px;
             height: 40px;            
         }
@@ -201,7 +202,7 @@
             margin: 0px 5px 0px 5px;
             border-radius: 5px;
         }
-        .container #user_id {
+        .container #user_id, .container #new_pass, .container #new_repass{
             width: 650px;
             height: 40px;            
         }
@@ -216,7 +217,7 @@
             box-shadow: 1px 1px 1px #ccc;
         }
         .container button#chk_btn {
-            width: 109px;
+            width: 107px;
             height: 40px;
             background-color: #4CAF50;    
             color: white;
@@ -236,6 +237,9 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 13pt;
+        }
+        .container button#submit_id, .container button#submit_pw{
+            width: 100%;
         }
     }
 </style>
@@ -275,41 +279,47 @@
         </div>
         <div id="find-id" class="tabcontent">
             <h3>아이디 찾기</h3>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" id="form_id" enctype="multipart/form-data">
                 <ul>
                     <li>
                         <!-- <label for="find-id-email">이메일</label> -->
                         <input type="email" id="user_email" name="user_email" placeholder="이메일">
-                        <button type="submit" id="chk_btn">인증번호</button><br>
+                        <button type="button" id="chk_btn" onclick="emailChk()">인증번호</button><br>
                     </li>
                     <li>
                         <!-- <label for="find-id-phone">인증번호</label> -->
-                        <input type="tel" id="chkNum" name="chkNum" placeholder="인증번호">
-                        <button type="submit" id="chk_btn">인증확인</button>
+                        <input type="tel" id="code_num" name="code_num" placeholder="인증번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
+                        <button type="button" id="chk_btn" onclick="numChk()">인증확인</button>
                     </li>
                     <li>
-                        <button type="submit" id="submit">아이디 찾기</button>
+                        <button type="submit" id="submit_id" onclick="findID()">아이디 찾기</button>
                     </li>
                 </ul>
             </form>
         </div>
         <div id="find-password" class="tabcontent">
             <h3>비밀번호 찾기</h3>
-            <form>
+            <form action="login.html" method="post" id="form_pw" enctype="multipart/form-data">
                 <ul>
                     <li>
                         <input type="text" id="user_id" name="user_id" placeholder="아이디">
                     </li>
                     <li>
-                        <input type="email" id="user_pwd" name="user_pwd" placeholder="이메일">
-                        <button type="submit" id="chk_btn">인증번호</button>
+                        <input type="email" id="email" name="email" placeholder="이메일">
+                        <button type="button" id="chk_btn" onclick="emailChk_pw()">인증번호</button>
                     </li>
                     <li>
-                        <input type="email" id="chkNum" name="chkNum" placeholder="인증번호">
-                        <button type="submit" id="chk_btn">인증확인</button>
+                        <input type="tel" id="code_num_pw" name="code_num_pw" placeholder="인증번호" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')">
+                        <button type="button" id="chk_btn" onclick="numChk_pw()">인증확인</button>
                     </li>
                     <li>
-                        <button type="submit" id="submit">비밀번호 찾기</button>
+                        <input type="password" id="new_pass" name="new_pass" placeholder="새 비밀번호 입력" onchange="findPW_validation()">
+                    </li>
+                    <li>
+                        <input type="password" id="new_repass" name="new_repass" placeholder="새 비밀번호 재입력">
+                    </li>
+                    <li>                        
+                        <button type="submit" id="submit_pw" onclick="findPW()">비밀번호 찾기</button>
                     </li>
                 </ul>
             </form>
@@ -332,6 +342,9 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-    </script>
+        // document.addEventListener("DOMContentLoaded", function(){
+        //     find();
+        // });
+    </script>    
 </body>
 </html>
