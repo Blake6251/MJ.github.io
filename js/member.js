@@ -88,14 +88,14 @@ function pwd_validation() {
         return false;
     }else{        
         console.log("통과");
-        return true;
+        return true; 
     }    
 }
 // 비밀번호 일치여부
 function pwdChk() {
     let pw = document.getElementById("user_pwd").value;
     let pwchk = document.getElementById("user_pwdChk").value;
-    if(pw == '' || pwchk == ''){
+    if(pw == '' || pwchk == ''){ 
         alert("비밀번호를 입력해주세요.");
         document.getElementById("user_pwd").focus();
         return false;
@@ -145,6 +145,8 @@ function emailChk(){
         return true;
     }
 }
+/* ~ 회원가입 */
+/* 아이디 찾기 ~?*/
 function emailChk_pw(){
     resetCode();
     email = document.getElementById("email").value;
@@ -264,7 +266,7 @@ function login(){
         let user = JSON.parse(sessionStorage.getItem("user"));         
         let id = document.getElementById("user_id").value;
         let pass = document.getElementById('user_pwd').value;                      
-        let login = { login_id : "", pass : ""};
+        let login = { login_id : "", pass : ""};    /* login 객체 생성 */
         if(id === '' || pass === ''){
             alert('아이디와 비밀번호를 입력해주세요.');
             console.log("m1 : " + JSON.stringify(m1));
