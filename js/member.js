@@ -1,7 +1,8 @@
-let m1 = { nickname: "aaa1!", id: "aaa111", password: "asdqwe123!@#", phone: "01012345678", email: "aaaa1234@gmail.com" }
-let m2 = { nickname: "qwe1!", id: "qweqwe123", password: "qweqwe123!", phone: "01012345678", email: "qweqwe123@gmail.com" }
+let m1 = { nickname: "aaa1!", id: "aaa111", password: "asdqwe1!", phone: "01012345678", email: "aaaa1234@gmail.com" }
+let m2 = { nickname: "qwe1!", id: "qweqwe123", password: "qweqwe1!", phone: "01012345678", email: "qwe123@gmail.com" }
 let user_info = { nickname: "", id: "", password: "", phone: "", email: "" };
-let form = "";
+
+let form1 = document.getElementById('member');
 let nickname = "";
 let id = "";
 let pw = "";
@@ -9,6 +10,9 @@ let phone = "";
 let email = "";
 let code_num = "";
 let num = Math.floor(Math.random() * 899999) + 100000;
+let newPass = "";
+// m1.password = newPass;
+// sessionStorage.setItem('newPassword', newPass);
 
 // 닉네임유효성검사 및 중복검사
 function nameChk(){
@@ -60,10 +64,14 @@ function id_validation(){
 // 아이디 중복여부
 function idChk() {
     id = document.getElementById("user_id").value;    
-    if (id == m1.id) {
-        alert("중복되는 아이디가 있습니다.");        
+    if (id === m1.id) {
+        alert("중복되는 아이디가 있습니다.");  
+        console.log(id);
         return false;
-    } else {
+    }else if(id === ''){
+        alert("아이디를 입력해주세요.");
+        return false;
+    }else {
         alert("사용가능한 아이디입니다.");        
         return true;
     }
@@ -85,8 +93,7 @@ function pwd_validation() {
     }else{        
         console.log("통과");
         return true;
-    }
-    
+    }    
 }
 // 비밀번호 일치여부
 function pwdChk() {
@@ -111,7 +118,7 @@ function phoneChk(){
         document.getElementById("user_phone").value = null;
         document.getElementById("user_phone").focus();
     } else {
-        alert("숫자");
+        // alert("숫자");
         user_info.phone = document.getElementById("user_phone").value;
         // document.getElementById("user_phone").focus();
     }
@@ -135,6 +142,24 @@ function emailChk(){
     }else{        
         // code_num += num;        
         alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
+        console.log(code_num);
+        console.log(regex.test(email));
+        return true;
+    }
+}
+function emailChk_pw(){
+    resetCode();
+    email = document.getElementById("email").value;
+    // let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    let regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if(regex.test(email) == false){
+        alert("이메일형식이 맞지않습니다.");
+        document.getElementById("email").focus();
+        return false;
+    }else{        
+        // code_num += num;        
+        alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
+        console.log(code_num);
         console.log(regex.test(email));
         return true;
     }
@@ -144,7 +169,25 @@ function numChk(){
     let input_num = document.getElementById("code_num").value;    
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
+        document.getElementById("code_num").value = null;
         document.getElementById("code_num").focus();        
+        return false;
+    }else{
+        alert("인증이 완료되었습니다.");
+        return true;
+    }
+}
+function numChk_pw(){    
+    let input_num = document.getElementById("code_num_pw").value;   
+    // code_num = '';
+    // for(let i = 0; i < 6; i++){
+    //     code_num += Math.floor(Math.random()*10);
+    // } 
+    if(code_num !== input_num){
+        alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
+        document.getElementById("code_num_pw").focus(); 
+        console.log("입력 값 : " + input_num);
+        console.log("인증번호 : " + code_num);     
         return false;
     }else{
         alert("인증이 완료되었습니다.");
@@ -174,14 +217,122 @@ function agree_chkAll() {
         });
     });
 }
+// 아이디찾기
+function findID(){
+    const findForm = document.getElementById('form_id');  
+    findForm.addEventListener('submit', function(event){
+        if(!check()){
+            event.preventDefault();        
+        }
+    });
+    function check(){      
+        // let id = document.getElementById('user_id').value;
+        let email = document.getElementById('user_email').value;
+        let num = document.getElementById('code_num').value;
 
+        if(email === '' || num === '') {
+            alert('이메일과 인증번호를 입력해주세요.');            
+            return false;       
+        }
+        if(email !== m1.email){
+            alert('이메일이 일치하지않습니다.');
+            document.getElementById("user_email").value = null;
+            document.getElementById("code_num").value = null;
+            document.getElementById("user_email").focus();
+            return false;
+        }    
+        //else if(id === '' || email === '' || num === ''){
+        //     alert('입력사항 모두 입력해주세요.')
+        //     return false;
+        //}
+        alert("아이디 : " + m1.id);
+        // location.href = "login.html";
+        return true;
+    }
+}
+// 비밀번호 찾기 시 임시비밀번호 생성
+
+// function generatePass(){    
+//     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+//     let password = '';    
+
+//     for (let i = 0; i < 8; i++) {
+//         password += characters.charAt(Math.floor(Math.random() * characters.length));                            
+//     }   
+//     return password; 
+// }
+
+function findPW_validation() {
+    pw = document.getElementById("new_pass").value;    
+    let num = pw.search(/[0-9]/g);
+    let eng = pw.search(/[a-z]/ig);
+    let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    if((pw.length < 8  || pw.length > 16) || num < 0 || eng < 0 || spe < 0){
+        alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");    
+        return false;
+    }else if(pw.search(/\s/) != -1){
+        alert("비밀번호는 공백없이 입력해주세요.");
+        return false;
+    }else{        
+        console.log("통과");
+        return true;
+    }    
+}
+function signUp_info(){
+    user_info.nickname = document.getElementById("nickname").value;
+    user_info.id = document.getElementById('user_id').value;
+    user_info.password = document.getElementById("user_pwd").value;    
+    user_info.phone = document.getElementById("user_phone").value;
+    user_info.email = document.getElementById('user_email').value;
+}
+function update_info(){
+    user_info.password = document.getElementById("new_repass").value;    
+}
+//비밀번호 찾기
+function findPW(){
+    const findForm = document.getElementById('form_pw');            
+    findForm.addEventListener('submit', function(event){ 
+        update_info();
+        if(!check()){
+            event.preventDefault();        
+        }
+        function check(){            
+            let id = document.getElementById('user_id').value;
+            let email = document.getElementById('email').value;
+            let num = document.getElementById('code_num_pw').value;
+            let new_pass = document.getElementById('new_pass').value;
+            let new_repass = document.getElementById('new_repass').value;
+            if(id === '' || email === '' || num === '' || new_pass === '' || new_repass === '') {
+                alert('입력사항 모두 입력해주세요.');                           
+                return false;       
+            }else if(id !== m1.id || email !== m1.email){
+                alert('아이디 또는 이메일이 일치하지않습니다.');
+                document.getElementById("code_num_pw").value = null;
+                document.getElementById('user_id').focus();
+                return false;
+            }else if(new_pass !== new_repass){
+                alert('비밀번호가 일치하지 않습니다.');
+                document.getElementById("new_repass").value = null;
+                document.getElementById('new_repass').focus();
+                return false;
+            }
+            // m1.password = ""
+            // newPass = new_repass;
+            // m1.password += newPass;
+            alert("변경된 비밀번호 : " + user_info.password);
+            console.log(user_info.password);           
+            return true;             
+        }
+    });
+}
+// m1.password = newPass;
 // 체크박스가 모두 선택되었는지 확인하는 함수
 function agreeChk(){
     let agree1 = document.getElementById("agree_chk1");
     let agree2 = document.getElementById("agree_chk2");
     let agree3 = document.getElementById("agree_chk3");
 
-    if(!agree1.checked && !agree2.checked && !agree3.checked){
+    if(!agree1.checked || !agree2.checked || !agree3.checked){
         alert("동의사항에 모두 동의해주세요.");        
         return false;
     }else{        
@@ -189,47 +340,125 @@ function agreeChk(){
     }    
 }
 
-// function handleSubmit() {
-//     //회원정보
-//     nickname = document.getElementById('nickname').value;
-//     id = document.getElementById('user_id').value;
-//     password = document.getElementById('user_pwd').value;
-//     phone = document.getElementById('user_phone').value;
-//     email = document.getElementById('user_email').value;
-//     let pass = false;
-//     // 로컬 스토리지에 회원정보 저장
-//     // let user_nickname = user_info.setItem("nickname", nickname);
-//     // let user_id = localStorage.setItem("id", id);
-//     // let user_password = localStorage.setItem("password", password);
-//     // let user_phone;
-//     // let user_phone = localStorage.setItem("phone", phone);
-//     // let user_email = localStorage.setItem("email", email); 
+function signup(){  
+    form1.addEventListener('submit', function(event){
+        if(!checkConditions()){
+            event.preventDefault();
+        }
+    });
+    function checkConditions(){          
+    signUp_info();
+        const form = document.getElementById('member');
+        user_nickname = document.getElementById('nickname').value;
+        user_id = document.getElementById('user_id').value;
+        user_pass = document.getElementById('user_pwd').value;
+        user_passChk = document.getElementById('user_pwdChk').value;
+        user_phone = document.getElementById('user_phone').value;
+        user_email = document.getElementById('user_email').value;
+        agree1 = document.getElementById('agree_chk1').checked;
+        agree2 = document.getElementById('agree_chk2').checked;
+        agree3 = document.getElementById('agree_chk3').checked;
 
-//     user_info.nickname = nickname;
-//     user_info.id = id
-//     user_info.password = password;
-//     user_info.phone = phone;
-//     user_info.email = email;
+        // const nickname = document.getElementById('nickname').value;
+        // const id = document.getElementById('user_id').value;
+        // const pass = document.getElementById('user_pwd').value;
+        // const passChk = document.getElementById('user_pwdChk').value;
+        // const phone = document.getElementById('user_phone').value;
+        // const email = document.getElementById('user_email').value;
+        // const agree1 = document.getElementById('agree_chk1').checked;
+        // const agree2 = document.getElementById('agree_chk2').checked;
+        // const agree3 = document.getElementById('agree_chk3').checked;
+        if(user_nickname === '' || user_id  === '' || user_pass === '' || user_passChk === '' || user_phone === '' || user_email === '' ){
+            alert('필수입력사항 입력해주세요.');
+            return false;
+        }
+        if(user_pass !== user_passChk){
+            alert('비밀번호가 일치하지 않습니다.');
+            return false;
+        }
+        if(!agree1 || !agree2 || !agree3){
+            alert('모두 동의해주세요.');
+            return false;
+        }
+        
+        // form.addEventListener('submit',function(event){
+        //     event.preventDefault();
 
-//     let info = Object.values(user_info).some(value => value === "");
-    
-//     if(info !== true){
-//         console.log("닉네임 : ", user_info.nickname);
-//         console.log("아이디 : ", user_info.id);
-//         console.log("비밀번호 : ", user_info.password);
-//         console.log("휴대폰 : ", user_info.phone);
-//         console.log("이메일 : ", user_info.email); 
-//         return false;
-//     }else{
-//         alert("회원가입에 필요한 정보를 전부 입력해주세요.");
-//         return true;
-//     }
-  
-//     // 값을 확인하거나 처리하는 코드를 작성합니다.
-//     // console.log("닉네임 : ",localStorage.getItem("nickname"));
-//     // console.log("아이디 : ",localStorage.getItem("id"));
-//     // console.log("비밀번호 : ",localStorage.getItem("password"));
-//     // console.log("휴대폰 : ", localStorage.getItem("phone"));
-//     // console.log("이메일 : ", localStorage.getItem("email")); 
-//     // console.log(isNaN(phone));          
-// }
+        //     const userinfo = {
+        //         nickname : document.getElementById('nickname').value,
+        //         user_id : document.getElementById('user_id').value,
+        //         user_pwd : document.getElementById('user_pwd').value,
+        //         user_phone : document.getElementById('user_phone').value,
+        //         user_email : document.getElementById('user_email').value
+        //     }
+        //     sessionStorage.setItem('userinfo', JSON.stringify(userinfo));
+        // });
+        console.log(user_info);                                  
+        alert("회원가입에 완료했습니다.");
+        location.href = "login.html";
+        return true;
+    }
+}
+function login(){
+    const loginForm = document.getElementById('login_form');    
+    // const loginbtn = document.querySelector('#login');
+    // loginbtn.addEventListener('click', (e) => {
+    //     e.preventDefault();
+
+    //     const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));
+
+    //     form.user_id.value = userinfo.id;
+    //     form.user_pass.value = userinfo.password;
+    // });
+    loginForm.addEventListener('submit',function(event){ 
+        if(update_inf !== null){
+            update_info();      
+        } 
+        signup();
+        event.preventDefault();
+        // const userinfo = JSON.parse(sessionStorage.getItem('userinfo'));        
+        let id = document.getElementById("user_id").value;
+        let pass = document.getElementById('user_pwd').value;      
+        
+        if(id === m1.id && pass === m1.password){
+            alert('로그인 성공');
+            document.cookie = "user_id=${m1.id}";
+            window.location.href = '../index.html';
+        }else{
+            console.log("입력한 아이디 : " + id);
+            console.log("입력한 비밀번호 : " + pass);
+            console.log("저장된 아이디 : " + user_info.id);
+            console.log("저장된 비밀번호 : " + user_info.password);
+            alert('아이디 또는 비밀번호가 일치하지 않습니다.');            
+        }
+    });    
+    // const userinfo = JSON.parse(localStorage.getItem('userinfo'));
+    // const user_id = document.getElementById("user_id").value;
+    // const user_pwd = document.getElementById('user_pwd').value;
+
+    // const user = users.find(user => user.user_id === user_id && user.user_pass === user_pwd);
+
+    // if(userinfo){
+    //     console.log(localStorage.getItem('userinfo'));
+    //     alert("로그인 성공!");
+
+    //     localStorage.setItem("currentUser". JSON.stringify(userinfo));
+
+    //     location.href = "../index.html";
+    //     return false;
+    // }else {
+    //     alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+    //     console.log(localStorage.getItem('userinfo'));
+    //     return false;
+    // }
+}
+function checkLoginStatus(){
+    const cookies = document.cookie.split("; ");
+    for(const cookie of cookies){
+        const [name, value] = cookie.split("=");
+        if(name == "user_id"){
+            const userid = value;
+        }
+    }
+}
+
