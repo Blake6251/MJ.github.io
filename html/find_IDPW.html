@@ -341,7 +341,6 @@
                 </ul>
             </nav>
 
-
             <div class="footer_copyrights">
                 <small>
                     <p>
@@ -359,6 +358,9 @@
         </div>
     </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
     <script>
+        $(document).ready(function(){
+            openTab("active", "find-id");
+        });
         function openTab(evt, tabName) {
             // 탭 내용을 모두 숨김
             let i, tabcontent, tablinks;
