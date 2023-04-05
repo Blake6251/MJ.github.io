@@ -104,6 +104,14 @@
             color: #F76E11;
         }
 
+        .wrap #con img {
+            width: 20px;
+            height: 20px;
+        }
+
+
+
+
         .R_intro {
             padding: 5px 10px;
         }
@@ -229,50 +237,61 @@
             nav.btn_var2 {
                 display: none;
             }
-            .wrap .container{
+
+            .wrap .container {
                 width: 100%;
             }
+
             .map2 {
                 display: none;
             }
-            .R_review_userProfile{
+
+            .R_review_userProfile {
                 margin: 20px;
             }
-            .R_review_userProfile img{
+
+            .R_review_userProfile img {
                 border-radius: 100%;
             }
-            .R_review_userProfile{
-                border:2px solid #F76E11;
+
+            .R_review_userProfile {
+                border: 2px solid #F76E11;
             }
-            #userProfile img{
+
+            #userProfile img {
                 height: 120px;
                 width: 100px;
             }
-            .R_review_cotent{
+
+            .R_review_cotent {
                 margin-top: 10px;
             }
-            .R_review_cotentBtn{
+
+            .R_review_cotentBtn {
                 float: right;
             }
-            .R_review_cotentBtn a{
+
+            .R_review_cotentBtn a {
                 display: flex;
                 align-items: center;
             }
 
         }
-        @media all and (min-width:650px){
-            .wrap .container{
+
+        @media all and (min-width:650px) {
+            .wrap .container {
                 width: 70%;
             }
-            
+
         }
-        @media all and (min-width:950px){
-            .wrap .container{
+
+        @media all and (min-width:950px) {
+            .wrap .container {
                 width: 60%;
             }
-            
+
         }
-        
+
 
         @media all and (min-width:1200px) {
             div.container {
@@ -282,9 +301,10 @@
                 justify-content: space-evenly;
             }
 
+
+
             nav.btn_var {
                 display: none;
-
             }
 
             .side_var {
@@ -484,6 +504,76 @@
             })
 
 
+            // 좋아요, 즐겨찾기 버튼
+            let likeClicked = false
+            let favors = JSON.parse(sessionStorage.getItem("favors")) || [];
+            let favored = favors.filter(favor => favor === name)
+            let favorClicked = false
+            
+            function favorToggle() {
+                favored = favors.filter(favor => favor === name)
+                if (favored.length == 1) {
+                    favorClicked = true
+                }
+                else {
+                    favorClicked = false
+                }
+            }
+            favorToggle()
+
+            if(favorClicked){
+                $("#p5").append(`<img class="mark_icon" src="../image/icons/star.jpg">`)
+            }
+
+
+            $(".like_btn").click(function () {
+                if (!likeClicked) {
+                    marking(this)
+                }
+                else {
+                    deleteMark(this)
+                }
+            })
+            $(".favor_btn").click(function () {
+                if (!favorClicked) {
+                    marking(this)
+                }
+                else {
+                    deleteMark(this)
+                }
+            })
+
+            function marking(btn) {
+                let this_btn = $(btn)
+                favors = JSON.parse(sessionStorage.getItem("favors")) || [];
+                if (this_btn.attr("name") === "like") {
+                    $("#p4").append(`<img class="mark_icon" src="../image/icons/heart.jpg">`)
+                    likeClicked = true
+                }
+                else if (this_btn.attr("name") === "favor") {
+                    $("#p5").append(`<img class="mark_icon" src="../image/icons/star.jpg">`)
+                    favors.unshift(name)
+                    sessionStorage.setItem("favors", JSON.stringify(favors));
+                    favorToggle()
+                    //favorClicked = true
+                }
+            }
+            function deleteMark(btn) {
+                let this_btn = $(btn)
+                favors = JSON.parse(sessionStorage.getItem("favors")) || [];
+                if (this_btn.attr("name") === "like") {
+                    $("#p4").empty()
+                    likeClicked = false
+                }
+                else if (this_btn.attr("name") === "favor") {
+                    $("#p5").empty()
+                    favors = favors.filter(favor => favor != name)
+                    sessionStorage.setItem("favors", JSON.stringify(favors));
+                    favorToggle()
+                    //favorClicked = false
+                }
+            }
+
 
 
 
@@ -639,13 +729,13 @@
 
             <!-- 좋즐공 -->
             <div class="side_var">
-                <nav class="btn_var2">
+                <nav class="nav_var btn_var2">
                     <ul>
                         <li class="btn_like2 btn2_1">
-                            <button><span>좋아요</span></button>
+                            <button class="like_btn" name="like"><span>좋아요</span></button>
                         </li>
                         <li class="btn_favor2 btn2_1">
-                            <button><span>즐겨찾기</span></button>
+                            <button class="favor_btn" name="favor"><span>즐겨찾기</span></button>
                         </li>
                         <li class="btn_share2 btn2_1">
                             <button><span>공유하기</span></button>
@@ -714,7 +804,7 @@
                             <!-- 유저 프로필 사진 -->
                             <span class="R_review_userProfile" id="userProfile" style="border:none;">
                                 <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
-                            </span> 
+                            </span>
 
                             <!-- 리뷰내용 유저닉네임, 평점 -->
                             <div>
@@ -742,8 +832,10 @@
                                 <div class="R_review_cotentBtn">
                                     <ul>
                                         <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
-                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
-                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
+                                                    alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
+                                                    alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -782,8 +874,10 @@
                                 <div class="R_review_cotentBtn">
                                     <ul>
                                         <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
-                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
-                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
+                                                    alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
+                                                    alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -821,8 +915,10 @@
                                 <div class="R_review_cotentBtn">
                                     <ul>
                                         <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
-                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20" alt=""></a></li>
-                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
+                                                    alt=""></a></li>
+                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
+                                                    alt=""></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -885,13 +981,13 @@
 
 
         <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
-        <nav class="btn_var">
+        <nav class="nav_var btn_var">
             <ul>
                 <li class="btn_like btn1">
-                    <button><span>좋아요</span></button>
+                    <button class="like_btn" name="like"><span>좋아요</span></button>
                 </li>
                 <li class="btn_favor btn1">
-                    <button><span>즐겨찾기</span></button>
+                    <button class="favor_btn" name="favor"><span>즐겨찾기</span></button>
                 </li>
                 <li class="btn_share btn1">
                     <button><span>공유하기</span></button>
