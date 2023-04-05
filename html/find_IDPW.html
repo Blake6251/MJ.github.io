@@ -11,7 +11,7 @@
     <link href="./css/font.css" rel="stylesheet">
     <!-- 외부 스타일 -->
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css"></link> <!-- 푸터 css -->
+    <link rel="stylesheet" href="../css/footer.css"> <!-- 푸터 css -->
     <link rel="stylesheet" href="../css/default.css">
     <script src="../js/header.js"></script>
     <script src="../js/member.js"></script>
@@ -63,27 +63,27 @@
     }
 
     /* 아이디/비밀번호 입력 폼 스타일 */
-    form {
+    div.container form {
         display: inline-block;
     }
 
-    h3 {
+    div.container h3 {
         margin-bottom: 20px;
         text-align: center;
     }
 
-    li {
+    div.container li {
         display: inline-block;
         width: 100%;
         text-align: left;
     }
 
-    label {
+    div.container label {
         font-weight: bold;
         margin-bottom: 10px;
     }
 
-    input {
+    div.container input {
         width: 78.4%;
         height: 40px;
         padding: 10px;
@@ -125,6 +125,7 @@
         border-radius: 5px;
         cursor: pointer;
     }
+
      /* 태블릿 */
     @media all and (min-width: 768px) {    
         .container{
@@ -236,14 +237,14 @@
     }
 </style>
 <body>
-    <header>
+    <header>     <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
         <div class="banner">
             <div id="logo_box">
                 <a href="../index.html"><img src="../image/logo.jpg"></a>
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="login.html">로그인</a>
+                    <a href="../html/login.html">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
@@ -251,19 +252,19 @@
             </div>
         </div>
         <div class="hidden_log">
-            <div class="log_tilte">
-                <div class="recent_log">
-
+            <div class="log_title">
+                <div id="recent_log">
+                    <p>최근 목록</p>
                 </div>
-                <div class="favor_log">
-
+                <div id="favor_log">
+                    <p>찜한 가게</p>
                 </div>
             </div>
-            <ul class="logs">
-                <li class="log"></li>
+            <ul id="logs" class="logs">
+                <!-- <li class="log"></li> -->
             </ul>
         </div>
-    </header>
+    </header>    <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
     <div class="container">
         <div class="tab">
             <button class="tablink" onclick="openTab(event, 'find-id')">아이디 찾기</button>
@@ -359,6 +360,9 @@
         </div>
     </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
     <script>
+        $(document).ready(function(){
+            openTab("active", "find-id")
+        })
         function openTab(evt, tabName) {
             // 탭 내용을 모두 숨김
             let i, tabcontent, tablinks;
@@ -375,6 +379,6 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-    </script>    
+    </script>
 </body>
 </html>
