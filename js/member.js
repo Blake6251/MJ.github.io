@@ -176,7 +176,7 @@ function emailChk_pw(){
 function numChk(){    
     let input_num = document.getElementById("code_num").value;    
     let user = JSON.parse(sessionStorage.getItem('user'));
-    email = document.getElementById("email").value;
+    email = document.getElementById("user_email").value;
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
         document.getElementById("code_num").value = null;
@@ -249,7 +249,7 @@ function findID(){
         if(email === '' || num === '') {
             alert('이메일과 인증번호를 입력해주세요.'); 
             console.log("입력 : " + email);
-            console.log("저장 : " + user.email);       
+            // console.log("저장 : " + user.email);       
             console.log(JSON.stringify(m1));
             console.log(JSON.stringify(user));        
             return false;       

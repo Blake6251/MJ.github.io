@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="../css/default.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
     <link href="../css/header.css" rel="stylesheet"> <!-- 헤더 css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,14 +36,11 @@
 
 
     <style>
+
         div.wrap {
             width: 100%;
             margin: 0 auto;
         }
-
-
-
-
 
         .bxslider li {
             position: relative;
@@ -94,6 +96,11 @@
             display: inline-block;
             padding: 5px 10px;
         }
+        .wrap #con li#p4, #p5 {
+            width: 40px;
+            height: 46px;
+        }
+        
 
         .wrap #con li:first-child {
             font-size: 1.8rem;
@@ -108,7 +115,7 @@
             width: 20px;
             height: 20px;
         }
-
+        
 
 
 
@@ -149,24 +156,43 @@
 
         /* 리뷰 */
         .R_review {
+            width: 100%;
+            margin: 0 auto;
             margin-top: 150px;
         }
 
         .R_review .R_review_header {
-            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
             height: 40px;
         }
 
         .R_review_title {
             float: left;
         }
+        .R_review_title{
+            margin-bottom: 0;
+        }
 
         .R_review_bnt {
             float: right;
             display: flex;
+            margin-bottom: 0;
         }
 
-        .R_review_bnt li {}
+        .R_review_bnt li button{
+            border: 0;
+            background-color: #fff;
+            font-weight: 600;
+            color: #4a4a4a;
+            padding: 5px;
+            margin: 0 5px;
+        }
+        .R_review_bnt li button:hover{
+            border-bottom: 2px solid #F76E11;
+        }
 
         .R_review_userProfile {
             float: left;
@@ -175,7 +201,10 @@
         .R_review_cotentBtn li {
             display: inline-block;
         }
-
+        .R_review_cotentBtn li:hover {
+            cursor: pointer;
+        }
+        
         /* 하단 고정바 */
         nav.btn_var {
             width: 100%;
@@ -195,10 +224,9 @@
             width: 16.66%;
             height: 42px;
             float: left;
-            background-color: #FFFFFF;
+            background-color: #F76E11;
             text-align: center;
             box-sizing: border-box;
-            border: 1px solid #3f3e3e;
         }
 
         .btn_var .btn2 {
@@ -206,10 +234,7 @@
             height: 42px;
             float: left;
             background-color: #F76E11;
-        }
-
-        .btn_var li {
-            padding-top: 11px;
+            box-sizing: border-box;
         }
 
         .btn_var {
@@ -219,18 +244,27 @@
 
         .btn_var button {
             box-sizing: border-box;
-
+            
             width: 100%;
             height: 100%;
-            border: none;
-            background-color: none;
+            border: 2px solid #FFF;
+            background-color: #F76E11;
         }
+        .btn_var button span{
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #EEE;
 
+        }
+        
         .btn_var button:hover {
             border-radius: 10px;
             border: 3px solid #F76E11;
             background-color: #FFFFFF;
             cursor: pointer;
+        }
+        .btn_var button:hover span{
+            color: #F76E11;
         }
 
         @media all and (min-width:320px) {
@@ -247,17 +281,23 @@
             }
 
             .R_review_userProfile {
-                margin: 20px;
+                margin: 20px 0;
             }
 
             .R_review_userProfile img {
                 border-radius: 100%;
+                margin: 0 10px;
             }
 
             .R_review_userProfile {
+                width: 100%;
                 border: 2px solid #F76E11;
             }
-
+            .R_review_userProfile span{
+                display: inline-block;
+                width: auto;
+            }
+            
             #userProfile img {
                 height: 120px;
                 width: 100px;
@@ -274,6 +314,9 @@
             .R_review_cotentBtn a {
                 display: flex;
                 align-items: center;
+                color: #4a4a4a;
+                font-weight: 600;
+                text-decoration: none;
             }
 
         }
@@ -310,27 +353,41 @@
             .side_var {
                 width: 47%;
                 display: flex;
-                height: 500px;
+                /*height: 500px;*/
                 flex-direction: row-reverse;
                 flex-direction: column;
                 float: right;
-
+                
+            }
+            .side_var li{
+                box-sizing: border-box;
+                border-radius: 10px;
+                border: 3px solid #F76E11;
             }
 
             .side_var button {
                 box-sizing: border-box;
-
+                border-radius: 10px;
                 width: 100%;
                 height: 100%;
-                border: none;
-                background-color: none;
+                border: 0;
+                outline: 0;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .side_var button span {
+                color: #4a4a4a;
+                font-weight: 600;
             }
 
             .side_var button:hover {
-                border-radius: 10px;
-                border: 3px solid #F76E11;
-                background-color: #FFFFFF;
+                background-color: #F76E11;
                 cursor: pointer;
+            }
+            .side_var button:hover span {
+                color: #fff;
             }
 
             nav.btn_var2 {
@@ -339,7 +396,7 @@
                 float: right;
                 margin: 0 auto;
                 padding: 0px;
-                border: 1px solid #3f3e3e;
+                /* border: 1px solid #3f3e3e; */
 
                 flex-direction: column;
             }
@@ -356,24 +413,28 @@
                 height: 50px;
                 display: inline-block;
                 background-color: #FFFFFF;
-                border-bottom: 1px solid black;
+                /* border-bottom: 1px solid black; */
 
             }
 
             .btn_var2 .btn2_2 {
+                margin-top: 10px;
                 display: inline-block;
                 width: 250px;
                 height: 50px;
-
+                
                 /* background-color: #F76E11; */
+            }
+            .btn_var2 .btn2_2 a{
+                text-decoration: none;
             }
 
             .btn_like2 {
-                border-right: 1px solid black;
+                /* border-right: 1px solid black; */
             }
 
             .btn_favor2 {
-                border-right: 1px solid black;
+                /* border-right: 1px solid black; */
             }
 
             .map1 {
@@ -440,9 +501,61 @@
                 $("#closedday").text(searched_rest[0].closedday)
                 $("#m2").append(`<iframe class="map2" ${searched_rest[0].map}`)
                 $("#m1").append(`<iframe class="map1" ${searched_rest[0].map}`)
+                $("#review_num").text(`(${searched_rest[0].review.length})`)
+
+                for(let i = 0; i < searched_rest[0].review.length; i++){
+                    $("#review_con").append(`<li class="R_review_userProfile">
+                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
+                                <img src=".${searched_rest[0].img[i]}" width="64" height="64">
+                            </span>
+                            <div>
+                                <div class="R_review_cotent">
+                                    <div class="R_review_cotent_ueser">
+                                        <span>
+                                            <strong class="R_review_cotent_ueserName">
+                                                익명_${i+1}
+                                            </strong>
+                                        </span>
+                                        <span>
+                                            <strong class="R_review_cotent_ueserScore" style="color:#F76E11">
+                                                ${searched_rest[0].score}
+                                            </strong>
+                                        </span>
+                                    </div>
+                                    <div class="R_review_cotent_ueserReview">
+                                        <p>
+                                            ${searched_rest[0].review[i]}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="R_review_cotentBtn">
+                                    <ul>
+                                        <li><a class="heart_change">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
+                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
+                                                    alt=""></a></li>
+                                        <li><a class="siren_change">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
+                                                    alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>`)
+                }
             }
 
             write_info()
+
+            let heart = false
+            $(".heart_change").click(function(){
+                let childImg = $(this).children()
+                if(heart){
+                    childImg.attr("src", `../image/icons/heart1.png`)
+                    heart = false
+                }
+                else{
+                    childImg.attr("src", `../image/icons/heart2.png`)
+                    heart = true
+                }
+            })
 
             // 검색창 스크립트
             $("#filter_btn").click(function () { // 검색 필터 버튼
@@ -522,6 +635,7 @@
             favorToggle()
 
             if(favorClicked){
+                $("#p5").empty()
                 $("#p5").append(`<img class="mark_icon" src="../image/icons/star.jpg">`)
             }
 
@@ -547,10 +661,12 @@
                 let this_btn = $(btn)
                 favors = JSON.parse(sessionStorage.getItem("favors")) || [];
                 if (this_btn.attr("name") === "like") {
+                    $("#p4").empty()
                     $("#p4").append(`<img class="mark_icon" src="../image/icons/heart.jpg">`)
                     likeClicked = true
                 }
                 else if (this_btn.attr("name") === "favor") {
+                    $("#p5").empty()
                     $("#p5").append(`<img class="mark_icon" src="../image/icons/star.jpg">`)
                     favors.unshift(name)
                     sessionStorage.setItem("favors", JSON.stringify(favors));
@@ -563,10 +679,12 @@
                 favors = JSON.parse(sessionStorage.getItem("favors")) || [];
                 if (this_btn.attr("name") === "like") {
                     $("#p4").empty()
+                    $("#p4").append(`<img class="mark_icon" src="../image/icons/white.jpg">`)
                     likeClicked = false
                 }
                 else if (this_btn.attr("name") === "favor") {
                     $("#p5").empty()
+                    $("#p5").append(`<img class="mark_icon" src="../image/icons/white.jpg">`)
                     favors = favors.filter(favor => favor != name)
                     sessionStorage.setItem("favors", JSON.stringify(favors));
                     favorToggle()
@@ -679,8 +797,8 @@
                     <li id="p1">크리스피포크타운</li>
                     <li id="p3">강남</li>
                     <li id="p2">4.8</li>
-                    <li id="p4"></li>
-                    <li id="p5"></li>
+                    <li id="p4"><img class="mark_icon" src="../image/icons/white.jpg"></li>
+                    <li id="p5"><img class="mark_icon" src="../image/icons/white.jpg"></li>
                 </div>
 
 
@@ -732,16 +850,16 @@
                 <nav class="nav_var btn_var2">
                     <ul>
                         <li class="btn_like2 btn2_1">
-                            <button class="like_btn" name="like"><span>좋아요</span></button>
+                            <a href="#p1"><button class="like_btn" name="like"><span>좋아요</span></button></a>
                         </li>
                         <li class="btn_favor2 btn2_1">
-                            <button class="favor_btn" name="favor"><span>즐겨찾기</span></button>
+                            <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
                         </li>
                         <li class="btn_share2 btn2_1">
                             <button><span>공유하기</span></button>
                         </li>
                         <li class="btn_share2 btn2_2">
-                            <button><span>리뷰쓰기</span></button>
+                            <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
                         </li>
                     </ul>
                 </nav>
@@ -767,30 +885,27 @@
 
 
             <!-- 리뷰창 헤더 -->
-            <div class="R_review">
+            <div id="R_review_id" class="R_review">
                 <div class="R_review_header">
                     <h2 class="R_review_title">
                         <span>리뷰</span>
-                        <span>(5)</span>
+                        <span id="review_num">(5)</span>
                     </h2>
                     <!-- 리뷰 나열 버튼 -->
                     <ul class="R_review_bnt">
                         <li class="review_btn">
                             <button>
                                 최신순
-                                <span class="ReviewCount">(5)</span></button>
                         </li>
 
                         <li class="review_btn">
                             <button>
                                 추천순
-                                <span class="ReviewCount">(4)</span></button>
                         </li>
 
                         <li class="review_btn">
                             <button>
                                 비추천순
-                                <span class="ReviewCount">(1)</span></button>
                         </li>
                     </ul>
                 </div>
@@ -799,14 +914,12 @@
 
                 <!-- 리뷰 본문 -->
                 <div class="R_review_container">
-                    <ul>
+                    <ul id="review_con">
+                        <!--
                         <li class="R_review_userProfile">
-                            <!-- 유저 프로필 사진 -->
                             <span class="R_review_userProfile" id="userProfile" style="border:none;">
                                 <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
                             </span>
-
-                            <!-- 리뷰내용 유저닉네임, 평점 -->
                             <div>
                                 <div class="R_review_cotent">
                                     <div class="R_review_cotent_ueser">
@@ -823,12 +936,10 @@
                                     </div>
                                     <div class="R_review_cotent_ueserReview">
                                         <p>
-                                            편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^
-                                            점심시간대에가면 좀더저렴하게즐길수있어요~
+                                            편하게 수다떨면서 즐길만한 
                                         </p>
                                     </div>
                                 </div>
-                                <!-- 리뷰내용 버튼 -->
                                 <div class="R_review_cotentBtn">
                                     <ul>
                                         <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
@@ -840,98 +951,12 @@
                                 </div>
                             </div>
                         </li>
-
-
-                        <li class="R_review_userProfile">
-                            <!-- 유저 프로필 사진 -->
-                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
-                                <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
-                            </span>
-
-                            <!-- 리뷰내용 유저닉네임, 평점 -->
-                            <div>
-                                <div class="R_review_cotent">
-                                    <div class="R_review_cotent_ueser">
-                                        <span>
-                                            <strong class="R_review_cotent_ueserName">
-                                                이규재
-                                            </strong>
-                                        </span>
-                                        <span>
-                                            <strong class="R_review_cotent_ueserScore">
-                                                4.0
-                                            </strong>
-                                        </span>
-                                    </div>
-                                    <div class="R_review_cotent_ueserReview">
-                                        <p>
-                                            편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^
-                                            점심시간대에가면 좀더저렴하게즐길수있어요~
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- 리뷰내용 버튼 -->
-                                <div class="R_review_cotentBtn">
-                                    <ul>
-                                        <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
-                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
-                                                    alt=""></a></li>
-                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
-                                                    alt=""></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="R_review_userProfile">
-                            <!-- 유저 프로필 사진 -->
-                            <span class="R_review_userProfile" id="userProfile" style="border:none;">
-                                <img src="../image/restaurant/cri/1.jpg" width="64" height="64">
-                            </span>
-
-                            <!-- 리뷰내용 유저닉네임, 평점 -->
-                            <div>
-                                <div class="R_review_cotent">
-                                    <div class="R_review_cotent_ueser">
-                                        <span>
-                                            <strong class="R_review_cotent_ueserName">
-                                                유현호
-                                            </strong>
-                                        </span>
-                                        <span>
-                                            <strong class="R_review_cotent_ueserScore">
-                                                4.0
-                                            </strong>
-                                        </span>
-                                    </div>
-                                    <div class="R_review_cotent_ueserReview">
-                                        <p>
-                                            편하게 수다떨면서 즐길만한 다이닝레스토랑이에요~ 쉽게보이는위치에 있는게 아닌데도 사람이많은거보니 역시 유명한곳이맞네요 ^^
-                                            점심시간대에가면 좀더저렴하게즐길수있어요~
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- 리뷰내용 버튼 -->
-                                <div class="R_review_cotentBtn">
-                                    <ul>
-                                        <li><a href="#">좋아요 <img src="../image/icons/heart1.png" alt=""></a></li>
-                                        <li><a href="#">댓글 <img src="../image/icons/chat.png" width="20" height="20"
-                                                    alt=""></a></li>
-                                        <li><a href="#">신고하기 <img src="../image/icons/siren.png" width="20" height="20"
-                                                    alt=""></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li></li>
-                        <li></li>
+                        -->
                     </ul>
-
                 </div>
             </div>
         </div>
-
+    </div>
 
         <footer class="footer"> <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
             <div class="footer_box">
@@ -984,21 +1009,21 @@
         <nav class="nav_var btn_var">
             <ul>
                 <li class="btn_like btn1">
-                    <button class="like_btn" name="like"><span>좋아요</span></button>
+                    <a href="#p1"><button class="like_btn" name="like"><span>좋아요</span></button></a>
                 </li>
                 <li class="btn_favor btn1">
-                    <button class="favor_btn" name="favor"><span>즐겨찾기</span></button>
+                    <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
                 </li>
                 <li class="btn_share btn1">
                     <button><span>공유하기</span></button>
                 </li>
                 <li class="btn_share btn2">
-                    <button><span>리뷰쓰기</span>
+                    <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
                 <li>
             </ul>
         </nav>
 
-    </div>
+    
 </body>
 
 </html>
