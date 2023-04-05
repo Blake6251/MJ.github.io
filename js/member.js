@@ -2,7 +2,7 @@
 let m1 = { nickname: "aaa1!", id: "aaa111", password: "asdqwe1!", phone: "01012345678", email: "aaaa1234@gmail.com" };
 let m2 = { nickname: "qwe1!", id: "qweqwe123", password: "qweqwe1!", phone: "01012345678", email: "qwe123@gmail.com" };
 let user_info = {nickname : "", id : "", password: "", phone: "", email: ""};
-let form1 = document.getElementById('member');
+let form = document.getElementById('member');
 let nickname = "";
 let id = "";
 let pw = "";
@@ -15,9 +15,9 @@ let newPass = "";
 // 닉네임유효성검사 및 중복검사
 function nameChk(){
     nickname = document.getElementById("nickname").value;
-    let num = nickname.search(/[0-9]/g);
-    let eng = nickname.search(/[a-z]/ig);
-    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    let num = nickname.search(/[0-9]/g); // 입력받은 문자열 숫자확인
+    let eng = nickname.search(/[a-z]/ig); // 입력받은 문자열 영어확인
+    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi); // 입력받은 문자열 특수문자확인
     if(nickname.length < 2  || nickname.length > 10){
         alert("2~10자 이내 영문, 숫자, 특수문자를 사용하세요.");    
         document.getElementById("nickname").focus();
@@ -42,8 +42,8 @@ function nameChk(){
 // 아이디 유효성검사
 function id_validation(){
     id = document.getElementById("user_id").value;
-    let num = id.search(/[0-9]/g);
-    let eng = id.search(/[a-z]/ig);
+    let num = id.search(/[0-9]/g); // 입력받은 문자열 숫자확인
+    let eng = id.search(/[a-z]/ig); // 입력받은 문자열 영어확인
     if (id.length < 6 || id.length > 20) {
         alert("6~20자 이내 영문, 숫자를 사용하세요");
         return false;
@@ -63,7 +63,6 @@ function idChk() {
     id = document.getElementById("user_id").value;    
     if (id === m1.id) {
         alert("중복되는 아이디가 있습니다.");  
-        console.log(id);
         return false;
     }else if(id === ''){
         alert("아이디를 입력해주세요.");
@@ -78,9 +77,9 @@ function idChk() {
 // 비밀번호 유효성검사
 function pwd_validation() {       
     pw = document.getElementById("user_pwd").value;
-    let num = pw.search(/[0-9]/g);
-    let eng = pw.search(/[a-z]/ig);
-    let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    let num = pw.search(/[0-9]/g); // 입력받은 문자열에 숫자확인
+    let eng = pw.search(/[a-z]/ig); // 입력받은 문자열에 영어확인
+    let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi); // 입력받은 문자열에 특수문자 확인
     if((pw.length < 8  || pw.length > 16) || num < 0 || eng < 0 || spe < 0){
         alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");    
         return false;
@@ -122,6 +121,7 @@ function phoneChk(){
         phone = document.getElementById("user_phone").value;
     }
 }
+// 인증번호 6자리 난수 생성함수
 function resetCode(){
     code_num = '';
     for(let i = 0; i < 6; i++){
@@ -140,9 +140,7 @@ function emailChk(){
     }else{        
         // code_num += num;        
         alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
-        console.log(code_num);
-        console.log(regex.test(email));
-        console.log("입력 : " + email);
+        console.log("인증번호 : " + code_num);
         
         return true;
     }
@@ -158,7 +156,6 @@ function emailChk_pw(){
     }else{               
         alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
         console.log(code_num);
-        console.log(regex.test(email));
         return true;
     }
 }
@@ -168,7 +165,6 @@ function numChk(){
     let user = JSON.parse(sessionStorage.getItem('user'));
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
-        console.log(user.email);
         document.getElementById("code_num").value = null;
         document.getElementById("code_num").focus();        
         return false;
@@ -183,15 +179,9 @@ function numChk_pw(){
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
         document.getElementById("code_num_pw").focus(); 
-        console.log("입력 값 : " + input_num);
-        console.log("인증번호 : " + code_num);     
-        console.log("아이디 : " + id);                    
-        console.log("이메일 : " + email); 
         return false;
     }else{
         alert("인증이 완료되었습니다.");
-        console.log("아이디 : " + id);                    
-        console.log("이메일 : " + email); 
         return true;
     }
 }
@@ -218,139 +208,14 @@ function agree_chkAll() {
         });
     });
 }
-// 아이디찾기
-function findID(){
-    const findForm = document.getElementById('form_id');  
-    findForm.addEventListener('submit', function(event){
-        if(!check()){
-            event.preventDefault();        
-        }
-    });
-    function check(){
-        let user = JSON.parse(sessionStorage.getItem('user'));
-        let email = document.getElementById('user_email').value;
-        let num = document.getElementById('code_num').value;
-
-        if(email === '' || num === '') {
-            alert('이메일과 인증번호를 입력해주세요.'); 
-            console.log("입력 : " + email);
-            // console.log("저장 : " + user.email);       
-            console.log(JSON.stringify(m1));
-            console.log(JSON.stringify(user));        
-            return false;       
-        }
-        if(email !== m1.email && email !== user.email){
-            alert('이메일이 일치하지않습니다.');
-            document.getElementById("code_num").value = null;
-            document.getElementById("user_email").focus();
-            return false;
-        }else if(email === m1.email){            
-            alert("아이디 : " + m1.id); 
-            return true;           
-        }else if(email == user.email){
-            alert("아이디 : " + user.id);
-            return true;
-        }
-        
-    }
-}
-
-
-function findPW_validation() {
-    pw = document.getElementById("new_pass").value;    
-    let num = pw.search(/[0-9]/g);
-    let eng = pw.search(/[a-z]/ig);
-    let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-    if((pw.length < 8  || pw.length > 16) || num < 0 || eng < 0 || spe < 0){
-        alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");    
-        return false;
-    }else if(pw.search(/\s/) != -1){
-        alert("비밀번호는 공백없이 입력해주세요.");
-        return false;
-    }else{        
-        console.log("통과");
-        return true;
-    }    
-}
-function update_info(){
-    user_info.password = document.getElementById("new_repass").value;    
-}
-//비밀번호 찾기
-function findPW(){
-    const findForm = document.getElementById('form_pw');            
-    findForm.addEventListener('submit', function(event){ 
-        // update_info();        
-        if(!check()){
-            event.preventDefault();        
-        }
-        function check(){       
-            let user = JSON.parse(sessionStorage.getItem('user'));     
-            let id = document.getElementById('user_id').value;
-            let email = document.getElementById('email').value;
-            let num = document.getElementById('code_num_pw').value;
-            let new_pass = document.getElementById('new_pass').value;
-            let new_repass = document.getElementById('new_repass').value;
-            if(id === '' || email === '' || num === '' || new_pass === '' || new_repass === '') {
-                alert('입력사항 모두 입력해주세요.');       
-                console.log("아이디 : " + id);                    
-                console.log("이메일 : " + email);                    
-                                 
-                return false;       
-            }
-
-            if((id !== m1.id || email !== m1.email ) && ( id !== user.id || email !== user.email )){
-                alert('아이디 또는 이메일이 일치하지않습니다.');
-                console.log("아이디 : " + id);                    
-                console.log("이메일 : " + email); 
-                console.log("아이디3 : " + m1.id);                    
-                console.log("이메일3 : " + m1.email); 
-                document.getElementById("code_num_pw").value = null;
-                document.getElementById('user_id').focus();
-                return false;
-            }else if(id === m1.id || email === m1.email){
-                m1.password = new_repass;   
-                alert("변경된 비밀번호 : " + m1.password);      
-                return true;
-            }
-            else if(id === user.id || email === user.email ){
-                user.password = new_repass;
-                sessionStorage.setItem('user', JSON.stringify(user));
-                alert("변경된 비밀번호 : " + user.password);
-                console.log(user.password); 
-                return true;
-            }
-            
-            if(new_pass !== new_repass){
-                alert('비밀번호가 일치하지 않습니다.');
-                document.getElementById("new_repass").value = null;
-                document.getElementById('new_repass').focus();
-                return false;
-            }          
-        }
-    });
-}
-// 체크박스가 모두 선택되었는지 확인하는 함수
-function agreeChk(){
-    let agree1 = document.getElementById("agree_chk1");
-    let agree2 = document.getElementById("agree_chk2");
-    let agree3 = document.getElementById("agree_chk3");
-
-    if(!agree1.checked || !agree2.checked || !agree3.checked){
-        alert("동의사항에 모두 동의해주세요.");        
-        return false;
-    }else{        
-        return;
-    }    
-}
 
 function signup(){  
-    form1.addEventListener('submit', function(event){
+    form.addEventListener('submit', function(event){
         if(!checkConditions()){
             event.preventDefault();
         }
     });
     function checkConditions(){
-        const form = document.getElementById('member');
         user_nickname = document.getElementById('nickname').value;
         user_id = document.getElementById('user_id').value;
         user_pass = document.getElementById('user_pwd').value;
@@ -391,9 +256,9 @@ function signup(){
         return true;
     }
 }
+// 로그인
 function login(){
-    const loginForm = document.getElementById('login_form');    
-    
+    const loginForm = document.getElementById('login_form');            
     loginForm.addEventListener('submit',function(event){         
         event.preventDefault();
         let user = JSON.parse(sessionStorage.getItem("user"));         
@@ -406,8 +271,7 @@ function login(){
             console.log("user : " + JSON.stringify(user));
             return false;
         }else if((id === m1.id && pass === m1.password) || (id === user.id && pass === user.password)){
-            alert('로그인 성공');
-                    
+            alert('로그인 성공');                    
             login = {
                 login_id : id,
                 login_pass : pass
@@ -421,8 +285,98 @@ function login(){
             console.log("user : " + JSON.stringify(user));
             alert('아이디 또는 비밀번호가 일치하지 않습니다.');  
             return false;
-        }
-        
+        }        
     });
 }
+// 아이디찾기
+function findID(){
+    const findForm = document.getElementById('form_id');  
+    findForm.addEventListener('submit', function(event){
+        if(!check()){
+            event.preventDefault();        
+        }
+    });
+    function check(){
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        let email = document.getElementById('user_email').value;
+        let num = document.getElementById('code_num').value;
 
+        if(email === '' || num === '') {
+            alert('이메일과 인증번호를 입력해주세요.');     
+            return false;       
+        }
+        if(email !== m1.email && email !== user.email){
+            alert('이메일이 일치하지않습니다.');
+            document.getElementById("code_num").value = null;
+            document.getElementById("user_email").focus();
+            return false;
+        }else if(email === m1.email){            
+            alert("아이디 : " + m1.id); 
+            return true;           
+        }else if(email == user.email){
+            alert("아이디 : " + user.id);
+            return true;
+        }
+        
+    }
+}
+//비밀번호 찾기 새 비밀번호 유효성검사
+function findPW_validation() {
+    pw = document.getElementById("new_pass").value;    
+    let num = pw.search(/[0-9]/g);
+    let eng = pw.search(/[a-z]/ig);
+    let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    if((pw.length < 8  || pw.length > 16) || num < 0 || eng < 0 || spe < 0){
+        alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");    
+        return false;
+    }else if(pw.search(/\s/) != -1){
+        alert("비밀번호는 공백없이 입력해주세요.");
+        return false;
+    }else{        
+        console.log("통과");
+        return true;
+    }    
+}
+//비밀번호 찾기
+function findPW(){
+    const findForm = document.getElementById('form_pw');            
+    findForm.addEventListener('submit', function(event){        
+        if(!check()){
+            event.preventDefault();        
+        }
+        function check(){       
+            let user = JSON.parse(sessionStorage.getItem('user'));     
+            let id = document.getElementById('user_id').value;
+            let email = document.getElementById('email').value;
+            let num = document.getElementById('code_num_pw').value;
+            let new_pass = document.getElementById('new_pass').value;
+            let new_repass = document.getElementById('new_repass').value;
+            if(id === '' || email === '' || num === '' || new_pass === '' || new_repass === '') {
+                alert('입력사항 모두 입력해주세요.');
+                return false;       
+            }
+            if((id !== m1.id || email !== m1.email ) && ( id !== user.id || email !== user.email )){
+                alert('아이디 또는 이메일이 일치하지않습니다.');
+                document.getElementById("code_num_pw").value = null;
+                document.getElementById('user_id').focus();
+                return false;                
+            }else if(id === m1.id || email === m1.email){
+                m1.password = new_repass;   
+                alert("변경된 비밀번호 : " + m1.password);      
+                return true;
+            }else if(id === user.id || email === user.email ){
+                user.password = new_repass;
+                sessionStorage.setItem('user', JSON.stringify(user));
+                alert("변경된 비밀번호 : " + user.password);
+                return true;
+            }
+            
+            if(new_pass !== new_repass){
+                alert('비밀번호가 일치하지 않습니다.');
+                document.getElementById("new_repass").value = null;
+                document.getElementById('new_repass').focus();
+                return false;
+            }          
+        }
+    });
+}
