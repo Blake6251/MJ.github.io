@@ -36,7 +36,6 @@
 
 
     <style>
-
         div.wrap {
             width: 100%;
             margin: 0 auto;
@@ -96,11 +95,13 @@
             display: inline-block;
             padding: 5px 10px;
         }
-        .wrap #con li#p4, #p5 {
+
+        .wrap #con li#p4,
+        #p5 {
             width: 40px;
             height: 46px;
         }
-        
+
 
         .wrap #con li:first-child {
             font-size: 1.8rem;
@@ -115,7 +116,7 @@
             width: 20px;
             height: 20px;
         }
-        
+
 
 
 
@@ -172,7 +173,8 @@
         .R_review_title {
             float: left;
         }
-        .R_review_title{
+
+        .R_review_title {
             margin-bottom: 0;
         }
 
@@ -182,7 +184,7 @@
             margin-bottom: 0;
         }
 
-        .R_review_bnt li button{
+        .R_review_bnt li button {
             border: 0;
             background-color: #fff;
             font-weight: 600;
@@ -190,7 +192,8 @@
             padding: 5px;
             margin: 0 5px;
         }
-        .R_review_bnt li button:hover{
+
+        .R_review_bnt li button:hover {
             border-bottom: 2px solid #F76E11;
         }
 
@@ -201,10 +204,11 @@
         .R_review_cotentBtn li {
             display: inline-block;
         }
+
         .R_review_cotentBtn li:hover {
             cursor: pointer;
         }
-        
+
         /* 하단 고정바 */
         nav.btn_var {
             width: 100%;
@@ -244,28 +248,46 @@
 
         .btn_var button {
             box-sizing: border-box;
-            
+
             width: 100%;
             height: 100%;
             border: 2px solid #FFF;
             background-color: #F76E11;
         }
-        .btn_var button span{
+
+        .btn_var button span {
             font-size: 0.8em;
             font-weight: 600;
             color: #EEE;
 
         }
-        
+
         .btn_var button:hover {
             border-radius: 10px;
             border: 3px solid #F76E11;
             background-color: #FFFFFF;
             cursor: pointer;
         }
-        .btn_var button:hover span{
+
+        .btn_var button:hover span {
             color: #F76E11;
         }
+
+
+        /*  기타  */
+        .copy-message {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #F76E11;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+        }
+
+
 
         @media all and (min-width:320px) {
             nav.btn_var2 {
@@ -293,11 +315,12 @@
                 width: 100%;
                 border: 2px solid #F76E11;
             }
-            .R_review_userProfile span{
+
+            .R_review_userProfile span {
                 display: inline-block;
                 width: auto;
             }
-            
+
             #userProfile img {
                 height: 120px;
                 width: 100px;
@@ -357,9 +380,10 @@
                 flex-direction: row-reverse;
                 flex-direction: column;
                 float: right;
-                
+
             }
-            .side_var li{
+
+            .side_var li {
                 box-sizing: border-box;
                 border-radius: 10px;
                 border: 3px solid #F76E11;
@@ -377,6 +401,7 @@
                 align-items: center;
                 justify-content: center;
             }
+
             .side_var button span {
                 color: #4a4a4a;
                 font-weight: 600;
@@ -386,6 +411,7 @@
                 background-color: #F76E11;
                 cursor: pointer;
             }
+
             .side_var button:hover span {
                 color: #fff;
             }
@@ -422,10 +448,11 @@
                 display: inline-block;
                 width: 250px;
                 height: 50px;
-                
+
                 /* background-color: #F76E11; */
             }
-            .btn_var2 .btn2_2 a{
+
+            .btn_var2 .btn2_2 a {
                 text-decoration: none;
             }
 
@@ -503,7 +530,7 @@
                 $("#m1").append(`<iframe class="map1" ${searched_rest[0].map}`)
                 $("#review_num").text(`(${searched_rest[0].review.length})`)
 
-                for(let i = 0; i < searched_rest[0].review.length; i++){
+                for (let i = 0; i < searched_rest[0].review.length; i++) {
                     $("#review_con").append(`<li class="R_review_userProfile">
                             <span class="R_review_userProfile" id="userProfile" style="border:none;">
                                 <img src=".${searched_rest[0].img[i]}" width="64" height="64">
@@ -513,7 +540,7 @@
                                     <div class="R_review_cotent_ueser">
                                         <span>
                                             <strong class="R_review_cotent_ueserName">
-                                                익명_${i+1}
+                                                익명_${i + 1}
                                             </strong>
                                         </span>
                                         <span>
@@ -545,13 +572,13 @@
             write_info()
 
             let heart = false
-            $(".heart_change").click(function(){
+            $(".heart_change").click(function () {
                 let childImg = $(this).children()
-                if(heart){
+                if (heart) {
                     childImg.attr("src", `../image/icons/heart1.png`)
                     heart = false
                 }
-                else{
+                else {
                     childImg.attr("src", `../image/icons/heart2.png`)
                     heart = true
                 }
@@ -622,7 +649,7 @@
             let favors = JSON.parse(sessionStorage.getItem("favors")) || [];
             let favored = favors.filter(favor => favor === name)
             let favorClicked = false
-            
+
             function favorToggle() {
                 favored = favors.filter(favor => favor === name)
                 if (favored.length == 1) {
@@ -634,7 +661,7 @@
             }
             favorToggle()
 
-            if(favorClicked){
+            if (favorClicked) {
                 $("#p5").empty()
                 $("#p5").append(`<img class="mark_icon" src="../image/icons/star.jpg">`)
             }
@@ -695,6 +722,25 @@
 
 
 
+            // 공유버튼
+            $("#copy-button").click(function () {
+                const currentURL = window.location.href; // 주소 저장
+                navigator.clipboard.writeText(currentURL)
+                    .then(() => {   // 클립보드 복사 성공시 실행할 함수
+                        const messageElement = $("<div>").text("클립보드에 복사되었습니다").addClass("copy-message"); // <div class="copy-message>클립보드에 복사되었습니다.</div>"
+                        $("body").append(messageElement);
+                        messageElement.fadeIn(500).delay(1000).fadeOut(500, function () {   // 0.5초간 나타났다가 1초 뒤 0.5초에 걸쳐 사라짐
+                            $(this).remove();   // fadeout까지 끝나면 div 삭제
+                        });
+                    })
+                    .catch((error) => {}); // 오류 발생시 실행할 함수
+            });
+
+
+
+
+
+
             /* 슬라이더 */
             $('.bxslider').bxSlider({
                 slideWidth: 1000,
@@ -704,7 +750,7 @@
                 slideMargin: 10
             });
         });
-        document.addEventListener("DOMContentLoaded",function(){
+        document.addEventListener("DOMContentLoaded", function () {
             loginStatus();
         });
     </script>
@@ -858,7 +904,7 @@
                             <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
                         </li>
                         <li class="btn_share2 btn2_1">
-                            <button><span>공유하기</span></button>
+                            <button id="copy-button"><span>공유하기</span></button>
                         </li>
                         <li class="btn_share2 btn2_2">
                             <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
@@ -960,7 +1006,7 @@
         </div>
     </div>
 
-    <footer class="footer">     <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
+    <footer class="footer"> <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
         <div class="footer_box">
             <div class="footer_logo">
                 <a href="../index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
@@ -1002,30 +1048,30 @@
                 </small>
             </div>
         </div>
-    </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
+    </footer> <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
 
 
 
 
-        <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
-        <nav class="nav_var btn_var">
-            <ul>
-                <li class="btn_like btn1">
-                    <a href="#p1"><button class="like_btn" name="like"><span>좋아요</span></button></a>
-                </li>
-                <li class="btn_favor btn1">
-                    <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
-                </li>
-                <li class="btn_share btn1">
-                    <button><span>공유하기</span></button>
-                </li>
-                <li class="btn_share btn2">
-                    <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
-                <li>
-            </ul>
-        </nav>
+    <!-- 좋아요, 즐겨찾기, 공유하기, 리뷰쓰기 하단 고정바/ PC에서는 우측 상단 고정바 -->
+    <nav class="nav_var btn_var">
+        <ul>
+            <li class="btn_like btn1">
+                <a href="#p1"><button class="like_btn" name="like"><span>좋아요</span></button></a>
+            </li>
+            <li class="btn_favor btn1">
+                <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
+            </li>
+            <li class="btn_share btn1">
+                <button><span>공유하기</span></button>
+            </li>
+            <li class="btn_share btn2">
+                <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
+            <li>
+        </ul>
+    </nav>
 
-    
+
 </body>
 
 </html>
