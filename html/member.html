@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>회원가입</title>    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/font.css"> <!-- 폰트 -->
     <link rel="stylesheet" href="../css/default.css">    
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="../js/header.js"></script>
+    <script src="../js/header.js"></script>    
     <script src="../js/member.js"></script>
 </head>
 <style>
     div.container{
         width: 90%;
-        max-width: 1024px;               
+        max-width: 1024px;   
+        margin: 0 auto;            
     }
     div.container h3{
         width: 380px;
@@ -39,7 +42,6 @@
         letter-spacing: 2px;
         font-size: 12pt;
         color: black;
-        font-family: 'Noto Sans KR', sans-serif;
     }
     div.container input.con{
         width: 380px;
@@ -55,8 +57,7 @@
         width: 70px;
         height: 30px;
         margin-left: 2px;
-        border: 1px solid black;   
-        font-family: 'Noto Sans KR', sans-serif;     
+        border: 1px solid black;      
     }
     div.sub_container{
         width: 430px;        
@@ -78,7 +79,6 @@
     }
     div.container .agree{        
         color: black;        
-        font-family: 'Noto Sans KR', sans-serif;
     } 
     div.container input.chk{
         width: 20px;
@@ -88,7 +88,6 @@
         height: 28px;
         margin: 0px;                
         border: 1px solid gray;
-        font-family: 'Noto Sans KR', sans-serif;
         font-size: 14pt;
     }
     div.container .btn{
@@ -98,14 +97,10 @@
         -webkit-appearance: none;
     }
     input::placeholder {
-        font-family: 'Noto Sans KR', sans-serif;
         font-size: 1vw;
     }
     @media all and (min-width:480px){
         div.container{
-            width: 100%;
-        }
-        div.sub_container{
             width: 100%;
         }
     }
@@ -149,7 +144,6 @@
             padding: 23px 60px 5px 0px;
         }
         div.container input.con{
-            /* width: 77.46478873239437%; */
             width: 80%;
         }
         div.container input.con2{  
@@ -165,10 +159,6 @@
         div.container .agree_box{
             width: 85.759%;
         }
-        /* div.container #submit{
-            width: 12.91111%;
-            border-bottom: 1px solid black;
-        } */
         div.sub_container{
             width: 69.3359375%;             
         }
@@ -265,14 +255,14 @@
                             <label for="agree_chk1">
                                 <input type="checkbox" class="chk" name="chk" id="agree_chk1" value="1">
                                 <span class="agree" >[필수] 이용약관 동의</span>
-                                <a href="#" target="_parent">[더보기]</a>
+                                <a href="./terms_of_use.html" target="_blank">[더보기]</a>
                             </label>
                         </li> 
                         <li>
                             <label for="agree_chk2">
                                 <input type="checkbox" class="chk" name="chk" id="agree_chk2"  value="2">
                                 <span class="agree">[필수] 개인정보 및 이용동의</span>
-                                <a href="help.html" target="parent">[더보기]</a>
+                                <a href="./member.html" target="_self">[더보기]</a>
                             </label>
                         </li> 
                         <li>
@@ -290,8 +280,50 @@
             </form>  
         </div> 
     </div>
+    <footer class="footer">     <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
+        <div class="footer_box">
+            <div class="footer_logo">
+                <a href="../index.html"><img src="../image/logo.jpg" id="footer_logo"></a>
+            </div>
+
+            <nav class="footer_nav">
+                <ul class="footer_list1">
+                    <li>
+                        <a href="">회사소개</a>
+                    </li>
+                    <li>
+                        <a href="">도움말</a>
+                    </li>
+                    <li>
+                        <a href="">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="">서비스소개</a>
+                    </li>
+                    <li>
+                        <a href="">문의하기</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="footer_copyrights">
+                <small>
+                    <p>
+                        맛나리
+                        <br>서울 강남구 테헤란로5길 24, 장연빌딩/ 3~7층
+                        <br>조장: 유현호
+                        <br>사업자등록번호 : 220-85-34964
+                        <br>통신판매업신고 : 2013-서울강남-01429호
+                        <br>대표번호 : 02.3481.1005
+                        <br><br>
+                        <span class="copyrights">© 2023 맛나리 Co., Ltd. All rights reserved.</span>
+                    </p>
+                </small>
+            </div>
+        </div>
+    </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 --> 
     <script>
-        // const form1 = document.getElementById('member');
         document.addEventListener("DOMContentLoaded", function(){
             form1 = document.getElementById('member');            
             signup();

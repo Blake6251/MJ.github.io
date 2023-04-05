@@ -36,8 +36,11 @@
         }
 
     </style>
-
-
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+            loginStatus();
+        });
+  </script>
 
 
 </head>
@@ -49,7 +52,7 @@
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="../html/login.html">로그인</a>
+                    <a href="../html/login.html" id="login-btn">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>

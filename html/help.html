@@ -132,6 +132,9 @@
                 content.style.maxHeight = content.scrollHeight + "px";  // 접혀있는 경우 펼치기
             }
         }
+        document.addEventListener("DOMContentLoaded",function(){
+            loginStatus();
+        });
     </script>
     
 
@@ -144,7 +147,7 @@
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="../html/login1.html">로그인</a>
+                    <a href="../html/login1.html" id="login-btn">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="#"></button>

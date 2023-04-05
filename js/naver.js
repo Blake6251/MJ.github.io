@@ -3,7 +3,7 @@
 		{
 			clientId: "cAfOrXvsQaS0AqdDj6tU",
 			callbackUrl: "http://localhost:8080/html/login.html",
-			loginButton: {color: "green", type: 3,  height: 55}
+			loginButton: {color: "green", type: 3,  height: 50}
 		}
 		);     
 		naverLogin.init();
@@ -23,15 +23,7 @@
 		}
 		});
 		console.log(naverLogin);	
-		function setLoginStatus(){			
-		
-		// const message_area=document.getElementById('message');
-		// message_area.innerHTML=`
-		// <h3> Login 성공 </h3>
-		// <div>user Nickname : ${naverLogin.user.nickname}</div>
-		// <div>user Age(범위) : ${naverLogin.user.age}</div>
-		// <div>user Birthday : ${naverLogin.user.birthday}</div>
-		// `;		
+		function setLoginStatus(){
 
 		const button_area=document.getElementById('button_area');
 		button_area.innerHTML="<button id='btn_logout'>로그아웃</button>";
@@ -42,7 +34,6 @@
 			location.replace("http://localhost:8080/navertest.html");
 		})		
 		
-			// location.href("../index.html");
 		}	
 				
 	}
