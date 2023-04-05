@@ -132,6 +132,9 @@
                 content.style.maxHeight = content.scrollHeight + "px";  // 접혀있는 경우 펼치기
             }
         }
+        document.addEventListener("DOMContentLoaded",function(){
+            loginStatus();
+        });
     </script>
     
 
@@ -140,14 +143,14 @@
     <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
         <div class="banner">
             <div id="logo_box">
-                <a href="../index.html"><img src="../image/restaurant/gj_hamberger/33.jpg"></a>
+                <a href="../index.html"><img src="../image/logo.jpg"></a>
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="../html/login1.html">로그인</a>
+                    <a href="../html/login1.html" id="login-btn">로그인</a>
                 </div>
                 <div id="log_box">
-                    <button id="log_btn"><img src="#"></button>
+                    <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
                 </div>
             </div>
         </div>
