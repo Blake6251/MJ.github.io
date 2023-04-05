@@ -234,7 +234,7 @@ function findID(){
         if(email === '' || num === '') {
             alert('이메일과 인증번호를 입력해주세요.'); 
             console.log("입력 : " + email);
-            console.log("저장 : " + user.email);       
+            // console.log("저장 : " + user.email);       
             console.log(JSON.stringify(m1));
             console.log(JSON.stringify(user));        
             return false;       
