@@ -74,3 +74,21 @@ $(document).ready(function () {
         appendFavors()
     })
 })
+//sessionStorage에서 로그인 정보를 가져와 로그인 상태를 확인
+
+
+function loginStatus(){
+    const login = JSON.parse(sessionStorage.getItem('login'));
+    if (login && login.login_id && login.login_pass) {        
+        document.getElementById('login-btn').textContent = '로그아웃';
+        document.getElementById('login-btn').onclick = logout;
+    
+    }
+    function logout() {
+        // 로그아웃 처리
+        sessionStorage.removeItem('login');;
+        alert("로그아웃되었습니다.");
+        // 로그인 페이지로 이동
+        window.location.href = 'login.html';
+    }
+}
