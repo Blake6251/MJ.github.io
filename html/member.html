@@ -97,6 +97,10 @@
     input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button{
         -webkit-appearance: none;
     }
+    input::placeholder {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1vw;
+    }
     @media all and (min-width:768px){        
         div.container{
             margin: 0 auto;
@@ -123,6 +127,9 @@
         }
         div.container input#button, input#submit_all{
             width: 46.9029%;
+        }
+        input::placeholder {
+            font-size: 10pt;
         }
     }
     @media all and (min-width:1024px){        
@@ -159,6 +166,9 @@
         }
         div.container input#button, input#submit_all{
             width: 46.3671875%;
+        }
+        input::placeholder {
+            font-size: 10pt;
         }
     }
 </style>
@@ -198,26 +208,23 @@
     </header>
     <div class="container">        
         <div class="sub_container">            
-            <form action="login.html" method="post" name="member" id="member" class="member" enctype="multipart/form-data" ><!--onsubmit="return handleSubmit()"--> 
-                <!-- <iframe id="iframe1" name="iframe1" style="display:none"></iframe> -->
+            <form action="login.html" method="post" name="member" id="member" class="member" enctype="multipart/form-data" >                
                 <h3 style="color: black;">회원가입</h3><hr style="border: 1px solid black; height: 0;">
                 <br>
                 <ul>                
                     <li>
                         <label class="lab" for="nickname">닉네임 </label>
-                        <input type="text" class="con" name="nickname" id="nickname" placeholder=" 닉네임을 입력해주세요(2~10자이내 영문,숫자,특수문자 사용가능(공백불가능))" onchange="nameChk()">
+                        <input type="text" class="con" name="nickname" id="nickname" placeholder=" 닉네임을 입력해주세요(2~10자이내 영문,숫자,특수문자 최소 1글자씩 사용(공백불가능))" onchange="nameChk()">
                     </li>
                     <li>
                         <label class="lab" for="user_id">아이디 </label>
-                        <input type="text" class="con2" name="user_id" id="user_id" placeholder=" 아이디를 입력해주세요(* 6~20자 영문, 숫자 사용가능)" onchange="id_validation()">       
-                        <input type="button" id="submit" value="중복체크" onclick="idChk()">                            
-                        <!-- <p class="input_note">* 6~20자 소문자, 숫자 사용가능</p>   -->
+                        <input type="text" class="con2" name="user_id" id="user_id" placeholder=" 아이디를 입력해주세요(* 6~20자 영문, 숫자 최소 1글자씩 사용)" onchange="id_validation()">       
+                        <input type="button" id="submit" value="중복체크" onclick="idChk()"> 
                         <input type="hidden" name="id_hidden" id="id_hidden">                    
                     </li>
                     <li>
                         <label class="lab" for="user_pwd">비밀번호 </label>
-                        <input type="password" class="con" name="user_pwd" id="user_pwd" placeholder=" 비밀번호를 입력해주세요(* 8~16자 영문, 숫자, 특수문자 사용가능)" minlength="8" maxlength="16" onchange="pwd_validation()">    
-                        <!-- <p class="input_note">* 8~16자 영문, 숫자, 특수문자 사용가능</p>                   -->
+                        <input type="password" class="con" name="user_pwd" id="user_pwd" placeholder=" 비밀번호를 입력해주세요(* 8~16자 영문, 숫자, 특수문자 최소 1글자씩 사용)" minlength="8" maxlength="16" onchange="pwd_validation()">
                     </li>
                     <li>
                         <label class="lab" for="user_pwdChk">비밀번호확인 </label>
@@ -230,13 +237,11 @@
                     <li>
                         <label class="lab" for="user_email">이메일 </label>
                         <input type="email" class="con2" name="user_email" id="user_email" placeholder=" 이메일을 입력해주세요" >
-                        <!-- <button id="submit">이메일인증</button> -->
                         <input type="button" id="submit" value="이메일인증" onclick="emailChk()">                 
                     </li>
                     <li>
                         <label class="lab" for="code_num"></label>
                         <input type="text" class="con2" name="code_num" id="code_num" placeholder=" 인증번호를 입력해주세요">
-                        <!-- <button id="chk_btn">확인</button> -->
                         <input type="button" id="submit" value="확인" onclick="numChk()">
                     </li>                    
                     <hr style="border: 1px solid black; height: 0;">
@@ -250,7 +255,6 @@
                         </li>                         
                         <li>
                             <label for="agree_chk1">
-                                <!-- <input type="checkbox" class="chk" name="chk3" id="agree_chk3"  value="1"> -->
                                 <input type="checkbox" class="chk" name="chk" id="agree_chk1" value="1">
                                 <span class="agree" >[필수] 이용약관 동의</span>
                                 <a href="#" target="_parent">[더보기]</a>
@@ -258,7 +262,6 @@
                         </li> 
                         <li>
                             <label for="agree_chk2">
-                                <!-- <input type="checkbox" class="chk" name="chk3" id="agree_chk3"  value="2"> -->
                                 <input type="checkbox" class="chk" name="chk" id="agree_chk2"  value="2">
                                 <span class="agree">[필수] 개인정보 및 이용동의</span>
                                 <a href="help.html" target="parent">[더보기]</a>
@@ -266,7 +269,6 @@
                         </li> 
                         <li>
                             <label for="agree_chk3">
-                                <!-- <input type="checkbox" class="chk" name="chk3" id="agree_chk3"  value="3"> -->
                                 <input type="checkbox" class="chk" name="chk" id="agree_chk3" value="3">
                                 <span class="agree">[필수] 만 14세 이상</span>
                             </label>
@@ -274,162 +276,18 @@
                     </div>
                     <li class="btn">
                         <input type="button" name="button" id="button" value="가입취소" >
-                        <input type="submit" name="submit_all" id="submit_all" value="가입하기"><!--onclick="agreeChk()"-->                        
-                        <!-- <input type="submit" name="button" value="가입하기">
-                        <input type="button" name="button" href="../index.html" value="가입취소"> -->
+                        <input type="submit" name="submit_all" id="submit_all" value="가입하기">                     
                     </li> 
                 </ul>                
-            </form>   
-
+            </form>  
         </div> 
     </div>
-    <script> 
-        const form1 = document.getElementById('member');
-       
-        form1.addEventListener('submit', function(event){
-            if(!checkConditions()){
-                event.preventDefault();
-            }
-        });
-        function checkConditions(){
-            const nickname = document.getElementById('nickname').value;
-            const id = document.getElementById('user_id').value;
-            const pass = document.getElementById('user_pwd').value;
-            const passChk = document.getElementById('user_pwdChk').value;
-            const phone = document.getElementById('user_phone').value;
-            const email = document.getElementById('user_email').value;
-            const agree1 = document.getElementById('agree_chk1').checked;
-            const agree2 = document.getElementById('agree_chk2').checked;
-            const agree3 = document.getElementById('agree_chk3').checked;
-
-            if(nickname === '' || id  === '' || pass === '' || passChk === '' || phone === '' || email === '' ){
-                alert('필수입력사항 입력해주세요.');
-                return false;
-            }
-
-            if(pass !== passChk){
-                alert('비밀번호가 일치하지 않습니다.');
-                return false;
-            }
-
-            if(!agree1 && !agree2 && !agree3){
-                alert('모두 동의해주세요.');
-                return false;
-            }
-
-            alert("회원가입에 완료했습니다.");
-            return true;
-        }
-        // document.getElementById("submit_all").addEventListener("click", function(){            
-        //     location.href = "login.html";
-        // });
-        // let form = document.getElementById("member");
-        // // let id = document.getElementById("user_id");
-        // let pass = document.getElementById("user_pwd");
-        // let passChk = document.getElementById("user_pwdChk");
-        // // let phone = document.getElementById("user_phone");
-        // // let email = document.getElementById("user_email");
-        // let agree1 = document.getElementById("agree_chk1");
-        // let agree2 = document.getElementById("agree_chk2");
-        // let agree3 = document.getElementById("agree_chk3");
-
-        // document.getElementById("submit_all").addEventListener("click", function(){
-            
-            
-        //     // if(pass !== passChk){
-        //     //     alert("암호와 암호 확인 값이 일치하지 않습니다.");
-        //     //     event.preventDefault();
-        //     //     return false;
-        //     // }
-        //     // if(form.checkValidity() == true){
-        //     //     alert("회원가입에 필요한 정보를 전부 입력해주세요.");
-        //     //     event.preventDefault();
-        //     //     return;
-        //     // }else if(!agree1.checked && !agree2.checked && !agree3.checked){
-        //     //     alert("동의사항에 모두 동의해주세요.");
-        //     //     event.preventDefault();                
-        //     //     return;
-        //     // }
-
-            
-
-        //     // alert("회원가입이 완료되었습니다.");
-        //     location.href = "login.html";
-            
-        // });
-         
-        // function idChk(){
-        //     let id = document.getElementById("user_id").value;
-        //     let num = id.search(/[0-9]/g);
-        //     let eng = id.search(/[a-z]/ig);
-
-
-        // }
-        // function passwordChk(){
-        //     let pw = document.getElementById("nickname").value;
-        //     let num = pw.search(/[0-9]/g);
-        //     let eng = pw.search(/[a-z]/ig);
-        //     let spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-        //     if(pw.length < 8  || pw.length > 16){
-        //         alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");
-        //         return false;
-        //     }else if(pw.search(/\s/) != -1){
-        //         alert("비밀번호는 공백없이 입력해주세요.");
-        //         return false;
-        //     }else if(num < 0 || eng < 0 || spe < 0){
-        //         alert("8~16이내 영문, 숫자, 특수문자를 사용하세요.");
-        //         return false;
-        //     }else{
-        //         console.log("통과");
-        //         return true;
-        //     }
-        // }
-
-        // function handleSubmit() {
-        //     //회원정보
-        //     let nickname = document.getElementById('nickname').value;
-        //     let id = document.getElementById('user_id').value;
-        //     let password = document.getElementById('user_pwd').value;
-        //     let passwordConfirm = document.getElementById('user_pwdChk').value;
-        //     let phone = document.getElementById('user_phone').value;
-        //     let email = document.getElementById('user_email').value; 
-
-        //     //전화번호 양식
-        //     let chk = "-";
-        //     let phone_chk = phone.indexOf(chk);  
-
-        //     // 로컬 스토리지에 회원정보 저장
-        //     let user_nickname = localStorage.setItem("nickname", nickname);
-        //     let user_id = localStorage.setItem("id", id);
-        //     let user_password = localStorage.setItem("password", password);
-        //     let user_phone;
-        //     // let user_phone = localStorage.setItem("phone", phone);
-        //     let user_email = localStorage.setItem("email", email); 
-
-        //     if(isNaN(phone) !== true){
-        //         alert("숫자");                               
-        //     }else{
-        //         alert("문자");                
-        //         document.getElementById("user_phone").focus();
-        //     }
-             
-
-        //     // window.location.href = "login.html";
-        //     // 값을 확인하거나 처리하는 코드를 작성합니다.
-        //     console.log("닉네임 : ",localStorage.getItem("nickname"));
-        //     console.log("아이디 : ",localStorage.getItem("id"));
-        //     console.log("비밀번호 : ",localStorage.getItem("password"));
-        //     console.log("휴대폰 : ", localStorage.getItem("phone"));
-        //     console.log("이메일 : ", localStorage.getItem("email")); 
-        //     console.log(isNaN(phone));
-
-        //     // console.log("닉네임 : ", localStorage.getItem('nickname'));
-        //     // console.log("아이디 : ",input_id);
-        //     // console.log("비밀번호 : ",input_password);
-        //     // console.log("휴대폰 : ", input_phone);
-        //     // console.log("이메일 : ", input_email); 
-        //     // console.log("-유무 : ", phone_chk);            
-        // }
+    <script>
+        // const form1 = document.getElementById('member');
+        document.addEventListener("DOMContentLoaded", function(){
+            form1 = document.getElementById('member');            
+            signup();
+        });       
     </script>
 </body>
 </html>
