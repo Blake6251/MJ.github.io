@@ -88,14 +88,14 @@ function pwd_validation() {
         return false;
     }else{        
         console.log("통과");
-        return true;
+        return true; 
     }    
 }
 // 비밀번호 일치여부
 function pwdChk() {
     let pw = document.getElementById("user_pwd").value;
     let pwchk = document.getElementById("user_pwdChk").value;
-    if(pw == '' || pwchk == ''){
+    if(pw == '' || pwchk == ''){ 
         alert("비밀번호를 입력해주세요.");
         document.getElementById("user_pwd").focus();
         return false;
@@ -145,20 +145,7 @@ function emailChk(){
         return true;
     }
 }
-function emailChk_pw(){
-    resetCode();
-    email = document.getElementById("email").value;
-    let regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-    if(regex.test(email) == false){
-        alert("이메일형식이 맞지않습니다.");
-        document.getElementById("email").focus();
-        return false;
-    }else{               
-        alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
-        console.log(code_num);
-        return true;
-    }
-}
+/* ~ 회원가입 */
 // 인증번호 일치여부
 function numChk(){    
     let input_num = document.getElementById("code_num").value;   
@@ -173,18 +160,7 @@ function numChk(){
         return true;
     }
 }
-function numChk_pw(){    
-    let input_num = document.getElementById("code_num_pw").value;   
-    let id = document.getElementById("user_id").value;
-    if(code_num !== input_num){
-        alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
-        document.getElementById("code_num_pw").focus(); 
-        return false;
-    }else{
-        alert("인증이 완료되었습니다.");
-        return true;
-    }
-}
+
 // 동의사항 전체동의 기능
 function agree_chkAll() {
     $(document).ready(function () {
@@ -264,7 +240,7 @@ function login(){
         let user = JSON.parse(sessionStorage.getItem("user"));         
         let id = document.getElementById("user_id").value;
         let pass = document.getElementById('user_pwd').value;                      
-        let login = { login_id : "", pass : ""};
+        let login = { login_id : "", pass : ""};    /* login 객체 생성 */
         if(id === '' || pass === ''){
             alert('아이디와 비밀번호를 입력해주세요.');
             console.log("m1 : " + JSON.stringify(m1));
@@ -336,6 +312,32 @@ function findPW_validation() {
         console.log("통과");
         return true;
     }    
+}
+function emailChk_pw(){
+    resetCode();
+    email = document.getElementById("email").value;
+    let regex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if(regex.test(email) == false){
+        alert("이메일형식이 맞지않습니다.");
+        document.getElementById("email").focus();
+        return false;
+    }else{               
+        alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
+        console.log(code_num);
+        return true;
+    }
+}
+function numChk_pw(){    
+    let input_num = document.getElementById("code_num_pw").value;   
+    let id = document.getElementById("user_id").value;
+    if(code_num !== input_num){
+        alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
+        document.getElementById("code_num_pw").focus(); 
+        return false;
+    }else{
+        alert("인증이 완료되었습니다.");
+        return true;
+    }
 }
 //비밀번호 찾기
 function findPW(){
