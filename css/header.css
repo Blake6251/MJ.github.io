@@ -67,6 +67,9 @@
         color: #f76e11;
     }
 
+    ul.logs{
+        margin-bottom: 0;
+    }
     ul.logs li.log{
         width: 100%;
         height: 75px;

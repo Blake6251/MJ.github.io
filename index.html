@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,8 @@
     <link href="./css/font.css" rel="stylesheet">
     <!-- 외부 css, 스트립트-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> <!-- 제이쿼리 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- 부트스트랩 -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> <!-- 부트스트랩 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> <!-- 부트스트랩 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> <!--슬라이더 css-->
@@ -25,12 +27,13 @@
     <script src="./js/restaurant_info_copy.js"></script> <!--데이터 스크립트-->
     <title>index</title>
     <style>
-        @media all and (min-width:320px){
-            a{
+        @media all and (min-width:320px) {
+            a {
                 text-decoration: none !important;
             }
+
             /* -------------------- 검색창 섹션 -------------------- */
-            section.img_container{
+            section.img_container {
                 width: 100%;
                 height: 180px;
                 background-image: url("./image/event/9_1.jpg");
@@ -40,10 +43,12 @@
                 align-items: center;
                 margin-bottom: 30px;
             }
-            div.search_container{
+
+            div.search_container {
                 width: 100%;
             }
-            div.search_bar{
+
+            div.search_bar {
                 width: 90%;
                 margin: 0 auto;
                 margin-bottom: 10px;
@@ -52,89 +57,103 @@
                 align-items: center;
                 /* background-color: azure; */
             }
-            div.search_bar input{
+
+            div.search_bar input {
                 height: 40px;
                 padding: 0;
                 border: 1px solid #f76e11;
                 box-sizing: border-box;
             }
-            .mb-3{ /* 부트스트랩 마진 제거 */
+
+            .mb-3 {
+                /* 부트스트랩 마진 제거 */
                 margin-bottom: 0 !important;
             }
 
-            div.search_bar button{
+            div.search_bar button {
                 background-color: #f76e11;
                 border: 1px solid #f76e11;
                 height: 40px;
             }
-            div.search_bar button:hover{
+
+            div.search_bar button:hover {
                 background-color: #fff;
                 border: 1px solid #f76e11;
                 color: #f76e11;
             }
-            div.search_bar button:active{
+
+            div.search_bar button:active {
                 background-color: #f76e11 !important;
                 border: 1px solid #f76e11 !important;
             }
-            div.search_bar button:focus{
+
+            div.search_bar button:focus {
                 background-color: #f76e11;
                 border: 1px solid #f76e11;
             }
 
-            div.search_container div.check{
+            div.search_container div.check {
                 display: none;
             }
 
 
             /* -------------------- 메인 섹션 -------------------- */
-            section.main_section{
+            section.main_section {
                 margin: 0 auto;
                 width: 80%;
                 /* background-color: blanchedalmond; */
             }
 
-            div.sort h2{
+            div.sort h2 {
                 font-size: 2.6vw;
                 font-weight: 600;
             }
 
-            div.event_mobile hr{
+            div.event_mobile hr {
                 width: 90%;
                 margin: 0 auto;
-                background:#f76e11;
-                height:1px;
-                border:0;
+                background: #f76e11;
+                height: 1px;
+                border: 0;
             }
-            div.event_mobile hr:last-child{
+
+            div.event_mobile hr:last-child {
                 margin-bottom: 30px;
             }
-            div.event_mobile img{
+
+            div.event_mobile img {
                 background-color: #f76e11;
                 width: 100%;
                 height: 150px;
                 margin: 20px 0;
             }
-            div.bx{
+
+            div.bx {
                 display: none;
                 margin-top: 20px;
             }
-            ul.ul_container li{
+
+            ul.ul_container li {
                 margin-bottom: 10px;
             }
-            ul.ul_container li:first-child{
+
+            ul.ul_container li:first-child {
                 margin-top: 10px;
             }
-            ul.ul_container img{
+
+            ul.ul_container img {
                 width: 100%;
                 height: 160px;
             }
-            ul.ul_container h1{
+
+            ul.ul_container h1 {
                 margin-top: 5px;
                 text-align: left;
                 color: #f76e11;
                 font-size: 20px;
             }
-            ul.ul_container h2{
+
+            ul.ul_container h2 {
                 margin-top: 5px;
                 margin-bottom: 15px;
                 text-align: left;
@@ -142,45 +161,51 @@
                 font-size: 15px;
 
             }
-            ul#ul_container2 h2{
+
+            ul#ul_container2 h2 {
                 text-align: center;
             }
 
 
-            section.main_section div.btn_container{
+            section.main_section div.btn_container {
                 width: 100%;
                 margin-bottom: 20px;
                 /* background-color: azure; */
             }
-            div.btn_container button{
+
+            div.btn_container button {
                 background-color: #fff;
                 border-radius: 100%;
                 border: 1px solid #f76e11;
                 margin: 0 auto;
                 display: block;
             }
-            div.btn_container img{
+
+            div.btn_container img {
                 width: 30px;
                 height: 30px;
             }
 
             /* -------------------- 기타 -------------------- */
-            div.event_container{
+            div.event_container {
                 display: none;
             }
         }
 
 
-        @media all and (min-width:768px){       /* 태블릿 */
-            section.main_section{
+        @media all and (min-width:768px) {
+
+            /* 태블릿 */
+            section.main_section {
                 width: 90%;
             }
 
-            section.img_container{
+            section.img_container {
                 height: 260px;
                 margin-bottom: 40px;
             }
-            div.search_container{
+
+            div.search_container {
                 margin: 0 auto;
                 width: 50%;
                 /* height: 50%; */
@@ -188,21 +213,25 @@
                 background-color: #f76e11;
                 opacity: 0.9;
             }
-            div.search_container .search_bar{
+
+            div.search_container .search_bar {
                 width: 100%;
                 margin: 0;
             }
-            
-            div.search_bar input{
+
+            div.search_bar input {
                 width: 80%;
             }
-            div.search_bar a{
+
+            div.search_bar a {
                 width: 20%;
             }
-            div.search_bar button{
+
+            div.search_bar button {
                 width: 100%;
             }
-            div.search_container div.check{
+
+            div.search_container div.check {
                 width: 100%;
                 height: 40px;
                 margin: 0;
@@ -210,28 +239,33 @@
                 align-items: center;
                 justify-content: space-evenly;
             }
-            div.check div.check_title{
+
+            div.check div.check_title {
                 box-sizing: border-box;
                 width: 20%;
                 padding-left: 2%;
             }
-            div.check div.check_title p{
+
+            div.check div.check_title p {
                 font-size: 1.2vw;
                 font-weight: 600;
                 margin: 0;
                 color: #fff;
             }
-            div.check div.check_loc_item{
+
+            div.check div.check_loc_item {
                 box-sizing: border-box;
                 width: 18%;
                 margin: 0 auto;
             }
-            div.check div.check_theme_item{
+
+            div.check div.check_theme_item {
                 box-sizing: border-box;
                 width: 18%;
                 margin: 0 auto;
             }
-            div.check button.check_btn{
+
+            div.check button.check_btn {
                 width: 100%;
                 height: 100%;
                 box-sizing: border-box;
@@ -243,16 +277,16 @@
 
             /* -------------------- 메인섹션 -------------------- */
 
-            div.sort h2{
+            div.sort h2 {
                 font-size: 2.0vw;
             }
 
-            .bx-wrapper{
-                border:0;
-                box-shadow:none;
+            .bx-wrapper {
+                border: 0;
+                box-shadow: none;
             }
 
-            .bxslider li{
+            .bxslider li {
                 position: relative;
                 display: inline-block;
                 vertical-align: top;
@@ -260,14 +294,14 @@
                 text-align: center;
             }
 
-            .bxslider div.square{
+            .bxslider div.square {
                 border-radius: 10%;
             }
 
             .bxslider li .overlay {
                 position: absolute;
                 left: 0;
-                bottom: 14%;
+                bottom: 20%;
                 width: 100%;
                 height: 30%;
                 /* border-radius: 10%; */
@@ -275,22 +309,24 @@
                 opacity: 0;
                 transition: opacity 0.3s;
             }
-            #bxslider2 li .overlay{
+
+            #bxslider2 li .overlay {
                 bottom: 0;
             }
-    
+
             .bxslider li:hover .overlay {
                 opacity: 0.8;
             }
 
-            #bxslider1 h1{
+            #bxslider1 h1 {
                 margin-top: 8%;
                 margin-left: 5%;
                 text-align: left;
                 color: beige;
                 font-size: 1.4vw;
             }
-            #bxslider1 h2{
+
+            #bxslider1 h2 {
                 margin-top: 5px;
                 margin-left: 5%;
                 text-align: left;
@@ -298,77 +334,87 @@
                 font-size: 1.1vw;
             }
 
-            #bxslider2 h1{
+            #bxslider2 h1 {
                 margin-top: 5%;
                 text-align: center;
                 color: beige;
+                font-size: 2.5vw;
             }
 
-            div.event_mobile{
+            div.event_mobile {
                 display: none;
             }
 
             div.square {
                 width: 100%;
                 height: 0;
-                padding-bottom: 100%; /* 이미지 크기 조정 */
+                padding-bottom: 100%;
+                /* 이미지 크기 조정 */
                 position: relative;
                 overflow: hidden;
             }
+
             div.square img {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                object-fit: cover; /* 이미지 비율 조정 */
+                object-fit: cover;
+                /* 이미지 비율 조정 */
             }
 
-            div.bx{
+            div.bx {
                 display: block;
             }
-            ul.ul_container{
+
+            ul.ul_container {
                 display: none;
             }
-            section.main_section div.btn_container{
+
+            section.main_section div.btn_container {
                 display: none;
             }
 
             /* -------------------- 기타 -------------------- */
-            div.event_container{
+            div.event_container {
                 display: block;
                 position: fixed;
                 bottom: 100px;
                 right: 70px;
             }
-            div.event_container img{
+
+            div.event_container img {
                 width: 60px;
                 height: 60px;
             }
         }
-        @media all and (min-width:1024px){      /* PC */
-            section.img_container{
+
+        @media all and (min-width:1024px) {
+
+            /* PC */
+            section.img_container {
                 height: 480px;
             }
 
-            div.sort h2{
+            div.sort h2 {
                 font-size: 1.8vw;
             }
 
-            div.search_container div.check{
+            div.search_container div.check {
                 margin: 5px 0;
             }
-            div.check div.check_title p{
+
+            div.check div.check_title p {
                 font-size: 1.0vw;
             }
         }
-        
     </style>
     <script>
-        $(document).ready(function (){
-            for (r of restaurant_arr){ // 평점순 슬라이더
+        $(document).ready(function () {
+            for (r of restaurant_arr) { // 평점순 슬라이더
                 //$("#bxslider1").append(`<div><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg" title=${r.name}></div></a></div>`)
                 $("#bxslider1").append(`<li><a href="./html/restaurant_info.html?name=${r.name}"><div class="square"><img class="slider_img" src="./image/restaurant/${r.dir}/1.jpg"></div></a><strong>${r.name}</strong><a class="overlay" href="./html/restaurant_info.html?name=${r.name}"><h1>${r.name}</h1><h2>${r.loc}&nbsp;&nbsp;&nbsp;${r.theme}&nbsp;&nbsp;&nbsp;${r.score}</h2><p></p></a></li>`)
             }
-            for (t of theme_arr){ // 테마별 슬라이더
+            for (t of theme_arr) { // 테마별 슬라이더
                 //$("#bxslider2").append(`<div><a href="./html/restaurant_list.html?theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}></div></a></div>`)
                 $("#bxslider2").append(`<li><a href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><div class="square"><img class="slider_img" src=${t.img} title=${t.theme}</div><div></a><a class="overlay" href="./html/restaurant_list.html?search=&loc=&theme=${t.theme}"><h1>${t.theme}</h1></a></li>`)
             }
@@ -379,22 +425,22 @@
             let loc_chk_arr = []
             let theme_chk_arr = []
 
-            $("#search").keydown(function(key){
-                if(key.keyCode==13){
+            $("#search").keydown(function (key) {
+                if (key.keyCode == 13) {
                     let search = $("#search").val() // 검색창에 입력된 값 가져오기
                     let loc_str = loc_chk_arr.join(",") // 배열을 문자열로 만들기, 배열의 요소를 ,로 이어줌
                     let theme_str = theme_chk_arr.join(",")
                     location.href = `./html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}` // 페이지 이동
                 }
             })
-            $("#search_btn").click(function(){
+            $("#search_btn").click(function () {
                 let search = $("#search").val() // 검색창에 입력된 값 가져오기
                 let loc_str = loc_chk_arr.join(",") // 배열을 문자열로 만들기, 배열의 요소를 ,로 이어줌
                 let theme_str = theme_chk_arr.join(",")
                 location.href = `./html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}` // 페이지 이동
             })
             // 지역별 필터 확인
-            $(".check_btn_loc").click(function(){
+            $(".check_btn_loc").click(function () {
                 let this_btn = $(this)
                 arrFiltering(this_btn)
 
@@ -417,38 +463,38 @@
                 }*/
             })
             // 테마별 필터 확인
-            $(".check_btn_theme").click(function(){
+            $(".check_btn_theme").click(function () {
                 let this_btn = $(this)
                 arrFiltering(this_btn)
             })
             // 필터 체크 함수화
-            function arrFiltering(this_btn){
+            function arrFiltering(this_btn) {
                 let check_value = this_btn.attr("value") // 누른 버튼의 value값을 가져오기
                 let parentClass = this_btn.parent().attr("class")
 
-                if(check_value == "false"){ // 누른 버튼의 value값이 false이면
-                    this_btn.css({"border":"1px solid #f76e11","background-color":"#fff","color":"#f76e11"}) // 색변화
+                if (check_value == "false") { // 누른 버튼의 value값이 false이면
+                    this_btn.css({ "border": "1px solid #f76e11", "background-color": "#fff", "color": "#f76e11" }) // 색변화
                     this_btn.attr("value", "true")   // value값 true로 변경
-                    if(parentClass === "check_loc_item"){   // 누른 버튼이 지역별 그룹에 속하면
+                    if (parentClass === "check_loc_item") {   // 누른 버튼이 지역별 그룹에 속하면
                         loc_chk_arr.push(this_btn.attr("name"))  // 배열에 지역 이름 추가
                         loc_chk_arr.sort()  // 배열 가나다순 정렬
                     }
-                    if(parentClass === "check_theme_item"){ // 누른 버튼이 테마별 그룹에 속하면
+                    if (parentClass === "check_theme_item") { // 누른 버튼이 테마별 그룹에 속하면
                         theme_chk_arr.push(this_btn.attr("name"))  // 배열에 테마 이름 추가
                         theme_chk_arr.sort()
                     }
                 }
-                else{
-                    this_btn.css({"border":"1px solid #fff","background-color":"#f76e11","color":"#fff"})
+                else {
+                    this_btn.css({ "border": "1px solid #fff", "background-color": "#f76e11", "color": "#fff" })
                     this_btn.attr("value", "false")
-                    if(parentClass === "check_loc_item"){   
-                        loc_chk_arr = jQuery.grep(loc_chk_arr, function(item){ // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
-                        return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
+                    if (parentClass === "check_loc_item") {
+                        loc_chk_arr = jQuery.grep(loc_chk_arr, function (item) { // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
+                            return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
                         })
                     }
-                    if(parentClass === "check_theme_item"){
-                        theme_chk_arr = jQuery.grep(theme_chk_arr, function(item){ // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
-                        return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
+                    if (parentClass === "check_theme_item") {
+                        theme_chk_arr = jQuery.grep(theme_chk_arr, function (item) { // jquery.grep : 배열의 모든 항목을 받아 콜백 함수에 의해 필터 함수를 만족하는 배열을 반환시키는 함수
+                            return item != this_btn.attr("name") // 클릭한 버튼의 name과 같지 않은 배열 항목만 남김
                         })
                     }
                 }
@@ -467,7 +513,7 @@
                 maxSlides: 4,
                 moveSlides: 1,
                 slideMargin: 10,
-                touchEnabled : false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
+                touchEnabled: false, // bxslider 자체 클릭으로 내부의 a태그가 클릭되지 않아서 bxslider 자체 클릭 끔
                 pager: false /* 밑 원형 표시 제거 */
             });
 
@@ -475,9 +521,9 @@
 
             /* 모바일 더보기 버튼 */
             let count = 2
-            $("#more_btn1").click(function(){
-                for (let i=0; i<2; i++){
-                    if(count<restaurant_arr.length){
+            $("#more_btn1").click(function () {
+                for (let i = 0; i < 2; i++) {
+                    if (count < restaurant_arr.length) {
                         $("#ul_container1").append(`<li><a href="./html/restaurant_info.html?name=${restaurant_arr[count].name}"><img src="./image/restaurant/${restaurant_arr[count].dir}/1.jpg"></a><a href="./html/restaurant_info.html?name=${restaurant_arr[count].name}"><h1>${restaurant_arr[count].name}</h1><h2>${restaurant_arr[count].loc}&nbsp;&nbsp;&nbsp;${restaurant_arr[count].theme}&nbsp;&nbsp;&nbsp;${restaurant_arr[count].score}</h2><p></p></a></li>`)
                         count++
                     }
@@ -485,13 +531,17 @@
 
                     }
                 }
-            })            
+                if (count >= restaurant_arr.length) {
+                    $("#more_btn1").hide();
+                }
+            })
         });
-        document.addEventListener("DOMContentLoaded",function(){
+        document.addEventListener("DOMContentLoaded", function () {
             loginStatus();
         });
     </script>
 </head>
+
 <body>
     <header> <!-- 헤더 전부 바디 최상단에 붙여넣을것 -->
         <div class="banner">
@@ -530,26 +580,38 @@
                 <div class="input-group mb-3">
                     <input id="search" type="text" class="form-control" placeholder="Search">
                     <div class="input-group-append">
-                      <button id="search_btn" class="btn btn-success" type="submit">Go</button>  
-                     </div>
+                        <button id="search_btn" class="btn btn-success" type="submit">Go</button>
+                    </div>
                 </div>
                 <!--<input type="text" id="search" name="search">
                 <a href="./html/restaurant_list.html"><button id="search_btn">검색</button></a> -->
             </div>
             <div class="check check_loc">
-                <div class="check_title"><p>지역별</p></div>
-                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="강남" value="false">강남</button></div>
-                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="마포" value="false">마포</button></div>
-                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="성동" value="false">성동</button></div>
-                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="용산" value="false">용산</button></div>
+                <div class="check_title">
+                    <p>지역별</p>
+                </div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="강남" value="false">강남</button>
+                </div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="마포" value="false">마포</button>
+                </div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="성동" value="false">성동</button>
+                </div>
+                <div class="check_loc_item"><button class="check_btn check_btn_loc" name="용산" value="false">용산</button>
+                </div>
             </div>
             <div class="check check_theme">
-                <div class="check_title"><p>음식 종류 별</p></div>
-                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="양식" value="false">양식</button></div>
-                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="일식" value="false">일식</button></div>
-                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="중식" value="false">중식</button></div>
-                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="한식" value="false">한식</button></div>
-        </div>
+                <div class="check_title">
+                    <p>음식 종류 별</p>
+                </div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="양식"
+                        value="false">양식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="일식"
+                        value="false">일식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="중식"
+                        value="false">중식</button></div>
+                <div class="check_theme_item"><button class="check_btn check_btn_theme" name="한식"
+                        value="false">한식</button></div>
+            </div>
     </section>
     <section class="main_section">
         <div class="sort score_sort">
@@ -562,10 +624,20 @@
             </div>
             <ul id="ul_container1" class="ul_container">
                 <li>
-                    <a href="./html/restaurant_info.html?name=크리스피포크타운"><img src="./image/restaurant/cri/1.jpg"></a><a href="./html/restaurant_info.html?name=크리스피포크타운"><h1>크리스피포크타운</h1><h2>용산&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;5.0</h2><p></p></a>
+                    <a href="./html/restaurant_info.html?name=크리스피포크타운"><img src="./image/restaurant/cri/1.jpg"></a><a
+                        href="./html/restaurant_info.html?name=크리스피포크타운">
+                        <h1>크리스피포크타운</h1>
+                        <h2>용산&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;5.0</h2>
+                        <p></p>
+                    </a>
                 </li>
                 <li>
-                    <a href="./html/restaurant_info.html?name=파델라"><img src="./image/restaurant/pad/1.jpg"><a href="./html/restaurant_info.html?name=파델라"><h1>파델라</h1><h2>마포&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;4.9</h2><p></p></a></a>
+                    <a href="./html/restaurant_info.html?name=파델라"><img src="./image/restaurant/pad/1.jpg"><a
+                            href="./html/restaurant_info.html?name=파델라">
+                            <h1>파델라</h1>
+                            <h2>마포&nbsp;&nbsp;&nbsp;양식&nbsp;&nbsp;&nbsp;4.9</h2>
+                            <p></p>
+                        </a></a>
                 </li>
             </ul>
             <div class="btn_container">
@@ -574,9 +646,9 @@
             </div>
         </div>
         <div class="event_mobile">
-            <hr/>
+            <hr />
             <a href="./html/event.html"><img src="./image/event/8.png"></a>
-            <hr/>
+            <hr />
         </div>
         <div class="sort theme_sort">
             <h2>음식 종류 별</h2>
@@ -586,10 +658,18 @@
                 </ul>
             </div>
             <ul id="ul_container2" class="ul_container">
-                <li><a href="./html/restaurant_list.html?search=&loc=&theme=양식"><img src="./image/theme/western.jpg"><h2>양식</h2></a></li>
-                <li><a href="./html/restaurant_list.html?search=&loc=&theme=일식"><img src="./image/theme/japanese.jpg"><h2>일식</h2></a></li>
-                <li><a href="./html/restaurant_list.html?search=&loc=&theme=중식"><img src="./image/theme/chinese.jpg"><h2>중식</h2></a></li>
-                <li><a href="./html/restaurant_list.html?search=&loc=&theme=한식"><img src="./image/theme/korean.jpg"><h2>한식</h2></a></li>
+                <li><a href="./html/restaurant_list.html?search=&loc=&theme=양식"><img src="./image/theme/western.jpg">
+                        <h2>양식</h2>
+                    </a></li>
+                <li><a href="./html/restaurant_list.html?search=&loc=&theme=일식"><img src="./image/theme/japanese.jpg">
+                        <h2>일식</h2>
+                    </a></li>
+                <li><a href="./html/restaurant_list.html?search=&loc=&theme=중식"><img src="./image/theme/chinese.jpg">
+                        <h2>중식</h2>
+                    </a></li>
+                <li><a href="./html/restaurant_list.html?search=&loc=&theme=한식"><img src="./image/theme/korean.jpg">
+                        <h2>한식</h2>
+                    </a></li>
             </ul>
             <!-- <div class="btn_container">
                 <button id="more_btn2"><img src="./image/restaurant/taco/157.jpg"></button>
@@ -603,7 +683,7 @@
 
 
 
-    <footer class="footer">     <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
+    <footer class="footer"> <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
         <div class="footer_box">
             <div class="footer_logo">
                 <a href="./index.html"><img src="./image/logo.jpg" id="footer_logo"></a>
@@ -645,6 +725,7 @@
                 </small>
             </div>
         </div>
-    </footer>   <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
+    </footer> <!-- 푸터 전부 바디 최하단에 붙여넣을것 -->
 </body>
+
 </html>

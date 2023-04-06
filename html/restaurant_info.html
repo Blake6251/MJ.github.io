@@ -680,13 +680,13 @@
                     deleteMark(this)    // 마크삭제
                 }
             })
-            $(".favor_btn").click(function () { // 즐겨찾기 버튼 클릭시
-                if (!favorClicked) {
-                    marking(this)   // 마킹, 즐겨찾기 버튼
-                }
-                else {
-                    deleteMark(this)
-                }
+            $(".favor_btn").click(function () { // 즐겨찾기 버튼 클릭시    
+                    if (!favorClicked) {
+                        marking(this)   // 마킹, 즐겨찾기 버튼
+                    }
+                    else {
+                        deleteMark(this)
+                    }
             })
 
             function marking(btn) { // 마킹 함수 선언
