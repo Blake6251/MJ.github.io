@@ -28,6 +28,10 @@ $(document).ready(function () {
     $("#log_btn").click(function () {
         let toggle = $(".hidden_log").css("display")
         if (toggle == "none") {
+            $("#recent_log").css({ "border-bottom": "3px solid #f76e11" })
+            $("#favor_log").css({ "border-bottom": "1px solid silver" })
+            $("#logs").empty()
+            appendLogs()
             $(".hidden_log").css({ "display": "block" })
         }
         else {
