@@ -728,7 +728,7 @@
 
 
             // 공유버튼
-            $("#copy-button").click(function () {
+            $(".copy-button").click(function () {
                 const currentURL = window.location.href; // 주소 저장
                 navigator.clipboard.writeText(currentURL)
                     .then(() => {   // 클립보드 복사 성공시 실행할 함수
@@ -909,7 +909,7 @@
                             <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
                         </li>
                         <li class="btn_share2 btn2_1">
-                            <button id="copy-button"><span>공유하기</span></button>
+                            <button class="copy-button"><span>공유하기</span></button>
                         </li>
                         <li class="btn_share2 btn2_2">
                             <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>
@@ -1068,7 +1068,7 @@
                 <a href="#p1"><button class="favor_btn" name="favor"><span>즐겨찾기</span></button></a>
             </li>
             <li class="btn_share btn1">
-                <button><span>공유하기</span></button>
+                <button class="copy-button"><span>공유하기</span></button>
             </li>
             <li class="btn_share btn2">
                 <a href="#R_review_id"><button><span>리뷰쓰기</span></button></a>

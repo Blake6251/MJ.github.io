@@ -1,4 +1,3 @@
-// let m1 = { nickname: "", id: "", password: "", phone: "", email: "" };
 let m1 = { nickname: "aaa1!", id: "aaa111", password: "asdqwe1!", phone: "01012345678", email: "aaaa1234@gmail.com" };
 let m2 = { nickname: "qwe1!", id: "qweqwe123", password: "qweqwe1!", phone: "01012345678", email: "qwe123@gmail.com" };
 let user_info = {nickname : "", id : "", password: "", phone: "", email: ""};
@@ -9,15 +8,14 @@ let pw = "";
 let phone = "";
 let email = "";
 let code_num = "";
-let num = Math.floor(Math.random() * 899999) + 100000;
 let newPass = "";
 
 // 닉네임유효성검사 및 중복검사
-function nameChk(){
+function nameChk(){ // focus끝날시
     nickname = document.getElementById("nickname").value;
-    let num = nickname.search(/[0-9]/g); // 입력받은 문자열 숫자확인
+    let num = nickname.search(/[0-9]/ig); // 입력받은 문자열 숫자확인 g : 문자열전체범위 확인
     let eng = nickname.search(/[a-z]/ig); // 입력받은 문자열 영어확인
-    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi); // 입력받은 문자열 특수문자확인
+    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/ig); // 입력받은 문자열 특수문자확인
     if(nickname.length < 2  || nickname.length > 10){
         alert("2~10자 이내 영문, 숫자, 특수문자를 사용하세요.");    
         document.getElementById("nickname").focus();
@@ -40,7 +38,7 @@ function nameChk(){
     }
 }
 // 아이디 유효성검사
-function id_validation(){
+function id_validation(){ // focus끝날시
     id = document.getElementById("user_id").value;
     let num = id.search(/[0-9]/g); // 입력받은 문자열 숫자확인
     let eng = id.search(/[a-z]/ig); // 입력받은 문자열 영어확인
@@ -59,7 +57,7 @@ function id_validation(){
     }
 }
 // 아이디 중복여부
-function idChk() {
+function idChk() { //button 클릭시
     id = document.getElementById("user_id").value;    
     if (id === m1.id) {
         alert("중복되는 아이디가 있습니다.");  
@@ -72,10 +70,9 @@ function idChk() {
         return true;
     }
   
-    // console.log(arr.length);
 }
 // 비밀번호 유효성검사
-function pwd_validation() {       
+function pwd_validation() { // focus끝날시   
     pw = document.getElementById("user_pwd").value;
     let num = pw.search(/[0-9]/g); // 입력받은 문자열에 숫자확인
     let eng = pw.search(/[a-z]/ig); // 입력받은 문자열에 영어확인
@@ -92,7 +89,7 @@ function pwd_validation() {
     }    
 }
 // 비밀번호 일치여부
-function pwdChk() {
+function pwdChk() { // focus 이동시
     let pw = document.getElementById("user_pwd").value;
     let pwchk = document.getElementById("user_pwdChk").value;
     if(pw == '' || pwchk == ''){ 
@@ -137,8 +134,7 @@ function emailChk(){
         alert("이메일형식이 맞지않습니다.");
         document.getElementById("user_email").focus();
         return false;
-    }else{        
-        // code_num += num;        
+    }else{                       
         alert("인증번호를 적어주세요.\n" + "발송된 이메일 : " + email + "\n인증번호 : " + code_num);
         console.log("인증번호 : " + code_num);
         
@@ -147,9 +143,8 @@ function emailChk(){
 }
 /* ~ 회원가입 */
 // 인증번호 일치여부
-function numChk(){    
-    let input_num = document.getElementById("code_num").value;   
-    let user = JSON.parse(sessionStorage.getItem('user'));
+function numChk(){  // button 클릭시
+    let input_num = document.getElementById("code_num").value;       
     if(code_num !== input_num){
         alert("인증번호가 일치하지 않습니다. 다시입력해주세요");
         document.getElementById("code_num").value = null;
@@ -182,10 +177,11 @@ function agree_chkAll() {
                 $("#agree_allchk").prop("checked", true);
             }
         });
-    });
+    });    
 }
 
-function signup(){  
+// 회원가입
+function signup(){  // button 클릭시
     form.addEventListener('submit', function(event){
         if(!checkConditions()){
             event.preventDefault();
@@ -213,7 +209,8 @@ function signup(){
         if(!agree1 || !agree2 || !agree3){
             alert('모두 동의해주세요.');
             return false;
-        }   
+        }
+
         user_info = {            
             nickname: user_nickname,
             id: user_id,
@@ -221,14 +218,11 @@ function signup(){
             phone: user_phone,
             email: user_email
         };
-        sessionStorage.setItem('user', JSON.stringify(user_info));
-        
-        let user = JSON.parse(sessionStorage.getItem('user'));  
 
-        console.log(user);  
+        sessionStorage.setItem('user', JSON.stringify(user_info));       
 
         alert("회원가입에 완료했습니다.");
-        location.href = "login.html";
+        location.href = "../html/login.html";
         return true;
     }
 }
@@ -240,7 +234,7 @@ function login(){
         let user = JSON.parse(sessionStorage.getItem("user"));         
         let id = document.getElementById("user_id").value;
         let pass = document.getElementById('user_pwd').value;                      
-        let login = { login_id : "", pass : ""};    /* login 객체 생성 */
+        let login = { login_id : "", pass : "" };    /* login 객체 생성 */
         if(id === '' || pass === ''){
             alert('아이디와 비밀번호를 입력해주세요.');
             console.log("m1 : " + JSON.stringify(m1));
@@ -252,8 +246,7 @@ function login(){
                 login_id : id,
                 login_pass : pass
             }
-            sessionStorage.setItem('login', JSON.stringify(login));            
-            console.log(JSON.stringify(login.login_id));
+            sessionStorage.setItem('login', JSON.stringify(login));
             location.href = '../index.html';
             return true;
         }else {
@@ -371,8 +364,8 @@ function findPW(){
                 sessionStorage.setItem('user', JSON.stringify(user));
                 alert("변경된 비밀번호 : " + user.password);
                 return true;
-            }
-            
+            }     
+                   
             if(new_pass !== new_repass){
                 alert('비밀번호가 일치하지 않습니다.');
                 document.getElementById("new_repass").value = null;

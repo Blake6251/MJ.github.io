@@ -289,7 +289,16 @@
             /* 검색 버튼 */
             let loc_chk_arr = []    // 체크된 지역 담길 배열
             let theme_chk_arr = []  // 체크된 테마 담길 배열
-            $("#search_btn").click(function () {
+
+            $("#search").keydown(function(key){
+                if(key.keyCode==13){
+                    let search = $("#search").val() // 검색창에 입력된 값 가져오기
+                    let loc_str = loc_chk_arr.join(",") // 배열을 문자열로 만들기, 배열의 요소를 ,로 이어줌
+                    let theme_str = theme_chk_arr.join(",")
+                    location.href = `../html/restaurant_list.html?search=${search}&loc=${loc_str}&theme=${theme_str}` // 페이지 이동
+                }
+            })
+            $("#search_btn").click(function(){
                 let search = $("#search").val()
                 let loc_str = loc_chk_arr.join(",")
                 let theme_str = theme_chk_arr.join(",")
@@ -351,7 +360,7 @@
             </div>
             <div id="ban_right">
                 <div id="login_box">
-                    <a href="../html/login1.html" id="login-btn">로그인</a>
+                    <a href="../html/login.html" id="login-btn">로그인</a>
                 </div>
                 <div id="log_box">
                     <button id="log_btn"><img src="../image/icons/bookmark.jpg"></button>
