@@ -11,11 +11,11 @@ let code_num = "";
 let newPass = "";
 
 // 닉네임유효성검사 및 중복검사
-function nameChk(){ // focus끝날시
+function nameChk(){ 
     nickname = document.getElementById("nickname").value;
-    let num = nickname.search(/[0-9]/ig); // 입력받은 문자열 숫자확인 g : 문자열전체범위 확인
-    let eng = nickname.search(/[a-z]/ig); // 입력받은 문자열 영어확인
-    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/ig); // 입력받은 문자열 특수문자확인
+    let num = nickname.search(/[0-9]/ig); 
+    let eng = nickname.search(/[a-z]/ig); 
+    let spe = nickname.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/ig); 
     if(nickname.length < 2  || nickname.length > 10){
         alert("2~10자 이내 영문, 숫자, 특수문자를 사용하세요.");    
         document.getElementById("nickname").focus();
