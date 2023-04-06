@@ -57,6 +57,8 @@ $(document).ready(function () {
     // 배열을 다시 세션 스토리지에 저장
     sessionStorage.setItem("logs", JSON.stringify(logs));   // 키 : "logs", 값 : JSON.stringify(logs)
 
+    $("#recent_log").css({ "border-bottom": "3px solid #f76e11" })
+    $("#favor_log").css({ "border-bottom": "1px solid silver" })
     appendLogs()
 
     $("#recent_log").click(function () {
