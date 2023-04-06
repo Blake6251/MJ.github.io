@@ -165,7 +165,7 @@
             }
 
             ul.ul_container h1 {
-                margin-top: 8%;
+                margin-top: 4%;
                 margin-left: 5%;
                 text-align: left;
                 color: beige;
@@ -195,6 +195,7 @@
 
             /* PC */
             ul.ul_container h1 {
+                margin-top: 6%;
                 font-size: 1.6vw;
             }
 
@@ -225,10 +226,6 @@
             let theme_list = theme_filter.split(",")
 
 
-            // 검색결과 표시
-            $("#title").text(`${search} ${loc_list.join(" ")} ${theme_list.join(" ")} 검색 결과`)
-
-
             // 필터링 시작
             let filtered_arr = restaurant_arr // filtered_arr에 기본 가게 배열 넣기
             for (r of restaurant_arr) {
@@ -242,6 +239,13 @@
                     filtered_arr = filtered_arr.filter(r => theme_list.includes(r.theme))   // // 배열에서 가게 테마가 theme_list의 요소와 같은 요소만 남김
                 }
             }
+
+
+            // 검색결과 표시
+            $("#title").text(`${search} ${loc_list.join(" ")} ${theme_list.join(" ")} 검색 결과 (${filtered_arr.length})`)
+
+
+            
 
             if (filtered_arr.length >= 2) { // 검색결과 2개 이상
                 let list_count = 0
