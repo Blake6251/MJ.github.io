@@ -1,7 +1,7 @@
 $(document).ready(function () {
     let title = $(document).find("title").text()    // 인덱스 페이지만 경로가 ./로 시작
     let startDir = "../"
-    if (title === "index") {
+    if (title === "index" || title === "맛나리") {
         startDir = "./"
     }
     else {
