@@ -118,13 +118,6 @@ function phoneChk(){
         phone = document.getElementById("user_phone").value;
     }
 }
-// 인증번호 6자리 난수 생성함수
-function resetCode(){
-    code_num = '';
-    for(let i = 0; i < 6; i++){
-        code_num += Math.floor(Math.random()*10);
-    }
-}
 // 이메일 유효성검사 및 인증번호 발송
 function emailChk(){
     resetCode();
@@ -142,6 +135,13 @@ function emailChk(){
     }
 }
 /* ~ 회원가입 */
+// 인증번호 6자리 난수 생성함수
+function resetCode(){
+    code_num = '';
+    for(let i = 0; i < 6; i++){
+        code_num += Math.floor(Math.random()*10);
+    }
+}
 // 인증번호 일치여부
 function numChk(){  // button 클릭시
     let input_num = document.getElementById("code_num").value;       
@@ -198,7 +198,8 @@ function signup(){  // button 클릭시
         agree2 = document.getElementById('agree_chk2').checked;
         agree3 = document.getElementById('agree_chk3').checked;   
 
-        if(user_nickname === '' || user_id  === '' || user_pass === '' || user_passChk === '' || user_phone === '' || user_email === '' ){
+        if(user_nickname === '' || user_id  === '' || user_pass === '' 
+        || user_passChk === '' || user_phone === '' || user_email === '' ){
             alert('필수입력사항 입력해주세요.');
             return false;
         }
@@ -210,7 +211,6 @@ function signup(){  // button 클릭시
             alert('모두 동의해주세요.');
             return false;
         }
-
         user_info = {            
             nickname: user_nickname,
             id: user_id,
@@ -218,9 +218,7 @@ function signup(){  // button 클릭시
             phone: user_phone,
             email: user_email
         };
-
-        sessionStorage.setItem('user', JSON.stringify(user_info));       
-
+        sessionStorage.setItem('user', JSON.stringify(user_info)); 
         alert("회원가입에 완료했습니다.");
         location.href = "../html/login.html";
         return true;
@@ -234,13 +232,14 @@ function login(){
         let user = JSON.parse(sessionStorage.getItem("user"));         
         let id = document.getElementById("user_id").value;
         let pass = document.getElementById('user_pwd').value;                      
-        let login = { login_id : "", pass : "" };    /* login 객체 생성 */
+        let login = { login_id : "", pass : "" };   
         if(id === '' || pass === ''){
             alert('아이디와 비밀번호를 입력해주세요.');
             console.log("m1 : " + JSON.stringify(m1));
             console.log("user : " + JSON.stringify(user));
             return false;
-        }else if((id === m1.id && pass === m1.password) || (id === user.id && pass === user.password)){
+        }else if((id === m1.id && pass === m1.password) || 
+                (id === user.id && pass === user.password)){
             alert('로그인 성공');                    
             login = {
                 login_id : id,
@@ -346,11 +345,13 @@ function findPW(){
             let num = document.getElementById('code_num_pw').value;
             let new_pass = document.getElementById('new_pass').value;
             let new_repass = document.getElementById('new_repass').value;
-            if(id === '' || email === '' || num === '' || new_pass === '' || new_repass === '') {
+            if(id === '' || email === '' || num === '' || 
+                new_pass === '' || new_repass === '') {
                 alert('입력사항 모두 입력해주세요.');
                 return false;       
             }
-            if((id !== m1.id || email !== m1.email ) && ( id !== user.id || email !== user.email )){
+            if((id !== m1.id || email !== m1.email ) && 
+               (id !== user.id || email !== user.email)){
                 alert('아이디 또는 이메일이 일치하지않습니다.');
                 document.getElementById("code_num_pw").value = null;
                 document.getElementById('user_id').focus();
@@ -364,8 +365,7 @@ function findPW(){
                 sessionStorage.setItem('user', JSON.stringify(user));
                 alert("변경된 비밀번호 : " + user.password);
                 return true;
-            }     
-                   
+            }      
             if(new_pass !== new_repass){
                 alert('비밀번호가 일치하지 않습니다.');
                 document.getElementById("new_repass").value = null;
