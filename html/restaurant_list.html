@@ -231,13 +231,13 @@
             let filtered_arr = restaurant_arr // filtered_arr에 기본 가게 배열 넣기
             for (r of restaurant_arr) {
                 if (search) {        // search에 검색어가 있으면
-                    filtered_arr = filtered_arr.filter(r => search.includes(r.name))    // 배열에서 가게 이름이 search와 같은 요소만 남김
+                    filtered_arr = filtered_arr.filter(r => r.name.includes(search))    // 배열에서 가게 이름이 search와 같은 요소만 남김
                 }
                 if (loc_list[0] != ['']) {      // 지역 필터가 있으면
-                    filtered_arr = filtered_arr.filter(r => loc_list.includes(r.loc))   // 배열에서 가게 지역이 loc_list의 요소와 같은 요소만 남김
+                    filtered_arr = filtered_arr.filter(r => r.loc.includes(loc_list))   // 배열에서 가게 지역이 loc_list의 요소와 같은 요소만 남김
                 }
                 if (theme_list[0] != ['']) {    // 테마 필터가 있으면
-                    filtered_arr = filtered_arr.filter(r => theme_list.includes(r.theme))   // // 배열에서 가게 테마가 theme_list의 요소와 같은 요소만 남김
+                    filtered_arr = filtered_arr.filter(r => r.theme.includes(theme_list))   // // 배열에서 가게 테마가 theme_list의 요소와 같은 요소만 남김
                 }
             }
 
